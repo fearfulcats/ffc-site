@@ -12,7 +12,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     color:#0f9b0f;
-    font-size: 90px;
+    font-size: 70px;
     text-align: center;
     text-shadow: 2px 2px 3px lime;
 }
@@ -30,10 +30,12 @@ body {
     background: black;
     border: 1px dotted lime;
     box-shadow: 8px 8px 10px 0px #fff3;
-    width: 10%;
+    min-width: fit-content;
+    width:10%;
     color:white;
     font-family: Courier New;
     cursor: pointer;
+    z-index: 10;
 }
 
 .connection {
@@ -45,14 +47,17 @@ body {
     width: 100vw;
     top: 0;
     margin: 0;
+    z-index: 50;
 }
 
 .console {
     font-family: Courier New;
     border: 1px dotted lime;
     background: black;
-    box-shadow: 8px 8px 10px 0px #fff3;
-    color: lime
+    color: lime;
+    z-index: 20;
+    position: relative;
+    min-width: fit-content;
 }
 
 .newMessages {
@@ -60,25 +65,39 @@ body {
     margin: 2vh 15vw;
 }
 
+.connected {
+    border-top: 1px dotted lime;
+    background: #111;
+    color: white;
+    margin-top: 1vh;
+    text-align: center;
+}
+
 .arrow {
     font-family: Courier New;
     background: #111;
     border-left: 1px dotted lime;
-    border-top: 1px dotted lime;
+    border-right: 0px;
+    
     border-bottom: 1px dotted lime;
     box-shadow: 8px 8px 10px 0px #fff3;
-    color: lime
+    color: lime;
+    padding-top: 3px;
+    z-index: 10;
 }
 
 .consoleInput {
     font-family: Courier New;
     border-right: 1px dotted lime;
-    border-top: 1px dotted lime;
+    border-left: 0px;
+    
     border-bottom: 1px dotted lime;
     box-shadow: 8px 8px 10px 0px #fff3;
     width: 100%;
     background: #111;
-    color: lime
+    color: lime;
+    font-size: 18px;
+    z-index: 10;
 }
 
 .consoleInput::placeholder {
@@ -108,4 +127,9 @@ body {
 .speakerLime {
     margin: 0;
     color: lime;
+}
+
+.speakerGreen {
+    margin: 0;
+    color: green;
 }
