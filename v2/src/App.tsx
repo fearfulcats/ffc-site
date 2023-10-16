@@ -1,3 +1,5 @@
+import type { Component } from 'solid-js';
+
 import { Show, createSignal } from 'solid-js'
 import { createMutable } from 'solid-js/store'
 import './styles.css'
@@ -11,9 +13,7 @@ const store = createMutable({
   ]
 })
 
-function App() {
-  const [count, setCount] = createSignal(0)
-
+const App: Component = () => {
   return (
     <>
       <div class="screensaver">
@@ -39,8 +39,8 @@ function App() {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 function Console() {
   return (
@@ -98,4 +98,4 @@ function Console() {
   )
 }
 
-export default App
+export default App;
