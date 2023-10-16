@@ -5,6 +5,7 @@ body {
 
 .screensaver {
     min-height: 100vh;
+    font-size: 18px;
 }
 
 .welcome {
@@ -35,6 +36,17 @@ body {
     cursor: pointer;
 }
 
+.connection {
+    text-align: center;
+    font-family: Courier New;
+    color: rgb(158, 0, 0);
+    background-color: #111;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    margin: 0;
+}
+
 .console {
     font-family: Courier New;
     border: 1px dotted lime;
@@ -43,21 +55,27 @@ body {
     color: lime
 }
 
+.newMessages {
+    text-align: center;
+    margin: 2vh 15vw;
+}
+
 .arrow {
     font-family: Courier New;
     background: #111;
-    border-left: 1px dotted lime;;
-    border-top: 1px dotted lime;;
-    border-bottom: 1px dotted lime;;
-
+    border-left: 1px dotted lime;
+    border-top: 1px dotted lime;
+    border-bottom: 1px dotted lime;
+    box-shadow: 8px 8px 10px 0px #fff3;
     color: lime
 }
 
 .consoleInput {
     font-family: Courier New;
-    border-right: 1px dotted lime;;
-    border-top: 1px dotted lime;;
-    border-bottom: 1px dotted lime;;
+    border-right: 1px dotted lime;
+    border-top: 1px dotted lime;
+    border-bottom: 1px dotted lime;
+    box-shadow: 8px 8px 10px 0px #fff3;
     width: 100%;
     background: #111;
     color: lime
@@ -85,4 +103,9 @@ body {
 .speakerYellow {
     margin: 0; 
     color: yellow;
+}
+
+.speakerLime {
+    margin: 0;
+    color: lime;
 }
