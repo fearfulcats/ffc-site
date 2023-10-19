@@ -1,7 +1,4 @@
-import type { Component } from 'solid-js';
-
-import { For, Show, createSignal } from 'solid-js'
-import { createMutable } from 'solid-js/store'
+import { For, Show } from 'solid-js'
 import { A } from "@solidjs/router";
 import './styles.css'
 
@@ -10,13 +7,34 @@ import { Message, action, store } from './App';
 export function ChatRoom() {
     return (
         <div class='screensaver'>
-            <div class="pages">
-                <A href="/">Home</A>
+            <div class="header">
+
+                <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
+                <div class="pages" style="">
+                    <div>
+                        <A class='link' href='/'>Home</A>
+                        <p class="linkChild">/</p>
+                    </div>
+                    <div>
+                        <A class='link' href='/profile'>My Profile</A>
+                        <p class="linkChild">/profile</p>
+                    </div>
+                    <div>
+                        <A class='link' href='/userbase'>Browse Userbase</A>
+                        <p class="linkChild">/userbase</p>
+                    </div>
+                    <div>
+                        <A class='link' href='/chatroom'>Real World</A>
+                        <p class="linkChild">/main</p>
+                    </div>
+                </div>
             </div>
+            <div class='box' style="margin-top:15vh">Cat Communications Official Chat Room!</div>
             <div style="display: inline;">
                 <div style="display: flex">
                     <div class="view" onClick={() => action.sHMessages()} >{store.showMessages ? "Hide" : "View"} Messages</div>
                     <div class="view" onClick={() => action.sHHistory()} >{store.showHistory ? "Hide" : "View"} History</div>
+                    <div style='width: 100%; background-color: black; z-index: 20'></div>
                 </div>
                 <Show
                     when={store.showMessages || store.showHistory}

@@ -263,7 +263,7 @@ export const store = createMutable({
         connected: true,
         server: true
       },
-    ]as Message[]
+    ] as Message[]
   },
   blogs: [
     {
@@ -344,8 +344,8 @@ export const action = {
     } else {
       store.showHistory = true
     }
-    
-    
+
+
   },
   sHMessages() {
     if (store.showMessages) {
@@ -364,7 +364,27 @@ const App: Component = () => {
   return (
     <>
       <div class="screensaver">
-        <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
+        <div class='header'>
+          <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
+          <div class="pages">
+            <div>
+              <A class='link' href='/chatroom'>Chat Room</A>
+              <p class="linkChild">/chatroom</p>
+            </div>
+            <div>
+              <A class='link' href='/profile'>My Profile</A>
+              <p class="linkChild">/profile</p>
+            </div>
+            <div>
+              <A class='link' href='/userbase'>Browse Userbase</A>
+              <p class="linkChild">/userbase</p>
+            </div>
+            <div>
+              <A class='link' href='/chatroom'>Real World</A>
+              <p class="linkChild">/main</p>
+            </div>
+          </div>
+        </div>
         <div style="display: grid; justify-content: center; padding: 10vh 2vw">
           <div style="place-self: start; text-align: center; height: 158px; width: 158px;" class="box">
             <div style="padding-top: 8px;">
@@ -375,20 +395,8 @@ const App: Component = () => {
         <div class="welcome">
           WELCOME.
         </div>
-        <div class="pages">
-          <A href='/chatroom'>Chat Room</A>
-        </div>
-        <div class='box' style="margin: 4vh 0">
-          My Personal Blog:
 
-          <div class="blogs">
-            <For
-              each={store.blogs}
-              children={(blog, i) => <p><span style="color: white">[BLOG {i() + 1}, {blog.date}]:</span> {blog.content}</p>}
-            />
-          </div>
-        </div>
-        
+
       </div>
     </>
   );
