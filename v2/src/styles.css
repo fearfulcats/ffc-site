@@ -12,12 +12,20 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     color:#0f9b0f;
-    font-size: 70px;
+    font-size: 60px;
     text-align: center;
     text-shadow: 2px 2px 3px lime;
 }
 
 .box {
+    font-family: Courier New;
+    border: 1px inset lime;
+    background: #111;
+    box-shadow: 8px 8px 10px 0px #fff3;
+    color: lime
+}
+
+.pages {
     font-family: Courier New;
     border: 1px inset lime;
     background: #111;
