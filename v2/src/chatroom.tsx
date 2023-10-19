@@ -129,6 +129,8 @@ const MessageDecoder = (props: { message: Message }) => {
                 return (<p class="speakerLime" textContent={"> " + message.content} />)
             case 'MaxIsWax':
                 return (<p class="speakerGreen" textContent={"> " + message.content} />)
+            case 'ASomberGaze':
+                return (<p class="speakerPGreen" textContent={"> " + message.content} />)
             default:
                 return (<p textContent={"error"} />)
         }

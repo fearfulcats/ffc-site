@@ -8,7 +8,7 @@ import './styles.css'
 
 export type Message = {
   content: string,
-  author: "Rozebur" | "Cozy_Cat" | "SoulSella" | "KeytarE" | "MaxIsWax",
+  author: "Rozebur" | "Cozy_Cat" | "SoulSella" | "KeytarE" | "MaxIsWax" | "ASomberGaze",
   server: boolean,
   connected: boolean
 }
@@ -261,6 +261,246 @@ export const store = createMutable({
         author: "KeytarE",
         content: "null",
         connected: true,
+        server: true
+      },
+      {
+        author: "ASomberGaze",
+        content: "Hi Key!!!",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "i can't tell if you're making a joke or if you just don't realize what that sounds like",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Let's just go with the joke thing... -.-'",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "aw don't worry about it i'm just a bit on edge today...",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "It's fine!! Also, I'm really interested to hear what you've been wanting to tell us! It's tomorrow, right? ",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "indeed it is! i'm pretty nervous about it, but at the same time i'm cautiously optimistic",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Well, I'm looking forward to it! :D",
+        connected: true,
+        server: false
+      },
+      {
+        author: "SoulSella",
+        content: "I know what it is!",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "soul, i mean this in the kindest way possible - i will murder you",
+        connected: true,
+        server: false
+      },
+      {
+        author: "SoulSella",
+        content: "That doesn't sound particularly kind...",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Guys, don't be mean to eachother :(",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Wait, Soul, how do you know Key's secret?",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "unfortunately we know eachother irl",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "That's cool! I know that a lot of the chat members live nearby to where I live, but I couldn't tell you who's who if you ever asked...",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "well that is how an extended area network functions",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "speaking of which, who's the admin for the EAN anyway? soul invited me, but i never met the admin",
+        connected: true,
+        server: false
+      },
+      {
+        author: "SoulSella",
+        content: "It's a secret! Seriously. He told me if I ever tell anyone that I'll get kicked out of the EAN.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "understandable",
+        connected: true,
+        server: false
+      },
+      {
+        author: "SoulSella",
+        content: "Well I've gotta run for a bit. I'll be back online in an hour maybe!",
+        connected: true,
+        server: false
+      },
+      {
+        author: "SoulSella",
+        content: "null",
+        connected: false,
+        server: true
+      },
+      {
+        author: "Rozebur",
+        content: "null",
+        connected: true,
+        server: true
+      },
+      {
+        author: "Rozebur",
+        content: "finally! he's gone.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "hey roze. do you really hate him that much?",
+        connected: true,
+        server: false
+      },
+      {
+        author: "Rozebur",
+        content: "he just acts too cheerful all the time, and i can tell it's just an act. plus he's worse to me specifically. i just don't wanna deal with that right now.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "Rozebur",
+        content: "anyway, i'm glad he's gone. i was lurking for quite a while, hoping i'd see the disconnect message.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Key says he knows him in real life, what about you Roze?",
+        connected: true,
+        server: false
+      },
+      {
+        author: "Rozebur",
+        content: "ugh don't remind me. yeah, i know him.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "looks like im not the only one burdened with that then",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "don't get me wrong, i don't hate him, but i can tell he's constantly being disingenuous. he obviously has ulterior motives, but he's still kind to me generally, so i can't say he's all bad",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "He really doesn't seem too bad! I think you guys are just overthinking it.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "maybe you're right. i'd like to believe so at least",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "I think it's always good to be open-minded with people like that, unless they give you a reason not to!",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "well he may have done so before with me, but i'll keep that in mind nonetheless",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Aren't you guys afraid he might read the chat history? What if he sees all of what you both are saying?",
+        connected: true,
+        server: false
+      },
+      {
+        author: "Rozebur",
+        content: "he doesn't read the history. and even if he did, i don't care if he knows how i feel.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "KeytarE",
+        content: "yeah i feel similarly. also i've actually got to head out for a while, i'm about to finish up some stuff regarding my secret!!",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "Have fun!! I also need to leave :(",
+        connected: true,
+        server: false
+      },
+      {
+        author: "Rozebur",
+        content: "Cya both.",
+        connected: true,
+        server: false
+      },
+      {
+        author: "ASomberGaze",
+        content: "null",
+        connected: false,
+        server: true
+      },
+      {
+        author: "KeytarE",
+        content: "null",
+        connected: false,
         server: true
       },
     ] as Message[]
