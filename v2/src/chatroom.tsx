@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 
 import { For, Show, createSignal } from 'solid-js'
 import { createMutable } from 'solid-js/store'
+import { A } from "@solidjs/router";
 import './styles.css'
 
 import { Message, action, store } from './App';
@@ -9,6 +10,9 @@ import { Message, action, store } from './App';
 export function ChatRoom() {
     return (
         <div class='screensaver'>
+            <div class="pages">
+                <A href="/">Home</A>
+            </div>
             <div style="display: inline;">
                 <div style="display: flex">
                     <div class="view" onClick={() => action.sHMessages()} >{store.showMessages ? "Hide" : "View"} Messages</div>
