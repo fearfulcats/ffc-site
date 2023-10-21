@@ -17,5 +17,5 @@ export default defineConfig({
   build: {
     target: 'esnext',
   },
-  base: "/ffc-site/current/dist/"
+  // base: "/ffc-site/current/dist/"
 });
