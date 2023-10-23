@@ -4,32 +4,35 @@ import './styles.css'
 
 import { Message, action, store } from './App';
 
-export function ChatRoom() {
+function ChatRoom() {
     return (
+        <>
+        <div class='full'>
+        </div>
         <div class='screensaver'>
             <div class="header">
 
                 <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
                 <div class="pages" style="">
                     <div>
-                        <A class='link' href='/'>Home</A>
-                        <p class="linkChild">/</p>
+                        <A class='link' href='/secret/home'>Home</A>
+                        <p class="linkChild">/home</p>
                     </div>
                     <div>
-                        <A class='link' href='/profile'>My Profile</A>
+                        <A class='link' href='/secret/profile'>My Profile</A>
                         <p class="linkChild">/profile</p>
                     </div>
                     <div>
-                        <A class='link' href='/userbase'>Browse Userbase</A>
+                        <A class='link' href='/secret/userbase'>Browse Userbase</A>
                         <p class="linkChild">/userbase</p>
                     </div>
                     <div>
-                        <A class='link' href='/chatroom'>Real World</A>
-                        <p class="linkChild">/main</p>
+                        <A class='link' href='/'>Real World</A>
+                        <p class="linkChild">/</p>
                     </div>
                 </div>
             </div>
-            <div class='box' style="margin-top:15vh">Cat Communications Official Chat Room!</div>
+            <div class='box' >Cat Communications Official Chat Room!</div>
             <div style="display: inline;">
                 <div style="display: flex">
                     <div class="view" onClick={() => action.sHMessages()} >{store.showMessages ? "Hide" : "View"} Messages</div>
@@ -43,6 +46,7 @@ export function ChatRoom() {
             </div>
 
         </div>
+        </>
     )
 }
 
@@ -137,4 +141,4 @@ const MessageDecoder = (props: { message: Message }) => {
     }
 }
 
-
+export default ChatRoom
