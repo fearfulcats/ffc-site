@@ -159,6 +159,12 @@ export const store = createMutable({
       },
       {
         author: "MaxIsWax",
+        content: "null",
+        connected: true,
+        server: true
+      },
+      {
+        author: "MaxIsWax",
         content: "AWWWWW I JUST MISSED CC?? that SUCKS! :C",
         connected: true,
         server: false
