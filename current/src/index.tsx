@@ -17,13 +17,14 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 render(() => (
-  <Router>
-    <Routes>
-      <Route path="/" component={Main}/>
-      <Route path="/secret/home" component={App}/>
-      <Route path="/secret/chatroom" component={ChatRoom}/>
-      <Route path="/secret/profile" component={Profile}/>
-      <Route path="/secret/userbase" component={Userbase}/>
-    </Routes>
-  </Router>
+    <Router>
+      <Routes>
+        
+        <Route path="/" component={Main}/>
+        <Route path="/secret/home" component={App}/>
+        <Route path="/secret/chatroom" component={ChatRoom}/>
+        <Route path="/secret/profile" component={Profile}/>
+        <Route path="/secret/userbase" component={Userbase}/>
+      </Routes>
+    </Router>
 ), root!);

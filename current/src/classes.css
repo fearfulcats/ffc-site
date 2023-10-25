@@ -1,2 +1,211 @@
-body {
+.all {
+    background-image: repeating-linear-gradient(45deg, #e8e8e8 0, #e8e8e8 2em, #f6f6f6 2em, #f6f6f6 4em);
+    min-height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.welcom {
+    font-size: 80px;
+    text-align: center;
+    color: #222;
+}
+
+.port {
+    font-size: 30px;
+    text-align: center;
+    color: #07326b;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    margin: 10vh 20vw;
+    padding: 5vh 5vw;
+    background-color: rgb(160, 160, 231);
+    box-shadow: 10px 10px ;
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grids > div {
+    justify-self: center;
+}
+
+.grild {
+    background-color: rgb(235, 108, 108);
+    color: rgb(14, 48, 3);
+    padding: 2vh 2vw;
+    box-shadow: -5px 5px;
+    
+}
+
+.grilled {
+    background-color: rgb(108, 235, 125);
+    color: rgb(48, 10, 3);
+    padding: 2vh 2vw;
+    box-shadow: 5px 5px;
+}
+
+.serious {
+    text-align: center;
+    background-color: #222;
+    color:#f6f6f6;
+    margin-top: 5vh;
+    padding: 5vh 5vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-top: 15vh;
+    transition: ease 2s;
+}
+
+.serious:hover {
+    color: red
+}
+
+.fear {
+    background-color: #07326b;
+    color:#e8e8e8;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(164, 180, 180);
+}
+
+.fearHeader {
+    text-align: center;
+    padding: 5vh 0;
+    font-size: 30px;
+    color: #bad5ff;
+}
+
+.fearTitle {
+    font-size: 30px;
+    color: #e8e8e8;
+    font-weight: 500;
+    text-align: center;
+}
+
+.fearGrild {
+    font-size: 20px;
+    padding: 2vh 2vw;
+    margin: 2vh 2vw;
+    /* transition: ease 0.3s; */
+    background-color: #082e5f;
+    max-width: fit-content;
+    
+}
+
+/* .fearGrild:hover {
+    background-color: #222;
+    border-radius: 5px;
+    padding: 2vh 2vw;
+    font-size: 30px;
+    color: #e8e8e8;
+    
+} */
+
+.fearImg {
+    /* border: 10px ridge rgb(0, 0, 136); */
+    filter: drop-shadow(10px 10px 4px #000) brightness(80%);
+    max-width: 100%;
+    height: auto;
+}
+
+.game {
+    min-height: 40vh;
+    background-image: repeating-linear-gradient(180deg, rgb(147, 0, 192), rgb(153, 99, 204));
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 0px 0px 5px 5px rgb(1, 1, 95);
+    padding-bottom: 5vh;
+    z-index: 10;
+    position: relative;
+}
+
+.gameHeader {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 2vh;
+    color: rgb(236, 195, 255);
+    text-shadow: 3px 3px 3px black;
+}
+
+.gameAbout {
+    background-color: rgb(255, 139, 230);
+    color: rgb(15, 0, 12);
+    padding: 5vh 5vw;
+    margin: 5vh 10vw;
+    min-width: fit-content;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(160, 58, 106);
+}
+
+.secretLink {
+    text-decoration: none;
+    color: rgb(15, 0, 12);
+    transition: ease 1s;
+}
+
+.secretLink:hover {
+    color: lime;
+}
+
+.me {
+    padding: 5vh 5vw;
+    background-image: repeating-linear-gradient(180deg, #07326b,#0b3e80);
+    color: #e8e8e8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    position: relative;
+    z-index: 0;
+    display: grid;
+    justify-items: center;
+}
+
+.meHeader {
+    text-align: center;
+    font-size: 30px;
+    color: #bad5ff;
+}
+
+.meAbout {
+    text-align: center;
+    background-color: #082e5f;
+    padding: 5vh 5vw;
+}
+
+.socialPlug {
+    transform: rotate(-10deg);
+    font-size: 80px;
+    color: white;
+    max-width: fit-content;
+    max-height: fit-content;
+    position: absolute;
+    margin-top: 15vh;
+    margin-left: 2vw;
+    filter: opacity(30%);
+}
+
+.social {
+    text-align: center;
+    padding: 1vh 1vw;
+}
+
+.social > a {
+    color: rgb(206, 0, 206);
+}
+
+.disclaimer {
+    background-color: #222;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.disclaimerHeader {
+    font-size: 28px;
+}
+
+.disclaimerAbout {
+    font-size: 18px;
 }
