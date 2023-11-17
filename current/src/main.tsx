@@ -144,6 +144,10 @@ const Main: Component = () => {
                         <a href="https://twitter.com/fearfulcats">"Twitter"</a>
                         <div>Rants and sketches and other garbage!</div>
                     </div>
+                    <div class="social">
+                        <a href="https://fearfulcats.tumblr.com">Tumblr</a>
+                        <div>Game progress, standalone stories, & sketches!</div>
+                    </div>
                 </div>
                 <div class='socialPlug'>SOCIAL MEDIA PLUG</div>
             </div>
