@@ -175,6 +175,64 @@
     padding: 5vh 5vw;
 }
 
+.gameLink {
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.gamePage {
+    background-color: #082e5f;
+    min-height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+.gamePageHeader {
+    text-align: center;
+    background-color: rgb(232, 192, 255);
+    position: fixed;
+    min-width: 100vw;
+    padding-bottom: 2vh;
+}
+
+.gameCharacter {
+    min-width: 100vw;
+    min-height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.characterImg {
+    width: 400px;
+    height: auto;
+    margin-left: 5vw;
+    box-shadow: 5px 5px 10px 2px black;
+    border: 2px solid gold;
+}
+
+@media only screen and (max-width: 1180px) {
+    /* For mobile phones: */
+    [class*="gameCharacter"] {
+        font-size: 10px;
+        padding-left: 2vw;
+        display: block;
+        text-align: center;
+      }
+    [class*="characterImg"] {
+      width: 150px;
+      margin-right: 5vw;
+    }
+
+  }
+
+.characterDesc {
+    color: white;
+    font-weight: 500;
+}
+
 .socialPlug {
     transform: rotate(-10deg);
     font-size: 80px;

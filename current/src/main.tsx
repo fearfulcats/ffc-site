@@ -49,6 +49,8 @@ const Main: Component = () => {
                             <br/>
                             Maybe in the future things'll change but for now... Just me!
                             <br/>
+                            I'm also known as Kitteholic, but he's my alter ego.
+                            <br/>
                             <br/>
                             ...Does the 's' in "fearfulcats" count as false advertising?
                             <br/>
@@ -75,7 +77,7 @@ const Main: Component = () => {
                             <br/>
                             Yeah, I drew that. Now do you believe me?
                             <br/>
-                            Also, that picture can also be used as reference when imagining me.
+                            Feel free to use that picture as a reference when imagining me.
                             
                         </div>
                         
@@ -121,7 +123,13 @@ const Main: Component = () => {
                         <br/>
                         <br/>
                         That's the idea at least. I'm really excited about it, but who knows if I'll be able to finish it. Although... If you are interested... Knowing that would help motivate me to work on it! :3
+                    
                     </div>
+                    <div class="gameLink">
+                        <A href="/game"> Read All About It!</A>
+                       
+                    </div>
+                    
                 </div>
             </div>
             <div class="me">

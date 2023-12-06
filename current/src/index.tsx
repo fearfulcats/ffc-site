@@ -7,6 +7,7 @@ import ChatRoom from './secret/chatroom';
 import Profile from './secret/profile';
 import Userbase from './secret/userbase';
 import Main from './main';
+import Game from './game';
 
 const root = document.getElementById('root');
 
@@ -25,6 +26,7 @@ render(() => (
         <Route path="/secret/chatroom" component={ChatRoom}/>
         <Route path="/secret/profile" component={Profile}/>
         <Route path="/secret/userbase" component={Userbase}/>
+        <Route path="/game" component={Game}/>
       </Routes>
     </Router>
 ), root!);
