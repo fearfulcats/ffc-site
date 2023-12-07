@@ -8,7 +8,8 @@ import kitari from "./assets/kitarihires.png"
 import max from "./assets/maxhires.png"
 import vance from "./assets/vance2hires.png"
 import seth from "./assets/sethhires.png"
-import cc from "./assets/cc2hires.png"
+import cc from "./assets/cc3hires.png"
+import lemmi from "./assets/lemmihires.png"
 
 const Game: Component = () => {
     return (
@@ -65,6 +66,15 @@ const Game: Component = () => {
                     <h1 style={"text-decoration: underline;"}>Max</h1>
                     <br/>
                     <h2 style={"font-weight: 500"}>The most well known of the town, named Max. He’s friends with pretty much everyone in the town, and he’s eager to meet Kitari! Maybe a bit too eager? I’m sure they'll get along though! He struggles with an overwhelming desire to be accepted, loneliness, and feeling as though he has no meaningful relationships.</h2>
+                </div>
+                <div></div>
+            </div>
+            <div style={"background-color: green; padding: 5vh 0"} class='gameCharacter'>
+                <img class='characterImg' src={lemmi}/>
+                <div class="characterDesc" style={"color: black;"}>
+                    <h1 style={"text-decoration: underline;"}>Lemmi</h1>
+                    <br/>
+                    <h2 style={"font-weight: 500"}>He’s a bit of a bookworm, but still enjoys socializing with his friends. He doesn’t usually leave his house unless he has a good reason to. His name is Lemmi. He struggles with a negative body image, feeling like he needs to please everyone, and a desire to have someone to love.</h2>
                 </div>
                 <div></div>
             </div>

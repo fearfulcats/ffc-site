@@ -493,7 +493,7 @@ export const store = createMutable({
       },
       {
         author: "Rozebur",
-        content: "Cya both.",
+        content: "cya both.",
         connected: true,
         server: false
       },
