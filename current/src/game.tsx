@@ -10,6 +10,7 @@ import vance from "./assets/vance2hires.png"
 import seth from "./assets/sethhires.png"
 import cc from "./assets/cc3hires.png"
 import lemmi from "./assets/lemmihires.png"
+import ray from "./assets/rayhires.png"
 
 const Game: Component = () => {
     return (
@@ -17,10 +18,15 @@ const Game: Component = () => {
             <div class='gamePageHeader'>
                 <A class='gameLink' href='/'>Take me back!!!</A>
             </div>
-            <div style={"text-align: center; font-size: 20px; font-weight: 800;  background-color: gray; padding-top: 8vh;"}>
+            <div class='gameDesc'>
+            <span style={"font-weight: 800; border-bottom: 2px solid black;"}>Game Description</span>
+            <br/>
+            Throughout the small town of [NAME TBD], there lives many cats together in “harmony”. However, delve underneath the seemingly mentally stable surface that the cats present to you, and you’ll find each cat comes with their own fears and desires. Secrets gone untold are slowly bringing tension to the cats, with no outcome looking worse than if you don’t intervene. You assume the role of a new member of the town, moving in on this very day. Of course, no cat comes without their own set of problems, and you are no exception. You have the choice to help the cats with their problems, or keep to yourself, trying to figure things out on your own.  Don’t get distracted, though… things really aren’t as they seem…
+            </div>
+            <div style={"text-align: center; font-size: 20px; font-weight: 800; border-bottom: 5px solid black; border-top: 5px solid black; background-color: gray; padding: 1vh 0;"}>
                 <span style={"border-bottom: 2px solid black;"}>Character Compendium </span>
                 <br/>
-                <span>These are the characters that will appear in my game. They each have their own mental struggles which you will be able to help them deal with. <br/> NOTE: character designs are not final.</span>
+                <span>These are some of the characters that will appear in my game. They each have their own mental struggles which you will be able to help them deal with. <br/> NOTE: character designs are not final.</span>
             </div>
         
             <div style={"background-color: lime; padding: 5vh 0"} class='gameCharacter'>
@@ -28,7 +34,7 @@ const Game: Component = () => {
                 <div class="characterDesc" style={"color: black;"}>
                     <h1 style={"text-decoration: underline;"}>Kitari</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>He’s our protagonist! His name is Kitari. He struggles with overthinking, unhealthy obsessions with people, violent thoughts, and hallucinations. He moved to this village to get a fresh start from the life he lived before, but… such things are never easy. It will be up to you whether or not he can make it through life without hurting anyone... or himself.</h2>
+                    <h2 style={"font-weight: 500"}>He’s our protagonist! His name is Kitari. He struggles with overthinking, unhealthy obsessions with people, violent thoughts, and hallucinations. He moved to this village to get a fresh start from the life he lived before, but… such things are never easy. It will be up to you to choose whether or not he can make it through life without hurting anyone... or himself.</h2>
                 </div>
                 <div></div>
             </div>
@@ -75,6 +81,15 @@ const Game: Component = () => {
                     <h1 style={"text-decoration: underline;"}>Lemmi</h1>
                     <br/>
                     <h2 style={"font-weight: 500"}>He’s a bit of a bookworm, but still enjoys socializing with his friends. He doesn’t usually leave his house unless he has a good reason to. His name is Lemmi. He struggles with a negative body image, feeling like he needs to please everyone, and a desire to have someone to love.</h2>
+                </div>
+                <div></div>
+            </div>
+            <div style={"background-color: #f9c1ff; padding: 5vh 0"} class='gameCharacter'>
+                <img class='characterImg' src={ray}/>
+                <div class="characterDesc" style={"color: black;"}>
+                    <h1 style={"text-decoration: underline;"}>Ray</h1>
+                    <br/>
+                    <h2 style={"font-weight: 500"}>The chillest cat. He’s called Ray, short for Rain. As a kid he always thought Rain was too tranquil a name for him, and preferred Ray because it makes him feel as though he shines like the sun's rays. As he grew up, he started to feel like Rain fit him more, but by then everyone was too used to Ray to switch back. He struggles with an intense fear of what the future holds and how he’s perceived in the minds of others.</h2>
                 </div>
                 <div></div>
             </div>

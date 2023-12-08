@@ -177,9 +177,20 @@
 
 .gameLink {
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     font-style: italic;
     font-weight: 900;
+}
+
+.gameDesc {
+    font-size: 20px;
+    background-color: #e8e8e8;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    text-align: center;
+
 }
 
 .gamePage {
@@ -194,11 +205,10 @@
     background-color: rgb(232, 192, 255);
     position: fixed;
     min-width: 100vw;
-    padding-bottom: 2vh;
 }
 
 .gameCharacter {
-    min-width: 100vw;
+    min-width: 90vw;
     min-height: 20vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -231,6 +241,7 @@
 .characterDesc {
     color: white;
     font-weight: 500;
+    padding-left: 5vw;
 }
 
 .socialPlug {
