@@ -5,7 +5,7 @@ import { createMutable } from 'solid-js/store'
 import { A } from "@solidjs/router";
 import "./classes.css"
 import kitari from "./assets/kitarihires.png"
-import max from "./assets/maxhires.png"
+import max from "./assets/max3hires.png"
 import vance from "./assets/vance2hires.png"
 import seth from "./assets/sethhires.png"
 import cc from "./assets/cc3hires.png"
