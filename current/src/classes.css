@@ -242,6 +242,9 @@
     color: white;
     font-weight: 500;
     padding-left: 5vw;
+    text-shadow:
+    1px 1px 3px #000;
+    
 }
 
 .socialPlug {

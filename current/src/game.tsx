@@ -31,65 +31,65 @@ const Game: Component = () => {
         
             <div style={"background-color: lime; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={kitari} />
-                <div class="characterDesc" style={"color: black;"}>
+                <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Kitari</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>He’s our protagonist! His name is Kitari. He struggles with overthinking, unhealthy obsessions with people, violent thoughts, and hallucinations. He moved to this village to get a fresh start from the life he lived before, but… such things are never easy. It will be up to you to choose whether or not he can make it through life without hurting anyone... or himself.</h2>
+                    <h2 style={"font-weight: 500"}>He’s our protagonist! His name is whatever you want it to be, but we’ll call him Kitari for now. He moved to this village to get a fresh start from the life he lived before, but… such things are never easy. He constantly gets reminded of his unfortunate past but aspires to be able to move on.</h2>
                 </div>
-                <div></div>
+                <div ></div>
             </div>
-            <div style={"background-color: blue; padding: 5vh 0"} class='gameCharacter'>
+            <div style={"background-color: #b5fffb; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={cc} />
-                <div class="characterDesc">
-                    <h1 style={"text-decoration: underline;"}>CC</h1>
+                <div class="characterDesc" style={"color: white;"}>
+                    <h1 style={"text-decoration: underline;"} >CC</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>Those in the town call him CC, but no one except him knows his real name. Maybe you’ll get lucky and find out? He’s very shy, so I’m not sure if Kitari will be able to befriend him or not… He struggles with severe social anxiety, panic attacks, paranoia, and depression.</h2>
+                    <h2 style={"font-weight: 500"}>Those in the town call him CC, but no one except him knows his real name. Maybe you’ll get lucky and find out? He’s very shy and reserved, so I’m not sure if you’ll be able to befriend him or not… It’s worth a try though!</h2>
                 </div>
                 <div></div>
             </div>
-            <div style={"background-color: red; padding: 5vh 0"} class='gameCharacter'>
+            <div style={"background-color: #e61a1a; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={vance} />
-                <div class="characterDesc">
+                <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Vance</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>A bit of an odd case. He’s very reclusive from most of the people in the town, but still hangs around on occasion. His name is Vance. He struggles with avoidant tendencies, a fear of others depending on him, and a fear of being perceived. Despite all of that, he still has a deep desire to be able to form relationships.</h2>
+                    <h2 style={"font-weight: 500"}>A bit of an odd case. His name is Vance. He’s very reclusive from most of the people in the town, but still hangs around on occasion. He seems to have connections with some of the important townsfolk. It may be fruitful to meet him…</h2>
                 </div>
                 <div></div>
             
             </div>
-            <div style={"background-color: yellow; padding: 5vh 0"} class='gameCharacter'>
+            <div style={"background-color: #ffdc68; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={seth} />
-                <div class="characterDesc" style={"color: black;"}>
+                <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Seth</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>His name is Seth, but most people just call him the mayor. He was kind enough to not only let Kitari move in to his town for cheap, but also provided him with a job. He plays the nice guy, but struggles with feelings of narcissism, intense ambition, and a desire for power. He believes he can do whatever he wants, since he’s the mayor.</h2>
+                    <h2 style={"font-weight: 500"}>His name is Seth, but most people just call him the mayor. He was kind enough to not only let you move here for cheap, but also provided you with a job. He seems to believe he can do whatever he wants, since he’s the mayor. Still, I wouldn’t do anything that might put you on his bad side.</h2>
                 </div>
                 <div></div>
             </div>
             <div style={"background-color: #c3f49f; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={max}/>
-                <div class="characterDesc" style={"color: black;"}>
+                <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Max</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>The most well known of the town, named Max. He’s friends with pretty much everyone in the town, and he’s eager to meet Kitari! Maybe a bit too eager? I’m sure they'll get along though! He struggles with an overwhelming desire to be accepted, loneliness, and feeling as though he has no meaningful relationships.</h2>
+                    <h2 style={"font-weight: 500"}>The most well known of the town, named Max. He’s friends with pretty much everyone in the town, and he’s eager to meet you! Maybe a bit too eager? I’m sure you’ll get along though! Everyone seems to love him, so you might as well do the same.</h2>
                 </div>
                 <div></div>
             </div>
             <div style={"background-color: green; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={lemmi}/>
-                <div class="characterDesc" style={"color: black;"}>
+                <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Lemmi</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>He’s a bit of a bookworm, but still enjoys socializing with his friends. He doesn’t usually leave his house unless he has a good reason to. His name is Lemmi. He struggles with a negative body image, feeling like he needs to please everyone, and a desire to have someone to love.</h2>
+                    <h2 style={"font-weight: 500"}>He’s a bit of a bookworm, but still enjoys socializing with his friends. He doesn’t usually leave his house unless he has a good reason to. His name is Lemmi. I bet he’s smart… those glasses give off that impression, y’know?</h2>
                 </div>
                 <div></div>
             </div>
             <div style={"background-color: #f9c1ff; padding: 5vh 0"} class='gameCharacter'>
                 <img class='characterImg' src={ray}/>
-                <div class="characterDesc" style={"color: black;"}>
+                <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Ray</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>The chillest cat. He’s called Ray, short for Rain. As a kid he always thought Rain was too tranquil a name for him, and preferred Ray because it makes him feel as though he shines like the sun's rays. As he grew up, he started to feel like Rain fit him more, but by then everyone was too used to Ray to switch back. He struggles with an intense fear of what the future holds and how he’s perceived in the minds of others.</h2>
+                    <h2 style={"font-weight: 500"}>The chillest cat. He’s called Ray, short for Rain. He spends a lot of time walking around the town, enjoying the tranquility of nature. Perhaps you could learn a bit from him?</h2>
                 </div>
                 <div></div>
             </div>
