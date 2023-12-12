@@ -175,6 +175,126 @@
     padding: 5vh 5vw;
 }
 
+.kittyLink {
+    color: #ff0dff;
+    text-decoration: none;
+}
+
+.kittyLink:hover {
+    text-decoration: underline;
+}
+
+.kittyHeader {
+    background-color: #7e39ff;
+    min-width: 90vw;
+    display: block;
+    text-align: center;
+
+}
+
+.kittyLink2 {
+    color: #2ffff5;
+    text-decoration: none;
+    
+}
+
+.kittyLink2:hover {
+    text-decoration: underline;
+}
+
+.kittyPic {
+    border: 1px dashed rgb(255, 0, 212);
+    height: auto;
+    width: 300px;
+
+}
+
+
+.kitty {
+    min-width: 90vw;
+    
+    background-color: #000000;
+opacity: 1;
+background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 12.5px 12.5px, linear-gradient(#fd00ff 1px, transparent 1px) 0 -0.5px, linear-gradient(90deg, #fd00ff 1px, #000000 1px) -0.5px 0;
+background-size: 25px 25px, 25px 25px, 12.5px 12.5px, 12.5px 12.5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.kittyFull {
+    align-items: center;
+    justify-items: center;
+    display: grid; grid-template-columns: 1fr 1fr
+}
+
+.kittySection {
+    background-color: #1d29d1;
+    border: 1px solid rgb(255, 215, 243);
+    color: rgb(255, 0, 255);
+    margin: 5vh 10vw;
+    
+    box-shadow: 5px 5px 10px rgba(255, 0, 242, 0.589);;
+}
+
+.kittyH {
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.kittyHMini {
+    font-size: 12px;
+    opacity: 80%;
+    border-bottom: 1px solid rgb(255, 0, 255);
+    width: 100%;
+    display: flex;
+}
+
+.kittyLine {
+    /* border-bottom: 1px solid rgb(255, 0, 255); */
+    width: 100%;
+    display: flex;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.kittyPicDesc {
+    background-color: #3c49ff;
+    border: 1px solid rgb(255, 215, 243);
+    color: rgb(255, 0, 255);
+}
+
+.kittyPicDiv {
+    text-align: center;
+    display: grid;
+    
+}
+
+@media only screen and (max-width: 765px) {
+    /* For mobile phones: */
+    [class*="kittyPic"] {
+        width: 100%;
+        text-align: -webkit-center;
+      }
+      [class*="kittySection"] {
+      margin: 5vh 5vw;
+      font-size: 14px;
+    } [class*="kittyFull"] {
+        display: block;
+        margin: 0 5vw;
+      } [class*="kittyPicDiv"] {
+      }
+      
+    }
+
+    @media only screen and (max-width: 500px) {
+        
+        [class*="kittySection"] {
+            margin: 5vh 0vw;
+            font-size: 12px;
+            
+          }
+          
+    }
+
 .gameLink {
     text-align: center;
     font-size: 30px;

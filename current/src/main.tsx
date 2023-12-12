@@ -49,7 +49,7 @@ const Main: Component = () => {
                             <br/>
                             Maybe in the future things'll change but for now... Just me!
                             <br/>
-                            I'm also known as Kitteholic, but he's my alter ego.
+                            I'm also known as <A class='kittyLink' href='/kitteholic'>Kitteholic</A>, but he's my alter ego.
                             <br/>
                             <br/>
                             ...Does the 's' in "fearfulcats" count as false advertising?
