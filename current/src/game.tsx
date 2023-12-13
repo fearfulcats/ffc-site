@@ -12,6 +12,7 @@ import cc from "./assets/cc3hires.png"
 import lemmi from "./assets/lemmihires.png"
 import ray from "./assets/rayhires.png"
 import avery from "./assets/averyhires.png"
+import rex from "./assets/rexhires.png"
 
 const Game: Component = () => {
     return (
@@ -100,6 +101,15 @@ const Game: Component = () => {
                     <h1 style={"text-decoration: underline;"}>Avery</h1>
                     <br/>
                     <h2 style={"font-weight: 500"}>He’s named Avery. He loves talking to people and meeting new friends, and I’m sure he’d love to meet you! He’s always thinking about the future and about how he can make people happy! </h2>
+                </div>
+                <div></div>
+            </div>
+            <div style={"background-color: #ff8700; padding: 5vh 0"} class='gameCharacter'>
+                <img class='characterImg' src={rex}/>
+                <div class="characterDesc" style={"color: white;"}>
+                    <h1 style={"text-decoration: underline;"}>Rex</h1>
+                    <br/>
+                    <h2 style={"font-weight: 500"}>He’s a bit of a mess internally. He’s earned the nickname Rex, but that isn’t his real name. He doesn’t seem to mind it though… I’d say he’s sort of a nervous wreck, but I think you might’ve grasped that already. As far as I’m aware, he doesn’t have many friends… So maybe you should introduce yourself?</h2>
                 </div>
                 <div></div>
             </div>
