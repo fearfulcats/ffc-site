@@ -11,6 +11,7 @@ import seth from "./assets/sethhires.png"
 import cc from "./assets/cc3hires.png"
 import lemmi from "./assets/lemmihires.png"
 import ray from "./assets/rayhires.png"
+import avery from "./assets/averyhires.png"
 
 const Game: Component = () => {
     return (
@@ -34,7 +35,7 @@ const Game: Component = () => {
                 <div class="characterDesc" style={"color: white;"}>
                     <h1 style={"text-decoration: underline;"}>Kitari</h1>
                     <br/>
-                    <h2 style={"font-weight: 500"}>He’s our protagonist! His name is whatever you want it to be, but we’ll call him Kitari for now. He moved to this village to get a fresh start from the life he lived before, but… such things are never easy. He constantly gets reminded of his unfortunate past but aspires to be able to move on.</h2>
+                    <h2 style={"font-weight: 500"}>He’s our protagonist! He's known as Kitari. He moved to this village to get a fresh start from the life he lived before, but… such things are never easy. He constantly gets reminded of his unfortunate past but aspires to be able to move on.</h2>
                 </div>
                 <div ></div>
             </div>
@@ -90,6 +91,15 @@ const Game: Component = () => {
                     <h1 style={"text-decoration: underline;"}>Ray</h1>
                     <br/>
                     <h2 style={"font-weight: 500"}>The chillest cat. He’s called Ray, short for Rain. He spends a lot of time walking around the town, enjoying the tranquility of nature. Perhaps you could learn a bit from him?</h2>
+                </div>
+                <div></div>
+            </div>
+            <div style={"background-color: #ff6060; padding: 5vh 0"} class='gameCharacter'>
+                <img class='characterImg' src={avery}/>
+                <div class="characterDesc" style={"color: white;"}>
+                    <h1 style={"text-decoration: underline;"}>Avery</h1>
+                    <br/>
+                    <h2 style={"font-weight: 500"}>He’s named Avery. He loves talking to people and meeting new friends, and I’m sure he’d love to meet you! He’s always thinking about the future and about how he can make people happy! </h2>
                 </div>
                 <div></div>
             </div>
