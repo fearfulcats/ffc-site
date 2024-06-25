@@ -51,7 +51,7 @@ export const store = createMutable({
       },
       {
         author: "Cozy_Cat",
-        content: "i'm talking about the one you mentioned about a week back. you know, the one with the ethical ramifications.",
+        content: "i'm talking about the one you mentioned about a week back. you know it, right?",
         connected: true,
         server: false
       },
@@ -611,7 +611,8 @@ const App: Component = () => {
     <>
       <div class="screensaver">
         <div class='header'>
-          <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
+        <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>
+
           <div class="pages">
             <div>
               <A class='link' href='/secret/chatroom'>Chat Room</A>
@@ -633,8 +634,12 @@ const App: Component = () => {
         </div>
         <div style="display: grid; justify-content: center; padding: 20vh 2vw">
           <div style="place-self: start; text-align: center; height: 158px; width: 158px;" class="box">
-            <div style="padding-top: 8px;">
-              fearful<br /><br />cats<br /><br />live<br /><br />here
+            <div style="padding-top: 10px;" class='space-y-2'>
+              <div>we</div>
+              <div>are</div>
+              <div>fearfully</div>
+              <div>comfortable</div>
+
             </div>
           </div>
         </div>

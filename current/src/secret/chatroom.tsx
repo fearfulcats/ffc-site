@@ -12,7 +12,8 @@ function ChatRoom() {
         <div class='screensaver'>
             <div class="header">
 
-                <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
+            <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>
+
                 <div class="pages" style="">
                     <div>
                         <A class='link' href='/secret/home'>Home</A>

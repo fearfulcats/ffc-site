@@ -8,7 +8,7 @@ function Userbase() {
     return (
         <div class='screensaverError'>
             <div class="header">
-                <p class="connection">You are currently connected to Extended Area Network 34B "Cat Communications" on May 9th, 20XX.</p>
+                <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>
                 <div class="pages" style="">
                     <div>
                         <A class='link' href='/secret/home'>Home</A>
@@ -28,7 +28,7 @@ function Userbase() {
                     </div>
                 </div>
             </div>
-            <div class='errorScreen'>
+            <div class='errorScreen leading-snug'>
                 ERROR 59: USER HAS BEEN BLOCKED DUE TO EXTERNAL REQUEST
             </div>
         </div>

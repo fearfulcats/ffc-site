@@ -23,12 +23,12 @@ const Game: Component = () => {
             <div class='gameDesc'>
             <span style={"font-weight: 800; border-bottom: 2px solid black;"}>Game Description</span>
             <br/>
-            Throughout the small town of [NAME TBD], there lives many cats together in “harmony”. However, delve underneath the seemingly mentally stable surface that the cats present to you, and you’ll find each cat comes with their own fears and desires. Secrets gone untold are slowly bringing tension to the cats, with no outcome looking worse than if you don’t intervene. You assume the role of a new member of the town, moving in on this very day. Of course, no cat comes without their own set of problems, and you are no exception. You have the choice to help the cats with their problems, or keep to yourself, trying to figure things out on your own.  Don’t get distracted, though… things really aren’t as they seem…
+            Kitari (the character you play as), has just moved out of his parents' house after an acquaintance of his offers him a place and a job in a very small community of 9 people. Kitari has no choice but to accept since his parents are forcing him to move out. His acquaintance, Seth, also happens to be the mayor of said community and has been experiencing a lot of "problems" with the inhabitants. He expects you to help them out to earn your place, but that's a decision that's completely up to you. Aside from that, Kitari himself has his own set of issues that need to be managed. With all of that on his plate, most would crumble... would you?
             </div>
             <div style={"text-align: center; font-size: 20px; font-weight: 800; border-bottom: 5px solid black; border-top: 5px solid black; background-color: gray; padding: 1vh 0;"}>
                 <span style={"border-bottom: 2px solid black;"}>Character Compendium </span>
                 <br/>
-                <span>These are some of the characters that will appear in my game. They each have their own mental struggles which you will be able to help them deal with. <br/> NOTE: character designs are not final.</span>
+                <span>These are some of the characters that will appear in my game. They each have their own mental struggles which you will be able to help them deal with. <br/> NOTE: character designs are old and will be updated at a later date.</span>
             </div>
         
             <div style={"background-color: lime; padding: 5vh 0"} class='gameCharacter'>
