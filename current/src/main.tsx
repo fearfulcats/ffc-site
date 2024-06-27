@@ -230,7 +230,10 @@ const Main: Component = () => {
                         <span class='text-3xl font-semibold font-serif underline mt-4'>Social Media:</span>
                         <span class='my-2'>I don't really know how to promote my game through most social medias, but I do often post art and game progress on my tumblr! ↓</span>
                         <span class='text-xl font-semibold text-purple-500 font-serif hover:underline focus:underline'><a href="https://fearfulcats.tumblr.com">Tumblr</a></span>
+                        <span class='my-2'>NOTE: Character designs you see there are not final. My character design is limited by my failing artistic ability, so I will likely update them as I see fit.</span>
+
                     </div>
+
                     <div class='bg-slate-700 p-4 border z-10 text-white lg:w-1/2 flex flex-col justify-between items-center text-center'>
                         <span class='text-3xl font-semibold font-serif underline mt-4'>Disclaimers:</span>
                         <span class='my-2'>This site is created using the JavaScript framework SolidJS, and hosted through GitHub Pages!</span>
