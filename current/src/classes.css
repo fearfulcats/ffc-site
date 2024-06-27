@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,6 +18,21 @@ html {
     font-size: 80px;
     text-align: center;
     color: #222;
+}
+
+li {
+    margin-left: 20px;
+    list-style-type: disc;
+ }
+
+.divider {
+    background: 
+linear-gradient(135deg, #ccc 25%, transparent 25%) -50px 0,
+linear-gradient(225deg, #ccc 25%, transparent 25%) -50px 0,
+linear-gradient(315deg, #ccc 25%, transparent 25%),
+linear-gradient(45deg, #ccc 25%, transparent 25%);	
+background-size: 100px 100px;
+background-color: #eee;
 }
 
 .port {
@@ -152,11 +166,17 @@ html {
 
 .secretLink {
     text-decoration: none;
-    color: rgb(15, 0, 12);
+    color: #2f2a62;
     transition: ease 1s;
+    width: 100%;
+    text-align: center;
 }
 
 .secretLink:hover {
+    color: lime;
+}
+
+.secretLink:focus {
     color: lime;
 }
 
@@ -354,32 +374,6 @@ background-size: 25px 25px, 25px 25px, 12.5px 12.5px, 12.5px 12.5px;
     
 }
 
-@media only screen and (max-width: 765px) {
-    /* For mobile phones: */
-    [class*="kittyPic"] {
-        width: 100%;
-        text-align: -webkit-center;
-      }
-      [class*="kittySection"] {
-      margin: 5vh 5vw;
-      font-size: 14px;
-    } [class*="kittyFull"] {
-        display: block;
-        margin: 0 5vw;
-      } [class*="kittyPicDiv"] {
-      }
-      
-    }
-
-    @media only screen and (max-width: 500px) {
-        
-        [class*="kittySection"] {
-            margin: 5vh 0vw;
-            font-size: 12px;
-            
-          }
-          
-    }
 
 .gameLink {
     text-align: center;
@@ -400,7 +394,10 @@ background-size: 25px 25px, 25px 25px, 12.5px 12.5px, 12.5px 12.5px;
 }
 
 .gamePage {
-    background-color: #082e5f;
+    background: #FC466B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     min-height: 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
@@ -408,9 +405,24 @@ background-size: 25px 25px, 25px 25px, 12.5px 12.5px, 12.5px 12.5px;
 
 .gamePageHeader {
     text-align: center;
-    background-color: rgb(232, 192, 255);
     position: fixed;
     min-width: 100vw;
+}
+
+.gamePageTitle {
+    text-shadow: black 3px 3px 3px;
+}
+
+.gamePageBox {
+    background: #757F9A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #D7DDE8, #e5e7eb);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #D7DDE8, #e5e7eb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    box-shadow: black 4px 4px 3px;    
+}
+
+.lime {
+    color: lime
 }
 
 .gameCharacter {

@@ -7,11 +7,11 @@ import { Message, action, store } from './App';
 function Profile() {
     return (
         <>
-        <div class='full'>
-        </div>
-            <div class='screensaver' style="min-height: auto;">
+            <div class='full'>
+            </div>
+            <div class='screensaver'>
                 <div class="header">
-                <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>
+                    <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>
 
                     <div class="pages" style="">
                         <div>

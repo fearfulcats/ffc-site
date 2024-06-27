@@ -7,6 +7,7 @@ import "./classes.css"
 import pic from "./assets/lunacy.png"
 
 const Main: Component = () => {
+    const [showCopyright, setShowCopyright] = createSignal(false)
     return (
         // <div>
         //     <div class='all'>
@@ -175,19 +176,87 @@ const Main: Component = () => {
         //     </div>
         // </div>
         <>
-        
-        <div class='main h-[250vh] '>
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3" class='animate-spin'></div>
-            <div class='w-full justify-center items-center flex-col flex p-8 space-y-10'>
-                <div class='fearfulText text-8xl font-mono italic text-white z-10'>fearful cats</div>
-                <div class='bg-slate-700 p-4 border z-10 text-white'>Welcome to the home base of fearful cats.</div>
-                <div class='bg-slate-700 p-4 border z-10 text-white'>Here lies a cat obsessed game developer.</div>
-            </div>
 
-        </div>
-        <div class='main flex w-full justify-center items-center'><A class="secretLink" href='/secret/home'>Secret!</A></div>
+            <div class='main h-[250vh] '>
+                <div id="stars"></div>
+                <div id="stars2"></div>
+                <div id="stars3" class='animate-spin'></div>
+                <div class='w-full justify-center items-center flex-col flex p-8 space-y-10'>
+                    <div class='fearfulText lg:text-8xl text-4xl font-mono italic text-white z-10'>fearful cats</div>
+                    {/* <div class='bg-slate-700 p-4 border z-10 text-white'>Welcome to the home base of fearful cats.</div> */}
+                    <div class='bg-slate-700 p-4 border z-10 text-white'>Here lies a cat obsessed game developer.</div>
+                    <div class='bg-slate-700 border z-10 py-4 text-white lg:w-1/2 flex flex-col justify-between items-center text-center'>
+
+                        <span class='text-3xl font-semibold font-serif underline'>Welcome.</span>
+                        <span class='my-2 mb-4'>Thank you for choosing to check out my website! </span>
+                        <div class='divider w-full h-12 '></div>
+                        <span class='text-3xl font-semibold font-serif underline mt-4'>About Me:</span>
+                        <div class='my-2 mb-4 -space-y-2'>
+                            <p class=''>I'm a part-time full-stack developer who spends every free moment as a game developer.</p>
+                            <br />
+                            <p class=''>I absolutely love writing stories and turning said stories into potential games.</p>
+                            <br />
+                            <p class=''>Currently, I'm working on a game called, "<A href="/game" class='text-red-500 hover:cursor hover:underline italic focus:underline   '>fearfully comfortable.</A>".</p>
+                            <br />
+                            <p class=''>The next section will cover what that game is about, as well as my future plans for it.</p>
+                        </div>
+                        <div class='divider w-full h-12'></div>
+                        <span class='text-3xl font-semibold font-serif underline mt-4 italic'>fearfully comfortable.</span>
+                        <div class='my-2 mb-4 -space-y-2'>
+                            <p class=''>This game follows an anthro cat's journey to learn how to connect with others and move on from his past.</p>
+                            <br />
+                            <p class='font-bold'>The game tackles many aspects of mental health and even contains depictions of suicide in certain bad endings.</p>
+                            <br />
+                            <p class=''>Coming from a someone who's dealt with a lot of the issues depicted in the game, working on this game has helped me cope and the story means a lot to me.</p>
+                            <br />
+                            <p class=''>I really hope that it will be able to touch the hearts of players once it is finally released.</p>
+                            <br />
+                            <p class=''>However, that time is quite far off.</p>
+                            <br />
+                            <p class=''>Although the story is finished, the actual game is nowhere near completed.</p>
+                            <br />
+                            <p class=''>Even so, if you are interested, your support would mean the world.</p>
+                            <br />
+                            <p class=''>In that case, please check out the following link for more information about my game: <A href="/game" class='text-red-500 hover:cursor hover:underline italic focus:underline'>fearfully comfortable.</A></p>
+                        </div>
+                        <div class='divider w-full h-12'></div>
+                        <span class='text-3xl font-semibold font-serif underline mt-4'>End.</span>
+                        <span class='my-2'>That's all of the info I have for you at the moment!</span>
+
+
+
+                    </div>
+                    <div class='bg-slate-700 p-4 border z-10 text-white lg:w-1/2 flex flex-col justify-between items-center text-center'>
+                        <span class='text-3xl font-semibold font-serif underline mt-4'>Social Media:</span>
+                        <span class='my-2'>I don't really know how to promote my game through most social medias, but I do often post art and game progress on my tumblr! ↓</span>
+                        <span class='text-xl font-semibold text-purple-500 font-serif hover:underline focus:underline'><a href="https://fearfulcats.tumblr.com">Tumblr</a></span>
+                    </div>
+                    <div class='bg-slate-700 p-4 border z-10 text-white lg:w-1/2 flex flex-col justify-between items-center text-center'>
+                        <span class='text-3xl font-semibold font-serif underline mt-4'>Disclaimers:</span>
+                        <span class='my-2'>This site is created using the JavaScript framework SolidJS, and hosted through GitHub Pages!</span>
+                        <span class='my-2'>Due to those facts, if you somehow ended up on a different part of my website, refreshing the page there will lead you to a 404.
+                            Don't freak out though, the site is still here, but you'll have to go back to the main page for things to work again.</span>
+                        <span class='my-2 hover:underline hover:cursor-pointer' onClick={() => setShowCopyright(!showCopyright())}>Click this to show the Copyright for this CSS background I borrowed.</span>
+                        <Show
+                            when={showCopyright()}
+                            children={
+                                <code>Copyright (c) 2024 by MattMarble (https://codepen.io/mattmarble/pen/qBdamQz)
+
+                                    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+                                    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+                                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+                                </code>
+                            }
+
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div class='main flex w-full justify-center items-center text-purple-800'><A class="secretLink" href='/secret/home'>Click me for a secret!</A></div>
         </>
 
     )

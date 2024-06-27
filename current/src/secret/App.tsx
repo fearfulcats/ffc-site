@@ -634,7 +634,7 @@ const App: Component = () => {
         </div>
         <div style="display: grid; justify-content: center; padding: 20vh 2vw">
           <div style="place-self: start; text-align: center; height: 158px; width: 158px;" class="box">
-            <div style="padding-top: 10px;" class='space-y-2'>
+            <div style="padding-top: 9px;" class='space-y-6'>
               <div>we</div>
               <div>are</div>
               <div>fearfully</div>
