@@ -177,7 +177,7 @@ const Main: Component = () => {
         // </div>
         <>
 
-            <div class='main h-[250vh] '>
+            <div class='main min-h-[250vh] '>
                 <div id="stars"></div>
                 <div id="stars2"></div>
                 <div id="stars3" class='animate-spin'></div>
