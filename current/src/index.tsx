@@ -8,7 +8,6 @@ import Profile from './secret/profile';
 import Userbase from './secret/userbase';
 import Main from './main';
 import Game from './game';
-import Kitteholic from './kitteholic';
 
 const root = document.getElementById('root');
 
@@ -28,7 +27,6 @@ render(() => (
         <Route path="/secret/profile" component={Profile}/>
         <Route path="/secret/userbase" component={Userbase}/>
         <Route path="/game" component={Game}/>
-        <Route path="/kitteholic" component={Kitteholic}/>
       </Routes>
     </Router>
 ), root!);

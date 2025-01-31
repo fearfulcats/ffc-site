@@ -3,178 +3,18 @@ import type { Component } from 'solid-js';
 import { For, Show, createSignal } from 'solid-js'
 import { createMutable } from 'solid-js/store'
 import { A } from "@solidjs/router";
-import "./classes.css"
-import pic from "./assets/lunacy.png"
+import "./app.css"
 
-const Main: Component = () => {
+import disarray from "./assets/disarray.png"
+import test from "./assets/op15.png"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
+import { rangeCreators } from 'solid-knobs';
+
+
+const MainOld: Component = () => {
     const [showCopyright, setShowCopyright] = createSignal(false)
     return (
-        // <div>
-        //     <div class='all'>
 
-        //         <div class='welcom'>
-        //             Welcome!
-        //         </div>
-        //         <div class="port">-you have arrived at the home base of fearful cats-</div>
-        //         <div class='grids'>
-        //             <div class='grild'>
-        //                 You were interested enough to go to this website?
-        //                 <br/>
-        //                 I'm proud of you for that!
-        //             </div>
-        //             <div class='grilled'>
-        //                 I'm sure it's a decision you won't regret!
-        //                 <br/>
-        //                 Or maybe you might?
-        //             </div>
-        //         </div>
-        //         <div class="serious">
-        //             Sorry about that. Enough with the fancifications. You wanted to see me? Well, here I am. Yes, it's me. <i>I</i> am THE fearful cat.
-        //             <br/>
-        //             Or... something like that. Alright alright, you want some info? Go ahead, scroll down. I won't stop you.
-        //         </div>
-
-        //     </div>
-        //     <div class="fear">
-        //         <div class='fearHeader'>
-        //             I should probably try getting to the point quicker. Sorry again.
-        //         </div>
-        //         <div class='grids'>
-        //             <div>
-        //                 <div class='fearGrild'>
-        //                 <div class="fearTitle">Liar</div>
-        //                     I guess I'll just tell you a bit about who the "fearfulcats" are!
-        //                     <br/>
-        //                     To be honest, it's just me.
-        //                     Yeah, yeah... Sorry to disappoint.
-        //                     <br/>
-        //                     Maybe in the future things'll change but for now... Just me!
-        //                     <br/>
-        //                     {/* I'm also known as <A class='kittyLink' href='/kitteholic'>Kitteholic</A>, but he's my alter ego. */}
-        //                     <br/>
-        //                     <br/>
-        //                     ...Does the 's' in "fearfulcats" count as false advertising?
-        //                     <br/>
-        //                     I really hope not. That would suck. 
-
-        //                 </div>
-        //                 <br/>
-        //                 <div class='fearGrild'>
-        //                 <div class="fearTitle">Who?</div>
-        //                     Anyway. So yeah, I'm the fearful cat himself.
-        //                     <br/>
-        //                     I mostly do programming - like web and game developing
-        //                     <br/>
-        //                     I'm an amateur so please don't expect much...
-        //                     <br/>
-        //                     <br/>
-        //                     I also like to do art but I REALLY suck at that.
-        //                     <br/>
-        //                     How much do I suck? A pretty dang good amount.
-        //                     <br/>
-        //                     More than I suck at writing these little cards... Does that help?
-        //                     <br/>
-        //                     If you're still not convinced, just take a look to your right.
-        //                     <br/>
-        //                     Yeah, I drew that. Now do you believe me?
-        //                     <br/>
-        //                     Feel free to use that picture as a reference when imagining me.
-
-        //                 </div>
-
-        //                 <br/>
-        //                 <div class='fearGrild'>
-        //                     <div class="fearTitle">"Game"</div>
-        //                     In other news, I'm currently working on a game!
-        //                     <br/>
-        //                     The release date is completely non-existent unfortunately.
-        //                     <br/>
-        //                     Let's just say it would be a miracle if I ever do manage to release it.
-        //                     <br/>
-        //                     But, that hasn't stopped me from hiding a couple secrets around here...
-        //                     <br/>
-        //                     <br/>
-        //                     If you're interested... Maybe you'll take a look around?
-        //                     <br/>
-        //                     I think you'd find it pretty interesting!
-
-        //                 </div>
-        //             </div>
-        //             <div style="align-self: center">
-
-        //                     <img class="fearImg" src={pic} width={700} height={700}/>
-
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <div class="game">
-        //         <div class="gameHeader">Game...?</div>
-        //         <div>
-        //             <div class='gameAbout'>
-        //                 Yeah, I'm working on a game. It's just something I do in my free time though.
-        //                 What's it about? That's a question with a loaded response, you know.
-        //                 But if you really do wanna know...
-        //                 <br/>
-        //                 <br/>
-        //                 I'll put it as simple as I can: You play as an anthropomorphic <A class="secretLink" href='/secret/home'>cat</A> who moves to a new town to get away from his family,
-        //                 and you have to do the best you can to make friends while trying to not accidentally (or purposely) kill anyone while you're at it. Simple, right?
-        //                 Of course it is! Anyway, each of the cats in the town (Wait, did I mention all the characters are anthropomorphic cats? Well, they are. It's a personal artistic choice.)
-        //                 will need your help with something, and if you plan everything out right, you should be able to help them all! But if you don't... Well, let's just hope that you do!
-
-        //                 <br/>
-        //                 <br/>
-        //                 That's the idea at least. I'm really excited about it, but who knows if I'll be able to finish it. Although... If you are interested... Knowing that would help motivate me to work on it! :3
-
-        //             </div>
-        //             <div class="gameLink">
-        //                 <A href="/game"> Read All About It!</A>
-
-        //             </div>
-
-        //         </div>
-        //     </div>
-        //     <div class="me">
-        //         <div class='meHeader'>ABOUT ME!!</div>
-        //         <div>
-        //             <br/>
-        //             <div class="meAbout">
-        //                 You wanna know about me?
-        //                 <br/>
-        //                 There's a lot to tell, but that's all secret for now...
-        //                 I'll let you know where to find me though!
-        //             </div>
-        //         </div>
-        //         <div>
-        //             <div class="social">
-        //                 <a href="https://www.tiktok.com/@fearfulcats">TikTok</a>
-        //                 <div>I post sketches and game progress here!</div>
-        //             </div>
-        //             <div class="social">
-        //                 <a href="https://twitter.com/fearfulcats">"Twitter"</a>
-        //                 <div>Rants and sketches and other garbage!</div>
-        //             </div>
-        //             <div class="social">
-        //                 <a href="https://fearfulcats.tumblr.com">Tumblr</a>
-        //                 <div>Game progress, standalone stories, & sketches!</div>
-        //             </div>
-        //         </div>
-        //         <div class='socialPlug'>SOCIAL MEDIA PLUG</div>
-        //     </div>
-        //     <div class='disclaimer'>
-        //         <div class="disclaimerHeader">Just letting you know...</div>
-        //         <br/>
-        //         <div>
-        //             <div class='disclaimerAbout'>
-        //                 This site is made with the JavaScript framework Solid! It's also hosted using GitHub Pages!
-        //                 <br/>
-        //                 Due to those facts, if you somehow ended up on a different part of my website, refreshing the page there will lead you to a 404.
-        //                 Don't freak out though, the site is still here, but you'll have to go back to the main page for things to work again.
-        //                 <br/>
-        //                 Also, since I kinda suck at everything, this site looks sorta terrible on mobile. It's definitely better to be viewed on a computer.
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
         <>
 
             <div class='main min-h-[250vh] '>
@@ -264,5 +104,157 @@ const Main: Component = () => {
 
     )
 }
+
+const Main: Component = () => {
+    const store = createMutable({
+        quipList: ["enjoy the show.", "i've got my eye on you.", "things are never as they seem.", "hope you're happy.", "beware the all-knowing."],
+        secretActivated: false,
+        pageVisit: 0,
+        dialValue: 0,
+        commandLineText: `\nC:\\Users\\Rozebur> ls\nDesktop\nDocuments\nDownloads\nMusic\nPictures\nVideos\nC:\\Users\\Rozebur> cd documents\nC:\\Users\\Rozebur\\Documents> ls\ncommunity member data\nfinances\nnotes\npersonal\nsecret\nstuff for seth (delete later)\nwork\nC:\\Users\\Rozebur\\Documents> cd secret\nC:\\Users\\Rozebur\\Documents\\secret> ls\nassets\ncomponents\nlib\nEANMUI.exe\nC:\\Users\\Rozebur\\Documents\\secret> start eanmui.exe\nLoading...`
+    })
+    let todaysSecurityCode = Math.floor(Math.random()*store.quipList.length)
+
+    const hasVisitedPage = localStorage.getItem("pageVisit")
+    if (hasVisitedPage) {
+        store.pageVisit = Number(hasVisitedPage)+1
+        
+    } else {
+        store.pageVisit = 1
+        todaysSecurityCode = 0
+    }
+    localStorage.setItem("pageVisit", `${store.pageVisit}`)
+
+    let speed = 75
+    let i = 0
+    function typeWriter() {
+        
+        if (i < store.commandLineText.length) {
+
+            console.log(document.getElementById("typewriter")!.innerHTML.charAt(i))
+            document.getElementById("typewriter")!.innerHTML = document.getElementById("typewriter")!.innerHTML.slice(0,-1);
+          document.getElementById("typewriter")!.innerHTML += store.commandLineText.charAt(i) + "_";
+          i++;
+          setTimeout(typeWriter, speed);
+
+        } else {
+            window.location.replace("./secret/home")
+        }
+      }
+    return (
+
+        <>
+            <div style={{"background-image": `url(${test})`}} class='bg-repeat [image-rendering:pixelated] w-screen min-h-screen '>
+
+                <div class='w-full justify-center items-center flex-col flex p-8 space-y-10 h-full '>
+                    <div class='fearfulText lg:text-8xl text-4xl font-mono italic text-white '>fearful cats</div>
+                    <div class='w-3/4 h-[900px] [box-shadow:inset_10px_10px_9px_-7px_white,_inset_-10px_-10px_9px_-7px_black]'>
+
+                        <div class=' border  text-white h-[900px]'>
+                            <Show when={store.secretActivated} fallback={
+                                <Tabs orientation='vertical' class='flex h-full '>
+                                    <TabsList class='flex flex-col w-1/5 space-y-10 h-full p-0  text-white rounded-none
+                                    [background:radial-gradient(circle,_rgba(44,0,116,1)_0%,_rgba(70,106,252,1)_100%)]
+                                    border-r border-black
+                                    '>
+
+                                        <MainTabTrigger value='intro'>Introduction</MainTabTrigger>
+                                        <MainTabTrigger class={`[background:linear-gradient(180deg,_rgba(163,196,251,1)_0%,_rgba(59,130,246,1)_100%)] data-[selected]:[background:#2d64be]`} value='about'>Background</MainTabTrigger>
+                                        <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(250,225,146,1)_0%,_rgba(234,179,8,1)_100%)] data-[selected]:[background:#bd920e]' value='content'>Content</MainTabTrigger>
+                                        <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(151,255,190,1)_0%,_rgba(34,197,94,1)_100%)] data-[selected]:[background:#12863d]' value='platforms'>Platforms</MainTabTrigger>
+                                        <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(255,173,116,1)_0%,_rgba(249,115,22,1)_100%)] data-[selected]:[background:#aa5113]' value='future'>Onwards</MainTabTrigger>
+                                        <Show when={todaysSecurityCode==4}>
+                                            <MainTabTrigger value='secret' class='[background:linear-gradient(180deg,_rgba(255,133,133,1)_0%,_rgba(227,7,7,1)_100%)] data-[selected]:[background:#aa1313]' onClick={()=>{
+                                                store.secretActivated=true
+                                                typeWriter()
+                                                }}>???</MainTabTrigger>
+                                        </Show>
+                                    </TabsList>
+                                    <TabsContent value='intro' class='[background:linear-gradient(180deg,_rgba(114,16,222,1)_0%,_rgba(180,154,209,1)_100%)] m-0 w-full
+                                    p-10'>
+                                        <div class='text-3xl font-serif italic'>Welcome to the home base of fearful cats.</div>
+                                        <div class='h-px border border-dashed'></div>
+                                        <div class='w-full grid grid-cols-2 mt-10 h-1/2 gap-10 text-xl font-serif'>
+                                            <div class=' '>For whatever reason you've come here, your presence is much appreciated.
+                                                <br/>
+                                                
+                                                <br/>
+
+                                            </div>
+                                            <div>
+                                                <p class='underline'>While you're here...</p>
+                                                <ul class='space-y-2 mt-2'>
+                                                    <li>Take your time, explore. You never know what the world might have in store.</li>
+                                                    <li>Indulge yourself in knowledge untold. Learn what you've missed in days of old.</li>
+                                                    <li>Explore fictitious dreams. Be careful not to burst at the seams.</li>
+                                                    <li>Leap from place to place. In your journey you'll meet many a new face.</li>
+                                                    <li>The future is near. Protect that of which you hold dear.</li>
+                                                    <li class='hover:text-black text-transparent'>In plain sight lies a ghost. Embrace what you fear the most.</li>
+                                                </ul>
+                                            </div>
+                                        
+                                        </div>
+                                    </TabsContent>
+                                    <TabsContent value='about' class='bg-blue-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>Here lies a cat obsessed game developer.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                    </TabsContent>
+                                    <TabsContent value='content' class='bg-yellow-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>What's in development?</div>
+                                    <div class='h-px border border-dashed'></div>
+                                    </TabsContent>
+                                    <TabsContent value='platforms' class='bg-green-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>Across the cosmos, you'll find us.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                    </TabsContent>
+                                    <TabsContent value='future' class='bg-orange-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>Living in the present, planning for the future.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                    </TabsContent>
+                                </Tabs>
+                            }>
+                                <div class='bg-black m-0 w-full h-full text-gray-200 font-mono'>
+                                    <div>
+                                        MegaWare Brixwork 
+                                        <br/>
+                                        (c) MegaWare Corporation. All rights reserved.
+                                        <br/>
+                                        <br/>
+                                        Welcome User [Rozebur]. Type help for a list of all commands.
+                                        <div class='grid text-red-600'>
+                                            <div id="typewriter" class='whitespace-pre-line '></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </Show>
+
+    
+                            
+                        </div>
+                    </div>
+                    <div class='fearfulText lg:text-8xl text-4xl font-mono italic text-yellow-300 '>{store.quipList[todaysSecurityCode]}</div>
+                    
+                </div>
+
+            </div>
+        </>
+
+    )
+}
+
+function MainTabTrigger (props:{value: string, children: any, onClick?: ()=>any, class?: string}) {
+    return(
+        <TabsTrigger onClick={props.onClick} class={`data-[selected]:[background:#6c37a6] data-[selected]:drop-shadow-none data-[selected]:text-black 
+        data-[selected]:[box-shadow:inset_10px_10px_9px_-7px_black,_inset_-10px_-10px_9px_-7px_white] data-[selected]:[text-shadow:2px_2px_white]
+        hover:drop-shadow-none hover:[text-shadow:2px_2px_black]
+        hover:[box-shadow:inset_10px_10px_9px_-7px_white,_inset_-10px_-10px_9px_-7px_black]
+        text-white  w-5/6 rounded-none [background:linear-gradient(0deg,_rgba(114,16,222,1)_0%,_rgba(180,154,209,1)_100%)]
+        transition-none border border-black 
+          text-3xl `+props.class}value={props.value}>{props.children}</TabsTrigger>
+    )
+}
+
+// [box-shadow:inset_10px_10px_9px_-7px_white,_inset_-10px_-10px_9px_-7px_black,2px_2px_12px_-3px_black]
 
 export default Main
