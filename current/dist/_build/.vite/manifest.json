@@ -1,0 +1,171 @@
+{
+  "_HttpStatusCode-DjTx85av.js": {
+    "file": "assets/HttpStatusCode-DjTx85av.js",
+    "name": "HttpStatusCode"
+  },
+  "_app-!~{00b}~.js": {
+    "file": "assets/app-zOuJ3_3H.css",
+    "src": "_app-!~{00b}~.js"
+  },
+  "_home-B5LPhs_1.js": {
+    "file": "assets/home-B5LPhs_1.js",
+    "name": "home",
+    "imports": [
+      "_store-BbXCJ5LY.js",
+      "_styles-CCRXgZxA.js"
+    ]
+  },
+  "_index-BPs9xeKw.js": {
+    "file": "assets/index-BPs9xeKw.js",
+    "name": "index",
+    "imports": [
+      "_web-ByEgKlwT.js"
+    ]
+  },
+  "_routing-Bdx3zC-7.js": {
+    "file": "assets/routing-Bdx3zC-7.js",
+    "name": "routing",
+    "imports": [
+      "_web-ByEgKlwT.js"
+    ]
+  },
+  "_store-BbXCJ5LY.js": {
+    "file": "assets/store-BbXCJ5LY.js",
+    "name": "store",
+    "imports": [
+      "_web-ByEgKlwT.js"
+    ]
+  },
+  "_styles-!~{00f}~.js": {
+    "file": "assets/styles-DNV8PTTc.css",
+    "src": "_styles-!~{00f}~.js"
+  },
+  "_styles-CCRXgZxA.js": {
+    "file": "assets/styles-CCRXgZxA.js",
+    "name": "styles",
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_routing-Bdx3zC-7.js"
+    ],
+    "css": [
+      "assets/styles-DNV8PTTc.css"
+    ]
+  },
+  "_web-ByEgKlwT.js": {
+    "file": "assets/web-ByEgKlwT.js",
+    "name": "web"
+  },
+  "src/routes/[...404].tsx?pick=default&pick=$css": {
+    "file": "assets/_...404_-K5iUILN2.js",
+    "name": "_...404_",
+    "src": "src/routes/[...404].tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_index-BPs9xeKw.js",
+      "_HttpStatusCode-DjTx85av.js"
+    ]
+  },
+  "src/routes/about.tsx?pick=default&pick=$css": {
+    "file": "assets/about-DRgfMAhn.js",
+    "name": "about",
+    "src": "src/routes/about.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_index-BPs9xeKw.js"
+    ]
+  },
+  "src/routes/index.tsx?pick=default&pick=$css": {
+    "file": "assets/index-_tZJmrPB.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_store-BbXCJ5LY.js"
+    ],
+    "css": [
+      "assets/app-zOuJ3_3H.css"
+    ]
+  },
+  "src/routes/secret/chatroom.tsx?pick=default&pick=$css": {
+    "file": "assets/chatroom-t2K2g7K9.js",
+    "name": "chatroom",
+    "src": "src/routes/secret/chatroom.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_styles-CCRXgZxA.js",
+      "_home-B5LPhs_1.js",
+      "_routing-Bdx3zC-7.js",
+      "_store-BbXCJ5LY.js"
+    ]
+  },
+  "src/routes/secret/home.tsx?pick=default&pick=$css": {
+    "file": "assets/home-DcBawD-z.js",
+    "name": "home",
+    "src": "src/routes/secret/home.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_styles-CCRXgZxA.js",
+      "_routing-Bdx3zC-7.js"
+    ]
+  },
+  "src/routes/secret/profile.tsx?pick=default&pick=$css": {
+    "file": "assets/profile-BHqN1zmn.js",
+    "name": "profile",
+    "src": "src/routes/secret/profile.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_styles-CCRXgZxA.js",
+      "_home-B5LPhs_1.js",
+      "_routing-Bdx3zC-7.js",
+      "_store-BbXCJ5LY.js"
+    ]
+  },
+  "src/routes/secret/userbase.tsx?pick=default&pick=$css": {
+    "file": "assets/userbase-B26AdQOX.js",
+    "name": "userbase",
+    "src": "src/routes/secret/userbase.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-ByEgKlwT.js",
+      "_styles-CCRXgZxA.js",
+      "_routing-Bdx3zC-7.js"
+    ]
+  },
+  "virtual:$vinxi/handler/client": {
+    "file": "assets/client-gIWnlh-c.js",
+    "name": "client",
+    "src": "virtual:$vinxi/handler/client",
+    "isEntry": true,
+    "imports": [
+      "_index-BPs9xeKw.js",
+      "_web-ByEgKlwT.js",
+      "_routing-Bdx3zC-7.js",
+      "_HttpStatusCode-DjTx85av.js"
+    ],
+    "dynamicImports": [
+      "src/routes/about.tsx?pick=default&pick=$css",
+      "src/routes/index.tsx?pick=default&pick=$css",
+      "src/routes/[...404].tsx?pick=default&pick=$css",
+      "src/routes/secret/chatroom.tsx?pick=default&pick=$css",
+      "src/routes/secret/home.tsx?pick=default&pick=$css",
+      "src/routes/secret/profile.tsx?pick=default&pick=$css",
+      "src/routes/secret/userbase.tsx?pick=default&pick=$css"
+    ],
+    "css": [
+      "assets/app-zOuJ3_3H.css"
+    ]
+  }
+}
