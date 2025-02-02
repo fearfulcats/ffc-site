@@ -1,0 +1,18 @@
+import { defineConfig } from "@solidjs/start/config";
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+    ssr: true,
+    server: {
+        prerender: {
+            crawlLinks: true,
+            autoSubfolderIndex: false,
+            failOnError: true,
+            routes: ["/secret/home"]
+        },
+    },
+    vite: {
+        plugins: [    tailwindcss(),  ],
+    }
+    
+});
