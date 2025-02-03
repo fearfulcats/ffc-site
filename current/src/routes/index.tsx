@@ -110,9 +110,17 @@ const Main: Component = () => {
         secretActivated: false,
         pageVisit: 0,
         dialValue: 0,
+        todaysSecurityCode: 0,
         commandLineText: `\nC:\\Users\\Rozebur> ls\nDesktop\nDocuments\nDownloads\nMusic\nPictures\nVideos\nC:\\Users\\Rozebur> cd documents\nC:\\Users\\Rozebur\\Documents> ls\ncommunity member data\nfinances\nnotes\npersonal\nsecret\nstuff for seth (delete later)\nwork\nC:\\Users\\Rozebur\\Documents> cd secret\nC:\\Users\\Rozebur\\Documents\\secret> ls\nassets\ncomponents\nlib\nEANMUI.exe\nC:\\Users\\Rozebur\\Documents\\secret> start eanmui.exe\nLoading...`
     })
-    let todaysSecurityCode = Math.floor(Math.random() * store.quipList.length)
+
+    createEffect(()=>{
+        //@ts-ignore
+        window.dbg = store
+    })
+    createEffect(()=>{
+        store.todaysSecurityCode = Math.floor(Math.random() * store.quipList.length)
+    })
 
     createEffect(() => {
         const hasVisitedPage = localStorage.getItem("pageVisit")
@@ -121,21 +129,20 @@ const Main: Component = () => {
 
         } else {
             store.pageVisit = 1
-            todaysSecurityCode = 0
+            store.todaysSecurityCode = 0
         }
         localStorage.setItem("pageVisit", `${store.pageVisit}`)
     })
-
-    let speed = 75
-    let i = 0
+    const [typewriterIndex, setTypewriterIndex] = createSignal(0)
     function typeWriter() {
+        const speed = 75
 
-        if (i < store.commandLineText.length) {
+        if (typewriterIndex() < store.commandLineText.length) {
 
-            console.log(document.getElementById("typewriter")!.innerHTML.charAt(i))
+            console.log(document.getElementById("typewriter")!.innerHTML.charAt(typewriterIndex()))
             document.getElementById("typewriter")!.innerHTML = document.getElementById("typewriter")!.innerHTML.slice(0, -1);
-            document.getElementById("typewriter")!.innerHTML += store.commandLineText.charAt(i) + "_";
-            i++;
+            document.getElementById("typewriter")!.innerHTML += store.commandLineText.charAt(typewriterIndex()) + "_";
+            setTypewriterIndex(typewriterIndex()+1)
             setTimeout(typeWriter, speed);
 
         } else {
@@ -152,89 +159,86 @@ const Main: Component = () => {
                     <div class='w-3/4 h-[900px] [box-shadow:inset_10px_10px_9px_-7px_white,_inset_-10px_-10px_9px_-7px_black]'>
 
                         <div class=' border  text-white h-[900px]'>
-                            <Show when={store.secretActivated} fallback={
-                                <Tabs orientation='vertical' class='flex h-full '>
-                                    <TabsList class='flex flex-col w-1/5 space-y-10 h-full p-0  text-white rounded-none
+                            <Tabs hidden={store.secretActivated} orientation='vertical' class='flex h-full '>
+                                <TabsList class='flex flex-col w-1/5 space-y-10 h-full p-0  text-white rounded-none
                                     [background:radial-gradient(circle,_rgba(44,0,116,1)_0%,_rgba(70,106,252,1)_100%)]
                                     border-r border-black
                                     '>
 
-                                        <MainTabTrigger value='intro'>Introduction</MainTabTrigger>
-                                        <MainTabTrigger class={`[background:linear-gradient(180deg,_rgba(163,196,251,1)_0%,_rgba(59,130,246,1)_100%)] data-[selected]:[background:#2d64be]`} value='about'>Background</MainTabTrigger>
-                                        <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(250,225,146,1)_0%,_rgba(234,179,8,1)_100%)] data-[selected]:[background:#bd920e]' value='content'>Content</MainTabTrigger>
-                                        <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(151,255,190,1)_0%,_rgba(34,197,94,1)_100%)] data-[selected]:[background:#12863d]' value='platforms'>Platforms</MainTabTrigger>
-                                        <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(255,173,116,1)_0%,_rgba(249,115,22,1)_100%)] data-[selected]:[background:#aa5113]' value='future'>Onwards</MainTabTrigger>
-                                        <Show when={todaysSecurityCode == 4}>
-                                            <MainTabTrigger value='secret' class='[background:linear-gradient(180deg,_rgba(255,133,133,1)_0%,_rgba(227,7,7,1)_100%)] data-[selected]:[background:#aa1313]' onClick={() => {
-                                                store.secretActivated = true
-                                                typeWriter()
-                                            }}>???</MainTabTrigger>
-                                        </Show> 
-                                    </TabsList>
-                                    <TabsContent value='intro' class='[background:linear-gradient(180deg,_rgba(114,16,222,1)_0%,_rgba(180,154,209,1)_100%)] m-0 w-full
+                                    <MainTabTrigger value='intro'>Introduction</MainTabTrigger>
+                                    <MainTabTrigger class={`[background:linear-gradient(180deg,_rgba(163,196,251,1)_0%,_rgba(59,130,246,1)_100%)] data-[selected]:[background:#2d64be]`} value='about'>Background</MainTabTrigger>
+                                    <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(250,225,146,1)_0%,_rgba(234,179,8,1)_100%)] data-[selected]:[background:#bd920e]' value='content'>Content</MainTabTrigger>
+                                    <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(151,255,190,1)_0%,_rgba(34,197,94,1)_100%)] data-[selected]:[background:#12863d]' value='platforms'>Platforms</MainTabTrigger>
+                                    <MainTabTrigger class='[background:linear-gradient(180deg,_rgba(255,173,116,1)_0%,_rgba(249,115,22,1)_100%)] data-[selected]:[background:#aa5113]' value='future'>Onwards</MainTabTrigger>
+                                    <MainTabTrigger hidden={store.todaysSecurityCode != 4} value='secret' class='[background:linear-gradient(180deg,_rgba(255,133,133,1)_0%,_rgba(227,7,7,1)_100%)] data-[selected]:[background:#aa1313]' onClick={() => {
+                                        store.secretActivated = true
+                                        document.getElementById("typewriter")!.innerHTML = ""
+                                        typeWriter()
+                                    }}>???</MainTabTrigger>
+                                </TabsList>
+                                <TabsContent value='intro' class='[background:linear-gradient(180deg,_rgba(114,16,222,1)_0%,_rgba(180,154,209,1)_100%)] m-0 w-full
                                     p-10'>
-                                        <div class='text-3xl font-serif italic'>Welcome to the home base of fearful cats.</div>
-                                        <div class='h-px border border-dashed'></div>
-                                        <div class='w-full grid grid-cols-2 mt-10 h-1/2 gap-10 text-xl font-serif'>
-                                            <div class=' '>For whatever reason you've come here, your presence is much appreciated.
-                                                <br />
+                                    <div class='text-3xl font-serif italic'>Welcome to the home base of fearful cats.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                    <div class='w-full grid grid-cols-2 mt-10 h-1/2 gap-10 text-xl font-serif'>
+                                        <div class=' '>For whatever reason you've come here, your presence is much appreciated.
+                                            <br />
 
-                                                <br />
-
-                                            </div>
-                                            <div>
-                                                <p class='underline'>While you're here...</p>
-                                                <ul class='space-y-2 mt-2'>
-                                                    <li>Take your time, explore. You never know what the world might have in store.</li>
-                                                    <li>Indulge yourself in knowledge untold. Learn what you've missed in days of old.</li>
-                                                    <li>Explore fictitious dreams. Be careful not to burst at the seams.</li>
-                                                    <li>Leap from place to place. In your journey you'll meet many a new face.</li>
-                                                    <li>The future is near. Protect that of which you hold dear.</li>
-                                                    <li class='hover:text-black text-transparent'>In plain sight lies a ghost. Embrace what you fear the most.</li>
-                                                </ul>
-                                            </div>
+                                            <br />
 
                                         </div>
-                                    </TabsContent>
-                                    <TabsContent value='about' class='bg-blue-500 m-0 w-full p-10'>
-                                        <div class='text-3xl font-serif italic'>Here lies a cat obsessed game developer.</div>
-                                        <div class='h-px border border-dashed'></div>
-                                    </TabsContent>
-                                    <TabsContent value='content' class='bg-yellow-500 m-0 w-full p-10'>
-                                        <div class='text-3xl font-serif italic'>What's in development?</div>
-                                        <div class='h-px border border-dashed'></div>
-                                    </TabsContent>
-                                    <TabsContent value='platforms' class='bg-green-500 m-0 w-full p-10'>
-                                        <div class='text-3xl font-serif italic'>Across the cosmos, you'll find us.</div>
-                                        <div class='h-px border border-dashed'></div>
-                                    </TabsContent>
-                                    <TabsContent value='future' class='bg-orange-500 m-0 w-full p-10'>
-                                        <div class='text-3xl font-serif italic'>Living in the present, planning for the future.</div>
-                                        <div class='h-px border border-dashed'></div>
-                                    </TabsContent>
-                                </Tabs>
-                            }>
-                                <div class='bg-black m-0 w-full h-full text-gray-200 font-mono'>
-                                    <div>
-                                        MegaWare Brixwork
-                                        <br />
-                                        (c) MegaWare Corporation. All rights reserved.
-                                        <br />
-                                        <br />
-                                        Welcome User [Rozebur]. Type help for a list of all commands.
-                                        <div class='grid text-red-600'>
-                                            <div id="typewriter" class='whitespace-pre-line '></div>
-
+                                        <div>
+                                            <p class='underline'>While you're here...</p>
+                                            <ul class='space-y-2 mt-2'>
+                                                <li>Take your time, explore. You never know what the world might have in store.</li>
+                                                <li>Indulge yourself in knowledge untold. Learn what you've missed in days of old.</li>
+                                                <li>Explore fictitious dreams. Be careful not to burst at the seams.</li>
+                                                <li>Leap from place to place. In your journey you'll meet many a new face.</li>
+                                                <li>The future is near. Protect that of which you hold dear.</li>
+                                                <li class='hover:text-black text-transparent'>In plain sight lies a ghost. Embrace what you fear the most.</li>
+                                            </ul>
                                         </div>
+
+                                    </div>
+                                </TabsContent>
+                                <TabsContent value='about' class='bg-blue-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>Here lies a cat obsessed game developer.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                </TabsContent>
+                                <TabsContent value='content' class='bg-yellow-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>What's in development?</div>
+                                    <div class='h-px border border-dashed'></div>
+                                </TabsContent>
+                                <TabsContent value='platforms' class='bg-green-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>Across the cosmos, you'll find us.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                </TabsContent>
+                                <TabsContent value='future' class='bg-orange-500 m-0 w-full p-10'>
+                                    <div class='text-3xl font-serif italic'>Living in the present, planning for the future.</div>
+                                    <div class='h-px border border-dashed'></div>
+                                </TabsContent>
+                                <TabsContent value='secret'></TabsContent>
+                            </Tabs>
+                            <div hidden={!store.secretActivated} class='bg-black m-0 w-full h-full text-gray-200 font-mono'>
+                                <div>
+                                    MegaWare Brixwork
+                                    <br />
+                                    (c) MegaWare Corporation. All rights reserved.
+                                    <br />
+                                    <br />
+                                    Welcome User [Rozebur]. Type help for a list of all commands.
+                                    <div class='grid text-red-600'>
+                                        <div id="typewriter" class='whitespace-pre-line '></div>
+
                                     </div>
                                 </div>
-                            </Show>
+                            </div>
 
 
 
                         </div>
                     </div>
-                    <div class='fearfulText lg:text-8xl text-4xl font-mono italic text-yellow-300 '>{store.quipList[todaysSecurityCode]}</div>
+                    <div class='fearfulText lg:text-8xl text-4xl font-mono italic text-yellow-300 '>{store.quipList[store.todaysSecurityCode]}</div>
 
                 </div>
 
@@ -244,14 +248,14 @@ const Main: Component = () => {
     )
 }
 
-function MainTabTrigger(props: { value: string, children: any, onClick?: () => any, class?: string }) {
+function MainTabTrigger(props: { value: string, children: any, onClick?: () => any, class?: string, hidden?: boolean }) {
     return (
-        <TabsTrigger onClick={props.onClick} class={`data-[selected]:[background:#6c37a6] data-[selected]:drop-shadow-none data-[selected]:text-black 
+        <TabsTrigger aria-hidden={props.hidden} onClick={props.onClick} class={`data-[selected]:[background:#6c37a6] data-[selected]:drop-shadow-none data-[selected]:text-black 
         data-[selected]:[box-shadow:inset_10px_10px_9px_-7px_black,_inset_-10px_-10px_9px_-7px_white] data-[selected]:[text-shadow:2px_2px_white]
         hover:drop-shadow-none hover:[text-shadow:2px_2px_black]
         hover:[box-shadow:inset_10px_10px_9px_-7px_white,_inset_-10px_-10px_9px_-7px_black]
         text-white  w-5/6 rounded-none [background:linear-gradient(0deg,_rgba(114,16,222,1)_0%,_rgba(180,154,209,1)_100%)]
-        transition-none border border-black 
+        transition-none border border-black aria-hidden:hidden
           text-3xl `+ props.class} value={props.value}>{props.children}</TabsTrigger>
     )
 }
