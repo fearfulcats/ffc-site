@@ -8,7 +8,7 @@ export default defineConfig({
             crawlLinks: true,
             autoSubfolderIndex: false,
             failOnError: true,
-            routes: ["/secret/home"]
+            routes: ["/secret/home", "/games/ffc", "/furfulcat/home"]
         },
     },
     vite: {
