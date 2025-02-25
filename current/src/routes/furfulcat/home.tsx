@@ -1,20 +1,49 @@
 import { A } from "@solidjs/router"
-import { For, Match, Show, Switch } from "solid-js"
+import { createEffect, createMemo, For, Match, Show, Switch } from "solid-js"
 import { createMutable } from "solid-js/store"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 
-type Blog = { text: string, date: string }
-type Story = { text: string, name: string }
 
+import { Style } from "@solidjs/meta"
+
+type Blog = { text: string, date: string }
+type Theme = { textColor: string, borderColor: string, backgroundColor: string, name: string, foregroundColor: string }
 
 function Bio() {
     const store = createMutable({
-        blogs: [{ date: "2025/02/23", text: "Today I started on the 4th revamp of my website! Spent most of the day doing that, it's a whole lot of work to be honest. This is definitely the most elaborate version so far. I'm hoping to finish most of the design stuff tomorrow when I'm less sleepy!" },
-
+        blogs: [
+            { date: "2025/02/24", text: "As promised, I continued working on my site today. I added and altered a bunch of stuff, as you can see for yourself in the new updates section below the main box! I'm sure I could stand to add/change some more stuff, but I'm drawing blanks as of now. I'll just update this site whenever inspiration hits. On an unrelated note, I'm currently waiting for a 'new' monitor to arrive so I can set up my old PC as a dedicated WEBFISHING server. It should arrive tomorrow if all goes well, and if so I'll immediately set that up. It should be a preferable alternative to hosting lobbies on my own computer and having to kick everyone off when I have to leave." },
+            { date: "2025/02/23", text: "Today I started on the 4th revamp of my website! Spent most of the day doing that, it's a whole lot of work to be honest. This is definitely the most elaborate version so far. I'm hoping to finish most of the design stuff tomorrow when I'm less sleepy!" },
         ] as Blog[],
         storyMode: false,
-        selectedStory: ""
+        selectedStory: "",
+        currentTime: new Date(),
+        themes: [
+            { name: "Dark", borderColor: "white", textColor: "white", backgroundColor: "#0f0f0f", foregroundColor: "black" },
+            { name: "Light", borderColor: "black", textColor: "black", backgroundColor: "#e6e6e6", foregroundColor: "white" },
+            { name: "Dusty", borderColor: "#299920", textColor: "#827b7b", backgroundColor: "#353535", foregroundColor: "#262626" },
+            { name: "Flaky", borderColor: "#28fd17", textColor: "#f7f7f7", backgroundColor: "#959595", foregroundColor: "#b7b7b7" },
+            { name: "Beehive", borderColor: "#ffe305", textColor: "#fff1bb", backgroundColor: "#0f0f01", foregroundColor: "#201a03" },
+            { name: "CLI", borderColor: "#08ff00", textColor: "#33ff00", backgroundColor: "#021a00", foregroundColor: "#000" },
+
+        ] as Theme[],
+        fonts: ['MS UI Gothic', "Times New Roman", "Comic Sans MS", "Verdana", "Arial", "Calibri", "Consolas", "Courier New", "Lucida Sans Unicode", "Segoe UI"] as string[],
+        selectedTheme: 0,
+        selectedFont: 0
     })
+
+    createEffect(() => {
+        const selectedTheme = localStorage.getItem("selectedTheme")
+        if (selectedTheme) {
+            store.selectedTheme = JSON.parse(selectedTheme)
+        }
+        const selectedFont = localStorage.getItem("selectedFont")
+        if (selectedFont) {
+            store.selectedFont = JSON.parse(selectedFont)
+        }
+    })
+
+
 
     function StorySelect(props: { name: string, children: any }) {
         return (
@@ -25,16 +54,17 @@ function Bio() {
         )
     }
 
+
     function Story(props: { children: any }) {
         return (
-            <div class="h-[90vh] overflow-auto">{props.children}</div>
+            <div class="h-[90vh] overflow-auto p-2">{props.children}</div>
         )
     }
 
     function BioTab(props: { value: string, children: any }) {
         return (
-            <TabsTrigger onClick={() => store.storyMode = false} class="transition-none border p-0 border-black bg-none
-            data-[selected]:underline hover:cursor-pointer hover:underline
+            <TabsTrigger onClick={() => store.storyMode = false} class="transition-none border p-0 border-none bg-none text-[var(--text-color)]
+            data-[selected]:underline hover:cursor-pointer hover:underline data-[selected]:hover:cursor-default
             "
                 value={props.value}>{props.children}</TabsTrigger>
         )
@@ -317,7 +347,8 @@ function Bio() {
                         "Hm... Why not? I mean, it couldn't hurt! I could always use a few new friends." It actually worked? I guess that's what most people do to find friends, so I probably shouldn't be surprised. Yet, with my outstanding single digit tally of the total friends I had made in person, I felt ecstatic.
                         <br />
                         We exchanged numbers, and talked for a bit longer. Sadly, I had to go home to finish up some work I had been putting off, so we said our goodbyes and I promised him I'd message him as soon as I could.
-
+                        <br />
+                        <br />
                         TO BE CONTINUED
                     </Story>
                 </Match>
@@ -363,123 +394,218 @@ function Bio() {
         )
     }
 
+    createEffect(() => {
+        setInterval(() => {
+            store.currentTime = new Date()
+        }, 1000)
+    })
 
     return (
-        <div class='[font-family:_"RussianGothic",_"MS_UI_Gothic",_"NEC_APC3",_Tahoma] h-screen bg-black text-white grid justify-center'>
-            <div class="border border-white w-[600px]">
-                <div class="border-b border-white">
-                    furfulcat's house!
-                </div>
-                <div >
-                    <Tabs orientation="vertical" class="grid grid-cols-[10fr_1fr] leading-4">
-                        <Show fallback={
-                            <div>
-                                <TabsContent value="home">
-                                    <div class="text-lg border-b border-dashed">Here lies a cat obsessed game developer.</div>
-                                    <div>Hiya! I'm furfulcat, an aspiring game developer who absolutely loves cats more than anything in the world! This is my webpage, a subdirectory of the website called <A class="text-pink-500 hover:underline cursor-pointer" href="/">fearfulcats.com</A>. Any part of this site outside of this subdirectory is made for my projects as a whole, while this area is for anything that's more personal.</div>
-                                </TabsContent>
-                                <TabsContent value="about">
-                                    <div class="text-lg border-b border-dashed">About me!</div>
-                                    <div>Let's see here... I'm a 20 year old catboy who also happens to be gay as hell! Oh, and I also have Avoidant Personality Disorder (AvPD). Might also have some other disorders, but its hard to get diagnosed when you're too scared to leave the house by yourself let alone talk to a stranger about your various issues... ANYWAYS! Due to such issues I live with my parents and don't have a full time job, although I do work once per week for my older brother as a full-stack developer. In my free time I typically indulge in one of my many hobbies.</div>
-                                    <div class="border-t border-b border-dashed border-white text-lg">Hobbies:</div>
-                                    <div>
-                                        <ul class="list-disc ml-5">
-                                            <li>making games</li>
-                                            <li>playing games</li>
-                                            <li>writing stories</li>
-                                            <li>cooking</li>
-                                            <li>listening to music (i listen to A LOT)</li>
-                                            <li>browsing art (especially anything cat related)</li>
-                                            <li>programming</li>
-                                            <li>building lego sets</li>
-                                        </ul>
-                                    </div>
-                                    <div class="border-t border-b border-dashed border-white text-lg">Minor Interests:</div>
-                                    <ul class="list-disc ml-5">
-                                        <li>astronomy</li>
-                                        <li>photography</li>
-                                        <li>drawing</li>
-                                        <li>collecting records/CDs</li>
-                                    </ul>
-                                </TabsContent>
-                                <TabsContent value="social">
-                                    <div>I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only have bluesky really just for yapping purposes.
-                                    </div>
+        <>
+            <Style>
+                {`
+            @keyframes scroll-vertical {
+                0% {
+                    background-position: 0 0;
+                }
+                100% {
+                    background-position: 0 100%;
+                }
+            }
+            @keyframes scroll-back {
+                0% {
+                    background-position: 0 0;
+                }
+                100% {
+                    background-position: 0 100%;
+                }
+            }
+                body{
+                    --border-color: ${store.themes[store.selectedTheme].borderColor};
+                    --text-color: ${store.themes[store.selectedTheme].textColor};
+                    --bg-color: ${store.themes[store.selectedTheme].backgroundColor};
+                    --fg-color: ${store.themes[store.selectedTheme].foregroundColor};
+                    --font-style: ${store.fonts[store.selectedFont]};
 
-                                    <A class="text-pink-500 hover:underline cursor-pointer" href="https://bsky.app/profile/furfulcat.bsky.social">Bluesky</A>
-                                </TabsContent>
-                                <TabsContent value="blog">
-                                    <div>Here I will write about anything I feel about writing whenever I feel the need to. These will be simple, text-only logs of my personal thoughts.</div>
-                                    <For each={store.blogs} children={(blog) => (
-                                        <BlogPost date={blog.date} text={blog.text} />
-                                    )} />
-                                </TabsContent>
-                                <TabsContent value="stories">
-                                    <div>Every now and then, I feel like writing and so I'll write up a short story or poem. Unfortunately, I don't always finish them... But hey, maybe putting them out here will inspire me to actually complete them at some point!</div>
-                                    <div class="border-t border-b border-dashed border-white text-lg">Original Stories</div>
-                                    <div><StorySelect name="timecat">Time Cat</StorySelect> | Started: 2025/01/14 | Updated: Never</div>
-                                    <div><StorySelect name="friend">Friend of a Friend</StorySelect> | Started: 2023/08/29 | Updated: 2023/09/09</div>
-                                    <div>
-                                        <div class="underline font-bold">Delinquents</div>
-                                        <div class="ml-5">
-                                            <div><StorySelect name="dlq_focus">The Philosophical Marksman</StorySelect> | Completed: 2023/11/08</div>
-                                            <div><StorySelect name="dlq_riot">The Lunatic Strategist</StorySelect> | Completed: 2023/11/07</div>
-                                            <div><StorySelect name="dlq_charade">The Concerned Killer</StorySelect> | Completed: 2023/11/05</div>
-                                        </div>
-                                    </div>
-                                    <div class="border-t border-b border-dashed border-white text-lg">Original Poetry</div>
-                                    <div><StorySelect name="dreams">Dreams</StorySelect> | Completed: 2024/12/22</div>
-                                    <div><StorySelect name="fuel2fire">The Fuel to the Fire</StorySelect> | Completed: 2024/12/17</div>
-                                    <div><StorySelect name="space">Space Junk</StorySelect> | Completed: 2024/10/13</div>
-
-                                </TabsContent>
-                                <TabsContent value="games">
-                                    <div>FAVORITE GAME OF ALL TIME: Nine Sols</div>
-                                    <div>SECOND FAVORITE GAME OF ALL TIME: OneShot</div>
-                                    <div>Other games/franchises I like (unordered):</div>
-                                    <div>Celeste, Subnautica, Persona 5, Cult of the Lamb, Tomodachi Life, Miitopia, Helldivers 2, Animal Crossing, Legend of Zelda, Undertale/Deltarune, Undertale Yellow, Paper Mario, Banjo-Kazooie, Cave Story, Hollow Knight, FNaF, Silent Hill 2, Resident Evil 2 & 4, Mega Man, Sonic the Hedgehog (mostly classic), Stardew Valley, WEBFISHING, Red Dead Redemption 2</div>
-                                </TabsContent>
-                                <TabsContent value="music">
-                                    <div>FAVORITE BAND OF ALL TIME: Famous Last Words</div>
-                                    <div>SECOND FAVORITE BAND OF ALL TIME: Alesana</div>
-                                    <div>Other bands/artists I like (unordered):</div>
-                                    <div>Daft Punk, deadmau5, she, Hail the Sun, Anatomy of a Ghost, Waterparks, napcast, The Strokes, My Chemical Romance, Pierce The Veil, Anamanaguchi, Closure in Moscow, Get Scared, I Don't Know How But They Found Me, Sleeping With Sirens, Paramore, From First to Last, Home, Before Today</div>
-                                    <div>I also listen to various video game soundtracks, far too many to list.</div>
-                                </TabsContent>
-                                <TabsContent value="media">
-                                    <div>will put movies, shows, & anime i like here later</div>
-                                </TabsContent>
-
-                            </div>
-                        } when={store.storyMode}>
-                            <Stories />
-                        </Show>
-                        <div class="border-l border-dashed">
-
-                            <TabsList class="flex flex-col p-0 w-full h-[200px] bg-transparent  border-b border-dashed text-white rounded-none place-items-center border-white">
-                                <BioTab value="home">Home</BioTab>
-                                <BioTab value="about">About</BioTab>
-                                <BioTab value="social">Social</BioTab>
-                                <BioTab value="blog">Blog</BioTab>
-                                <BioTab value="stories">Stories</BioTab>
-                                <div class="border-t border-b border-white">OBSESSIONS</div>
-                                <BioTab value="games">Games</BioTab>
-                                <BioTab value="music">Music</BioTab>
-                                <BioTab value="media">Media</BioTab>
-
-                            </TabsList>
-                            <div class="">
-
-                            </div>
-                        </div>
-
-                    </Tabs>
-                </div>
-                <div class="border-t border-white">
-
+                }
+            `}
+            </Style>
+            {/* <div class="min-w-screen min-h-screen absolute overflow-hidden pointer-events-none">
+                    <div style={{ "background-image": `url(${fg})`, "background-size": "100vw", animation: "scroll-vertical 10s linear infinite", "top": `${top}px`, "left": `${left}px`, "right": `${right}px`, "bottom": `${bottom}px`  }} class=" absolute bg-repeat h-[400%] w-full z-[2]  pointer-events-none [image-rendering:pixelated]"></div>
+            </div> */}
+            <div class='border fixed flex justify-center border-[var(--border-color)] text-[var(--text-color)] [font-family:var(--font-style)] w-full bg-[var(--fg-color)]'>
+                <div class="border-l border-dashed px-2 space-x-1">furfulcat's house!</div>
+                <div class="[color:lime] flex justify-center border-l border-r border-dashed border-[var(--border-color)]  px-2 space-x-1">
+                    <div>{store.currentTime.toLocaleDateString()}</div>
+                    <div>{store.currentTime.toLocaleTimeString()}</div>
                 </div>
             </div>
-        </div>
+            <div class='[font-family:var(--font-style)] min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] grid justify-center place-items-center'>
+                <div class="lg:w-[50vw] w-[90vw] space-y-5 py-20">
+                    <div class="border border-[var(--border-color)]  bg-[var(--fg-color)] ">
+
+                            <Tabs orientation="vertical" class="grid grid-cols-[10fr_1fr] leading-4 ">
+                                <Show fallback={
+                                    <div>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="home">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Here lies a cat obsessed game developer.</div>
+                                            <div>Hiya! I'm furfulcat, an aspiring game developer who absolutely loves cats more than anything in the world! This is my webpage, which happens to be a subdirectory of the website called <A class="text-pink-500 hover:underline cursor-pointer" href="/">fearfulcats.com</A>. Any part of this site apart from this subdirectory is made for my projects as a whole, while this area is for anything that's more personal.</div>
+                                            <div>Aside from that, I hope you enjoy your time here! This webpage is currently a work in progress, so expect frequent changes and updates. I'm also not the best at web design, so please bear with me as I work towards finding the perfect style for this place.</div>
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="about">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">About me!</div>
+                                            <div>Let's see here... I'm a 20 year old catboy who also happens to be gay as hell! Oh, and I also have Avoidant Personality Disorder (AvPD). If you don't know what that is, it's basically a disorder that makes you avoid any and all situations that involve socializing due to a fear of both people and their judgements. Typically leads to not having or losing prior friends, as I can attest to. Of course just because I have AVPD doesn't mean I don't want to have friends, in fact I would love to, I just don't have the capability to make/keep them. Try as I might, AVPD has a firm hold on me and I'm far too weak to break free. And who knows, I might also have some other disorders, but it's hard to get diagnosed when you're too scared to leave the house by yourself let alone talk to a stranger about your various issues... ANYWAYS! Due to such issues I live with my parents and don't have a full time job, although I do work once per week for my older brother as a full-stack developer. In my free time I typically indulge in one of my many hobbies.</div>
+                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Hobbies:</div>
+                                            <div>
+                                                <ul class="list-disc ml-5">
+                                                    <li>making games</li>
+                                                    <li>playing games</li>
+                                                    <li>writing stories</li>
+                                                    <li>cooking</li>
+                                                    <li>listening to music (i listen to A LOT)</li>
+                                                    <li>browsing art (especially anything cat related)</li>
+                                                    <li>programming</li>
+                                                    <li>building lego sets</li>
+                                                </ul>
+                                            </div>
+                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Minor Interests:</div>
+                                            <ul class="list-disc ml-5">
+                                                <li>astronomy</li>
+                                                <li>photography</li>
+                                                <li>drawing</li>
+                                                <li>collecting records/CDs</li>
+                                            </ul>
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="social">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Find me elsewhere!</div>
+
+                                            <div>I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only really have bluesky just for yapping purposes, and discord for communication. I don't have a server or anything, but my user is simply furfulcat.
+                                            </div>
+
+                                            <A class="text-pink-500 hover:underline cursor-pointer" href="https://bsky.app/profile/furfulcat.bsky.social">Bluesky</A>
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="blog">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Personal ramblings...</div>
+                                            <div class="border-b border-dashed border-[var(--border-color)]">Here I will write about anything I feel about writing whenever I feel the need to. These will be simple, text-only logs of my personal thoughts.</div>
+                                            <For each={store.blogs} children={(blog) => (
+                                                <BlogPost date={blog.date} text={blog.text} />
+                                            )} />
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="stories">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Tales of all kinds.</div>
+                                            <div>Every now and then, I feel like writing and so I'll write up a short story or poem. Unfortunately, I don't always finish them... But hey, maybe putting them out here will inspire me to actually complete them at some point!</div>
+                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Stories</div>
+                                            <div><StorySelect name="timecat">Time Cat</StorySelect> | Started: 2025/01/14 | Updated: Never</div>
+                                            <div><StorySelect name="friend">Friend of a Friend</StorySelect> | Started: 2023/08/29 | Updated: 2023/09/09</div>
+                                            <div>
+                                                <div class="underline font-bold">Delinquents</div>
+                                                <div class="ml-5">
+                                                    <div><StorySelect name="dlq_focus">The Philosophical Marksman</StorySelect> | Completed: 2023/11/08</div>
+                                                    <div><StorySelect name="dlq_riot">The Lunatic Strategist</StorySelect> | Completed: 2023/11/07</div>
+                                                    <div><StorySelect name="dlq_charade">The Concerned Killer</StorySelect> | Completed: 2023/11/05</div>
+                                                </div>
+                                            </div>
+                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Poetry</div>
+                                            <div><StorySelect name="dreams">Dreams</StorySelect> | Completed: 2024/12/22</div>
+                                            <div><StorySelect name="fuel2fire">The Fuel to the Fire</StorySelect> | Completed: 2024/12/17</div>
+                                            <div><StorySelect name="space">Space Junk</StorySelect> | Completed: 2024/10/13</div>
+
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="games">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: GAMES</div>
+
+                                            <div>FAVORITE GAME OF ALL TIME: Nine Sols</div>
+                                            <div>SECOND FAVORITE GAME OF ALL TIME: OneShot</div>
+                                            <div>Other games/franchises I like (unordered):</div>
+                                            <div>Celeste, Subnautica, Persona 5, Cult of the Lamb, Tomodachi Life, Miitopia, Helldivers 2, Animal Crossing, Legend of Zelda, Undertale/Deltarune, Undertale Yellow, Paper Mario, Banjo-Kazooie, Cave Story, Hollow Knight, FNaF, Silent Hill 2, Resident Evil 2 & 4, Mega Man, Sonic the Hedgehog (mostly classic), Stardew Valley, WEBFISHING, Red Dead Redemption 2</div>
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="music">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MUSIC</div>
+
+                                            <div>FAVORITE BAND OF ALL TIME: Famous Last Words</div>
+                                            <div>SECOND FAVORITE BAND OF ALL TIME: Alesana</div>
+                                            <div>Other bands/artists I like (unordered):</div>
+                                            <div>Daft Punk, deadmau5, she, Hail the Sun, Anatomy of a Ghost, Waterparks, napcast, The Strokes, My Chemical Romance, Pierce The Veil, Anamanaguchi, Closure in Moscow, Get Scared, I Don't Know How But They Found Me, Sleeping With Sirens, Paramore, From First to Last, Home, Before Today</div>
+                                            <div>I also listen to various video game soundtracks, far too many to list.</div>
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="media">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MEDIA</div>
+
+                                            <div>will put movies, shows, & anime i like here later</div>
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="themes">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Select a color set! (Page is designed for Dark)</div>
+                                            <For each={store.themes} children={(theme, i) => (
+                                                <div aria-selected={i() == store.selectedTheme} class="aria-selected:hover:cursor-default hover:cursor-pointer border hover:underline aria-selected:underline py-1 m-2 flex justify-center" style={{ "border-color": theme.borderColor, "background-color": theme.backgroundColor, "color": theme.textColor }}
+                                                    onClick={() => {
+                                                        store.selectedTheme = i()
+                                                        localStorage.setItem("selectedTheme", JSON.stringify(store.selectedTheme))
+                                                    }}>
+                                                        <div style={{"background-color": theme.foregroundColor, "border-color": theme.borderColor}} class="w-[100px] text-center border py-1">{theme.name}</div>
+                                                    </div>
+                                            )} />
+
+                                        </TabsContent>
+                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="fonts">
+                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Choose a font! (Page is designed for MS UI Gothic)</div>
+                                            <For each={store.fonts} children={(font, i) => (
+                                                <div aria-selected={i() == store.selectedFont} class="aria-selected:hover:cursor-default hover:cursor-pointer hover:underline aria-selected:underline py-1 m-2 flex justify-center"
+                                                    onClick={() => {
+                                                        store.selectedFont = i()
+                                                        localStorage.setItem("selectedFont", JSON.stringify(store.selectedFont))
+                                                    }}>{font}
+                                                    </div>
+                                            )} />
+
+                                        </TabsContent>
+
+
+                                    </div>
+                                } when={store.storyMode}>
+                                    <Stories />
+                                </Show>
+                                <div class="border-l border-[var(--border-color)] border-dashed h-[90vh]">
+
+                                    <TabsList class="flex flex-col p-0 w-full h-[250px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
+                                        <BioTab value="home">Home</BioTab>
+                                        <BioTab value="about">About</BioTab>
+                                        <BioTab value="social">Social</BioTab>
+                                        <BioTab value="blog">Blog</BioTab>
+                                        <BioTab value="stories">Stories</BioTab>
+                                        <div class="border-t border-b border-[var(--border-color)] w-full text-center">OBSESSIONS</div>
+                                        <BioTab value="games">Games</BioTab>
+                                        <BioTab value="music">Music</BioTab>
+                                        <BioTab value="media">Media</BioTab>
+                                        {/* <div class="border-t border-b border-[var(--border-color)]">INTERACTIVES</div> */}
+                                        <div class="border-t border-b border-[var(--border-color)] w-full text-center">APPEARANCE</div>
+                                        <BioTab value="themes">Themes</BioTab>
+                                        <BioTab value="fonts">Fonts</BioTab>
+
+
+                                    </TabsList>
+
+                                </div>
+
+                            </Tabs>
+
+                    </div>
+                    <div class="grid grid-cols-2 gap-20 leading-4">
+                        <div class="border border-[var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
+                            <div class="underline font-bold p-2">Updates:</div>
+                            <div class=" p-2">
+                                2025/02/24: v4.1 - reworked site spacing, moved header and added local date/time ticker, added appearance section, which includes themes and fonts selectors, added foreground coloring
+                                <br/>
+                                <br/>
+                                2025/02/23: v4.0 - created home page with barebones design
+                            </div>
+                        </div>
+                        <div class="border border-[var(--border-color)]  bg-[var(--fg-color)] h-[30vh] overflow-auto hidden">
+                            hi
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
 
@@ -488,7 +614,7 @@ function Bio() {
 
 function BlogPost(props: { text: string, date: string }) {
     return (
-        <div class="p-2 m-2 border-white border">{props.date}: {props.text}</div>
+        <div class="p-2 m-2 border-[var(--border-color)] border">{props.date}: {props.text}</div>
     )
 }
 
