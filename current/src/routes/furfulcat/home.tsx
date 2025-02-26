@@ -5,26 +5,61 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 
 
 import { Style } from "@solidjs/meta"
+import placeholderBadge from "../../assets/furfulcat/placeholderbadge.png"
+import furfulBadge from "../../assets/furfulcat/furfulbadge.gif"
+import houseBadge from "../../assets/furfulcat/housebadge.gif"
+
+
 
 type Blog = { text: string, date: string }
 type Theme = { textColor: string, borderColor: string, backgroundColor: string, name: string, foregroundColor: string }
+type Badge = {name: string, link: string, img: string} 
+type CharacterMode = "furfulcat" | "Dusty" | "Flaky"
 
 function Bio() {
     const store = createMutable({
         blogs: [
+            { date: "2025/02/25", text: "Added a bunch of new stuff to the site today! Also gonna connect my nekoweb site up to this site shortly after pushing this update, anyways my monitor did NOT arrive today (wtf), so I'll have to postpone the server till it actually decides to arrive. But on a more positive note I've been getting more ideas for my site lately! I've added that in a new 'Upcoming' section, check it out if you haven't! The biggest addition in my opinion however is the Guestbook, and if you're reading this feel free to comment and add your website so I can check out yours! I need more site badges to add to the top marquee (for aesthetic purposes mostly), and I'd happily add anyone who leaves their site in the guestbook." },
             { date: "2025/02/24", text: "As promised, I continued working on my site today. I added and altered a bunch of stuff, as you can see for yourself in the new updates section below the main box! I'm sure I could stand to add/change some more stuff, but I'm drawing blanks as of now. I'll just update this site whenever inspiration hits. On an unrelated note, I'm currently waiting for a 'new' monitor to arrive so I can set up my old PC as a dedicated WEBFISHING server. It should arrive tomorrow if all goes well, and if so I'll immediately set that up. It should be a preferable alternative to hosting lobbies on my own computer and having to kick everyone off when I have to leave." },
             { date: "2025/02/23", text: "Today I started on the 4th revamp of my website! Spent most of the day doing that, it's a whole lot of work to be honest. This is definitely the most elaborate version so far. I'm hoping to finish most of the design stuff tomorrow when I'm less sleepy!" },
         ] as Blog[],
+        badges: [
+            {name: "nekoweb", img: "https://nekoweb.org/assets/buttons/button6.gif", link: "https://nekoweb.org/"},
+            {name: "furfulcat's house", img: furfulBadge, link: "./home"},
+            {name: "furfulcat's house", img: houseBadge, link: "./home"},
+            {name: "dimden", img: "https://dimden.dev/services/images/88x31.gif", link: "https://dimden.dev/"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            {name: "placeholder", img: placeholderBadge, link: "./home"},
+        ] as Badge[],
         storyMode: false,
         selectedStory: "",
+        characterMode: "furfulcat" as CharacterMode,
         currentTime: new Date(),
         themes: [
             { name: "Dark", borderColor: "white", textColor: "white", backgroundColor: "#0f0f0f", foregroundColor: "black" },
             { name: "Light", borderColor: "black", textColor: "black", backgroundColor: "#e6e6e6", foregroundColor: "white" },
-            { name: "Dusty", borderColor: "#299920", textColor: "#827b7b", backgroundColor: "#353535", foregroundColor: "#262626" },
-            { name: "Flaky", borderColor: "#28fd17", textColor: "#f7f7f7", backgroundColor: "#959595", foregroundColor: "#b7b7b7" },
+            { name: "Dusty", borderColor: "#299920", textColor: "#f4f4f4", backgroundColor: "#8a8a8a", foregroundColor: "#a7a7a7" },
+            { name: "Flaky", borderColor: "#28fd17", textColor: "#4d4d4d", backgroundColor: "#b5b5b5", foregroundColor: "#d4d4d4" },
             { name: "Beehive", borderColor: "#ffe305", textColor: "#fff1bb", backgroundColor: "#0f0f01", foregroundColor: "#201a03" },
             { name: "CLI", borderColor: "#08ff00", textColor: "#33ff00", backgroundColor: "#021a00", foregroundColor: "#000" },
+            { name: "Waterfall", borderColor: "#6ef0ff", textColor: "#00f3ff", backgroundColor: "#171443", foregroundColor: "#1c235c" },
+            { name: "Crimson", borderColor: "red", textColor: "#df0000", backgroundColor: "#480606", foregroundColor: "#220808" },
+
+
 
         ] as Theme[],
         fonts: ['MS UI Gothic', "Times New Roman", "Comic Sans MS", "Verdana", "Arial", "Calibri", "Consolas", "Courier New", "Lucida Sans Unicode", "Segoe UI"] as string[],
@@ -36,11 +71,17 @@ function Bio() {
         const selectedTheme = localStorage.getItem("selectedTheme")
         if (selectedTheme) {
             store.selectedTheme = JSON.parse(selectedTheme)
+            
         }
         const selectedFont = localStorage.getItem("selectedFont")
         if (selectedFont) {
             store.selectedFont = JSON.parse(selectedFont)
         }
+    })
+    createEffect(()=>{
+        if (store.selectedTheme == 2) store.characterMode = "Dusty"
+        else if (store.selectedTheme == 3) store.characterMode = "Flaky"
+        else store.characterMode = "furfulcat"
     })
 
 
@@ -61,11 +102,11 @@ function Bio() {
         )
     }
 
-    function BioTab(props: { value: string, children: any }) {
+    function BioTab(props: { value: string, children: any, class?: string }) {
         return (
-            <TabsTrigger onClick={() => store.storyMode = false} class="transition-none border p-0 border-none bg-none text-[var(--text-color)]
-            data-[selected]:underline hover:cursor-pointer hover:underline data-[selected]:hover:cursor-default
-            "
+            <TabsTrigger onClick={() => store.storyMode = false} class={`transition-none border p-0 border-none bg-none text-[var(--text-color)]
+            data-[selected]:underline hover:cursor-pointer hover:underline data-[selected]:hover:cursor-default hover:[letter-spacing:1px] data-[selected]:[letter-spacing:1px]
+            ${props.class}`}
                 value={props.value}>{props.children}</TabsTrigger>
         )
     }
@@ -404,6 +445,22 @@ function Bio() {
         <>
             <Style>
                 {`
+            @keyframes marquee {
+                from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+    @keyframes marquee-abs {
+  from {
+    transform: translateX(calc(100% + var(--marquee-gap)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+            }
             @keyframes scroll-vertical {
                 0% {
                     background-position: 0 0;
@@ -420,187 +477,327 @@ function Bio() {
                     background-position: 0 100%;
                 }
             }
+            @keyframes colorRotate {
+                0% {
+          color: #ff4747;
+        }
+        10% {
+          color: #ff8347;
+        }
+        20% {
+          color: #ffe047;
+        }
+        30% {
+          color: #66ff47;
+        }
+        40% {
+          color: #6ff;
+        }
+        50% {
+          color: #44abff;
+        }
+        60% {
+          color: #3730ff;
+        }
+        70% {
+          color: #7c51ff;
+        }
+        80% {
+          color: #ff51f6;
+        }
+        90% {
+          color: #ff007d;
+        }
+        100% {
+          color: #ff4747;
+        }
+            }
                 body{
                     --border-color: ${store.themes[store.selectedTheme].borderColor};
                     --text-color: ${store.themes[store.selectedTheme].textColor};
                     --bg-color: ${store.themes[store.selectedTheme].backgroundColor};
                     --fg-color: ${store.themes[store.selectedTheme].foregroundColor};
                     --font-style: ${store.fonts[store.selectedFont]};
+                    --marquee-gap: .5rem;
 
                 }
+                    .marquee {
+                    --gap: 1rem;
+                    display: flex;
+                    overflow: hidden;
+                    user-select: none;
+                    gap: var(--marquee-gap);
+                    }
+
+                    .marquee__content {
+                    flex-shrink: 0;
+                    display: flex;
+                    justify-content: space-around;
+                    min-width: 100%;
+                    gap: var(--marquee-gap);
+                    animation: marquee 30s linear infinite;
+                    }
+
+                    .marquee--hover-pause:hover .marquee__content {
+                    animation-play-state: paused;
+                    }
+
+
+
+
+
             `}
             </Style>
             {/* <div class="min-w-screen min-h-screen absolute overflow-hidden pointer-events-none">
                     <div style={{ "background-image": `url(${fg})`, "background-size": "100vw", animation: "scroll-vertical 10s linear infinite", "top": `${top}px`, "left": `${left}px`, "right": `${right}px`, "bottom": `${bottom}px`  }} class=" absolute bg-repeat h-[400%] w-full z-[2]  pointer-events-none [image-rendering:pixelated]"></div>
             </div> */}
-            <div class='border fixed flex justify-center border-[var(--border-color)] text-[var(--text-color)] [font-family:var(--font-style)] w-full bg-[var(--fg-color)]'>
-                <div class="border-l border-dashed px-2 space-x-1">furfulcat's house!</div>
+            <div class='[box-shadow:1px_1px_8px_0px_var(--border-color)] z-10 border fixed flex justify-center border-[var(--border-color)] text-[var(--text-color)] [font-family:var(--font-style)] w-full bg-[var(--fg-color)]'>
+                <div class="border-l border-dashed px-2 border-[var(--border-color)]  space-x-1">{store.characterMode == "furfulcat" ? "furfulcat's house" : `${store.characterMode}'s room` }</div>
                 <div class="[color:lime] flex justify-center border-l border-r border-dashed border-[var(--border-color)]  px-2 space-x-1">
                     <div>{store.currentTime.toLocaleDateString()}</div>
                     <div>{store.currentTime.toLocaleTimeString()}</div>
                 </div>
             </div>
-            <div class='[font-family:var(--font-style)] min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] grid justify-center place-items-center'>
-                <div class="lg:w-[50vw] w-[90vw] space-y-5 py-20">
-                    <div class="border border-[var(--border-color)]  bg-[var(--fg-color)] ">
+            <div class='[font-family:var(--font-style)] min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] grid justify-center place-items-center [image-rendering:pixelated]'>
+                <div class="marquee marquee--hover-pause mt-10">
+                    <div class="marquee__content ">
+                        <For
+                        each={store.badges}
+                        children={(badge)=>(
+                            <a href={badge.link} class="cursor-pointer">
+                                <img alt={badge.name} title={badge.name} src={badge.img}/>
+                            </a>
+                        )}
+                        />
+                    </div>
+                    <div aria-hidden="true" class="marquee__content">
+                    <For
+                        each={store.badges}
+                        children={(badge)=>(
+                            <a href={badge.link}  class="cursor-pointer">
+                                <img alt={badge.name} title={badge.name} src={badge.img}/>
+                            </a>
+                        )}
+                        />
+                    </div>
+                </div>
+                <div class="lg:w-[50vw] w-[90vw] space-y-5 py-5">
+                    <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)]  bg-[var(--fg-color)] ">
 
-                            <Tabs orientation="vertical" class="grid grid-cols-[10fr_1fr] leading-4 ">
-                                <Show fallback={
-                                    <div>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="home">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Here lies a cat obsessed game developer.</div>
-                                            <div>Hiya! I'm furfulcat, an aspiring game developer who absolutely loves cats more than anything in the world! This is my webpage, which happens to be a subdirectory of the website called <A class="text-pink-500 hover:underline cursor-pointer" href="/">fearfulcats.com</A>. Any part of this site apart from this subdirectory is made for my projects as a whole, while this area is for anything that's more personal.</div>
-                                            <div>Aside from that, I hope you enjoy your time here! This webpage is currently a work in progress, so expect frequent changes and updates. I'm also not the best at web design, so please bear with me as I work towards finding the perfect style for this place.</div>
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="about">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">About me!</div>
-                                            <div>Let's see here... I'm a 20 year old catboy who also happens to be gay as hell! Oh, and I also have Avoidant Personality Disorder (AvPD). If you don't know what that is, it's basically a disorder that makes you avoid any and all situations that involve socializing due to a fear of both people and their judgements. Typically leads to not having or losing prior friends, as I can attest to. Of course just because I have AVPD doesn't mean I don't want to have friends, in fact I would love to, I just don't have the capability to make/keep them. Try as I might, AVPD has a firm hold on me and I'm far too weak to break free. And who knows, I might also have some other disorders, but it's hard to get diagnosed when you're too scared to leave the house by yourself let alone talk to a stranger about your various issues... ANYWAYS! Due to such issues I live with my parents and don't have a full time job, although I do work once per week for my older brother as a full-stack developer. In my free time I typically indulge in one of my many hobbies.</div>
-                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Hobbies:</div>
-                                            <div>
-                                                <ul class="list-disc ml-5">
-                                                    <li>making games</li>
-                                                    <li>playing games</li>
-                                                    <li>writing stories</li>
-                                                    <li>cooking</li>
-                                                    <li>listening to music (i listen to A LOT)</li>
-                                                    <li>browsing art (especially anything cat related)</li>
-                                                    <li>programming</li>
-                                                    <li>building lego sets</li>
-                                                </ul>
-                                            </div>
-                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Minor Interests:</div>
+                        <Tabs orientation="vertical" class="grid grid-cols-[10fr_1fr] leading-4 ">
+                            <Show fallback={
+                                <div>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="home">
+                                        <Switch>
+                                            <Match when={store.characterMode == "furfulcat"}>
+                                                <div class="text-lg border-b border-dashed border-[var(--border-color)]">Here lies a cat obsessed game developer.</div>
+                                                <div>Hiya! I'm furfulcat, an aspiring game developer who absolutely loves cats more than anything in the world! This is my webpage, which happens to be a subdirectory of the website called <A class="text-pink-500 hover:underline cursor-pointer" href="/">fearfulcats.com</A>. Any part of this site apart from this subdirectory is made for my projects as a whole, while this area is for anything that's more personal.</div>
+                                                <div>Aside from that, I hope you enjoy your time here! This webpage is currently a work in progress, so expect frequent changes and updates. I'm also not the best at web design, so please bear with me as I work towards finding the perfect style for this place.</div>
+                                            </Match>
+                                            <Match when={store.characterMode == "Dusty"}>
+                                                <div class="text-lg border-b border-dashed border-[var(--border-color)]">The world of Dusty.</div>
+                                                <div>Hey, I'm Dusty. Dunno what could've brought you here, but welcome. Stay as long as you want, just don't get in my way. Better yet, go visit my friend Flaky, he'd do a much better job of humoring you. But I'd advise you to be careful. Flaky is the only one I trust, and as such I'll protect him with my life.</div>
+                                            </Match>
+                                            <Match when={store.characterMode == "Flaky"}>
+                                                <div class="text-lg border-b border-dashed border-[var(--border-color)]">Flaky's place!</div>
+                                                <div>Welcome to my room! I'm Flaky, a totally awesome cat thats way too energetic for his own good! Have you met my friend Dusty? He might seem a little intimidating at first, but trust me when I say deep down he's a real softie! Well, he is to me at least... just try getting through that thick shell of his!</div>
+                                            </Match>
+                                        </Switch>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="about">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">About me!</div>
+                                        <div>Let's see here... I'm a 20 year old catboy who also happens to be gay as hell! Oh, and I also have Avoidant Personality Disorder (AvPD). If you don't know what that is, it's basically a disorder that makes you avoid any and all situations that involve socializing due to a fear of both people and their judgements. Typically leads to not having or losing prior friends, as I can attest to. Of course just because I have AvPD doesn't mean I don't want to have friends, in fact I would love to, I just don't have the capability to make/keep them. Try as I might, AvPD has a firm hold on me and I'm far too weak to break free. And who knows, I might also have some other disorders, but it's hard to get diagnosed when you're too scared to leave the house by yourself let alone talk to a stranger about your various issues... ANYWAYS! Due to such issues I live with my parents and don't have a full time job, although I do work once per week for my older brother as a full-stack developer. In my free time I typically indulge in one of my many hobbies.</div>
+                                        <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Hobbies:</div>
+                                        <div>
                                             <ul class="list-disc ml-5">
-                                                <li>astronomy</li>
-                                                <li>photography</li>
-                                                <li>drawing</li>
-                                                <li>collecting records/CDs</li>
+                                                <li>making games</li>
+                                                <li>playing games</li>
+                                                <li>writing stories</li>
+                                                <li>cooking</li>
+                                                <li>listening to music (i listen to A LOT)</li>
+                                                <li>browsing art (especially anything cat related)</li>
+                                                <li>programming</li>
+                                                <li>building lego sets</li>
                                             </ul>
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="social">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Find me elsewhere!</div>
+                                        </div>
+                                        <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Minor Interests:</div>
+                                        <ul class="list-disc ml-5">
+                                            <li>astronomy</li>
+                                            <li>photography</li>
+                                            <li>drawing</li>
+                                            <li>collecting records/CDs</li>
+                                        </ul>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="social">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Find me elsewhere!</div>
 
-                                            <div>I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only really have bluesky just for yapping purposes, and discord for communication. I don't have a server or anything, but my user is simply furfulcat.
+                                        <div>I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only really have bluesky just for yapping purposes, and discord for communication. I don't have a server or anything, but my user is simply furfulcat.
+                                        </div>
+
+                                        <A class="text-pink-500 hover:underline cursor-pointer" href="https://bsky.app/profile/furfulcat.bsky.social">Bluesky</A>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="blog">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Personal ramblings...</div>
+                                        <div class="border-b border-dashed border-[var(--border-color)]">Here I will write about anything I feel about writing whenever I feel the need to. These will be simple, text-only logs of my personal thoughts.</div>
+                                        <For each={store.blogs} children={(blog) => (
+                                            <BlogPost date={blog.date} text={blog.text} />
+                                        )} />
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="stories">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Tales of all kinds.</div>
+                                        <div>Every now and then, I feel like writing and so I'll write up a short story or poem. Unfortunately, I don't always finish them... But hey, maybe putting them out here will inspire me to actually complete them at some point!</div>
+                                        <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Stories</div>
+                                        <div><StorySelect name="timecat">Time Cat</StorySelect> | Started: 2025/01/14 | Updated: Never</div>
+                                        <div><StorySelect name="friend">Friend of a Friend</StorySelect> | Started: 2023/08/29 | Updated: 2023/09/09</div>
+                                        <div>
+                                            <div class="underline font-bold">Delinquents</div>
+                                            <div class="ml-5">
+                                                <div><StorySelect name="dlq_focus">The Philosophical Marksman</StorySelect> | Completed: 2023/11/08</div>
+                                                <div><StorySelect name="dlq_riot">The Lunatic Strategist</StorySelect> | Completed: 2023/11/07</div>
+                                                <div><StorySelect name="dlq_charade">The Concerned Killer</StorySelect> | Completed: 2023/11/05</div>
                                             </div>
+                                        </div>
+                                        <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Poetry</div>
+                                        <div><StorySelect name="dreams">Dreams</StorySelect> | Completed: 2024/12/22</div>
+                                        <div><StorySelect name="fuel2fire">The Fuel to the Fire</StorySelect> | Completed: 2024/12/17</div>
+                                        <div><StorySelect name="space">Space Junk</StorySelect> | Completed: 2024/10/13</div>
 
-                                            <A class="text-pink-500 hover:underline cursor-pointer" href="https://bsky.app/profile/furfulcat.bsky.social">Bluesky</A>
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="blog">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Personal ramblings...</div>
-                                            <div class="border-b border-dashed border-[var(--border-color)]">Here I will write about anything I feel about writing whenever I feel the need to. These will be simple, text-only logs of my personal thoughts.</div>
-                                            <For each={store.blogs} children={(blog) => (
-                                                <BlogPost date={blog.date} text={blog.text} />
-                                            )} />
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="stories">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Tales of all kinds.</div>
-                                            <div>Every now and then, I feel like writing and so I'll write up a short story or poem. Unfortunately, I don't always finish them... But hey, maybe putting them out here will inspire me to actually complete them at some point!</div>
-                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Stories</div>
-                                            <div><StorySelect name="timecat">Time Cat</StorySelect> | Started: 2025/01/14 | Updated: Never</div>
-                                            <div><StorySelect name="friend">Friend of a Friend</StorySelect> | Started: 2023/08/29 | Updated: 2023/09/09</div>
-                                            <div>
-                                                <div class="underline font-bold">Delinquents</div>
-                                                <div class="ml-5">
-                                                    <div><StorySelect name="dlq_focus">The Philosophical Marksman</StorySelect> | Completed: 2023/11/08</div>
-                                                    <div><StorySelect name="dlq_riot">The Lunatic Strategist</StorySelect> | Completed: 2023/11/07</div>
-                                                    <div><StorySelect name="dlq_charade">The Concerned Killer</StorySelect> | Completed: 2023/11/05</div>
-                                                </div>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="games">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: GAMES</div>
+
+                                        <div>FAVORITE GAME OF ALL TIME: Nine Sols</div>
+                                        <div>SECOND FAVORITE GAME OF ALL TIME: OneShot</div>
+                                        <div>Other games/franchises I like (unordered):</div>
+                                        <div>Celeste, Subnautica, Persona 5, Cult of the Lamb, Tomodachi Life, Miitopia, Helldivers 2, Animal Crossing, Legend of Zelda, Undertale/Deltarune, Undertale Yellow, Paper Mario, Banjo-Kazooie, Cave Story, Hollow Knight, FNaF, Silent Hill 2, Resident Evil 2 & 4, Mega Man, Sonic the Hedgehog (mostly classic), Stardew Valley, WEBFISHING, Red Dead Redemption 2</div>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="music">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MUSIC</div>
+
+                                        <div>FAVORITE BAND OF ALL TIME: Famous Last Words</div>
+                                        <div>SECOND FAVORITE BAND OF ALL TIME: Alesana</div>
+                                        <div>Other bands/artists I like (unordered):</div>
+                                        <div>Daft Punk, deadmau5, she, Hail the Sun, Anatomy of a Ghost, Waterparks, napcast, The Strokes, My Chemical Romance, Pierce The Veil, Anamanaguchi, Closure in Moscow, Get Scared, I Don't Know How But They Found Me, Sleeping With Sirens, Paramore, From First to Last, Home, Before Today</div>
+                                        <div>I also listen to various video game soundtracks, far too many to list.</div>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="media">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MEDIA</div>
+
+                                        <div>will put movies, shows, & anime i like here later</div>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="themes">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Select a color set! (Page is designed for Dark)</div>
+                                        <For each={store.themes} children={(theme, i) => (
+                                            <div aria-selected={i() == store.selectedTheme} class="aria-selected:hover:cursor-default hover:cursor-pointer border hover:underline aria-selected:underline py-1 m-2 flex justify-center" style={{ "border-color": theme.borderColor, "background-color": theme.backgroundColor, "color": theme.textColor }}
+                                                onClick={() => {
+                                                    if (theme.name == "Dusty") store.characterMode = "Dusty"
+                                                    else if (theme.name == "Flaky") store.characterMode = "Flaky"
+                                                    else store.characterMode = "furfulcat"
+                                                    store.selectedTheme = i()
+                                                    localStorage.setItem("selectedTheme", JSON.stringify(store.selectedTheme))
+                                                }}>
+                                                <div style={{ "background-color": theme.foregroundColor, "border-color": theme.borderColor, "box-shadow": `1px 1px 8px 0px ${theme.borderColor}` }} class="w-[100px] text-center border py-1">{theme.name}</div>
                                             </div>
-                                            <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Poetry</div>
-                                            <div><StorySelect name="dreams">Dreams</StorySelect> | Completed: 2024/12/22</div>
-                                            <div><StorySelect name="fuel2fire">The Fuel to the Fire</StorySelect> | Completed: 2024/12/17</div>
-                                            <div><StorySelect name="space">Space Junk</StorySelect> | Completed: 2024/10/13</div>
+                                        )} />
 
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="games">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: GAMES</div>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="fonts">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Choose a font! (Page is designed for MS UI Gothic)</div>
+                                        <For each={store.fonts} children={(font, i) => (
+                                            <div aria-selected={i() == store.selectedFont} class="aria-selected:hover:cursor-default hover:cursor-pointer hover:underline aria-selected:underline py-1 m-2 flex justify-center"
+                                                onClick={() => {
+                                                    store.selectedFont = i()
+                                                    localStorage.setItem("selectedFont", JSON.stringify(store.selectedFont))
+                                                }}>{font}
+                                            </div>
+                                        )} />
 
-                                            <div>FAVORITE GAME OF ALL TIME: Nine Sols</div>
-                                            <div>SECOND FAVORITE GAME OF ALL TIME: OneShot</div>
-                                            <div>Other games/franchises I like (unordered):</div>
-                                            <div>Celeste, Subnautica, Persona 5, Cult of the Lamb, Tomodachi Life, Miitopia, Helldivers 2, Animal Crossing, Legend of Zelda, Undertale/Deltarune, Undertale Yellow, Paper Mario, Banjo-Kazooie, Cave Story, Hollow Knight, FNaF, Silent Hill 2, Resident Evil 2 & 4, Mega Man, Sonic the Hedgehog (mostly classic), Stardew Valley, WEBFISHING, Red Dead Redemption 2</div>
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="music">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MUSIC</div>
-
-                                            <div>FAVORITE BAND OF ALL TIME: Famous Last Words</div>
-                                            <div>SECOND FAVORITE BAND OF ALL TIME: Alesana</div>
-                                            <div>Other bands/artists I like (unordered):</div>
-                                            <div>Daft Punk, deadmau5, she, Hail the Sun, Anatomy of a Ghost, Waterparks, napcast, The Strokes, My Chemical Romance, Pierce The Veil, Anamanaguchi, Closure in Moscow, Get Scared, I Don't Know How But They Found Me, Sleeping With Sirens, Paramore, From First to Last, Home, Before Today</div>
-                                            <div>I also listen to various video game soundtracks, far too many to list.</div>
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="media">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MEDIA</div>
-
-                                            <div>will put movies, shows, & anime i like here later</div>
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="themes">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Select a color set! (Page is designed for Dark)</div>
-                                            <For each={store.themes} children={(theme, i) => (
-                                                <div aria-selected={i() == store.selectedTheme} class="aria-selected:hover:cursor-default hover:cursor-pointer border hover:underline aria-selected:underline py-1 m-2 flex justify-center" style={{ "border-color": theme.borderColor, "background-color": theme.backgroundColor, "color": theme.textColor }}
-                                                    onClick={() => {
-                                                        store.selectedTheme = i()
-                                                        localStorage.setItem("selectedTheme", JSON.stringify(store.selectedTheme))
-                                                    }}>
-                                                        <div style={{"background-color": theme.foregroundColor, "border-color": theme.borderColor}} class="w-[100px] text-center border py-1">{theme.name}</div>
-                                                    </div>
-                                            )} />
-
-                                        </TabsContent>
-                                        <TabsContent class="overflow-auto max-h-[95vh] p-2" value="fonts">
-                                            <div class="text-lg border-b border-dashed border-[var(--border-color)]">Choose a font! (Page is designed for MS UI Gothic)</div>
-                                            <For each={store.fonts} children={(font, i) => (
-                                                <div aria-selected={i() == store.selectedFont} class="aria-selected:hover:cursor-default hover:cursor-pointer hover:underline aria-selected:underline py-1 m-2 flex justify-center"
-                                                    onClick={() => {
-                                                        store.selectedFont = i()
-                                                        localStorage.setItem("selectedFont", JSON.stringify(store.selectedFont))
-                                                    }}>{font}
-                                                    </div>
-                                            )} />
-
-                                        </TabsContent>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="resources">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)] mb-2">Webpage construction utilities.</div>
+                                        <div>My buttons! Feel free to hotlink if you'd like.</div>
+                                        <div class="flex gap-2 mt-2">
+                                            <div class="space-y-2">
+                                                <img src={furfulBadge} title="furfulcat's house"/>
+                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="https://fearfulcats.com/assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
+                                            </div>
+                                            <div class="space-y-2">
+                                                <img src={houseBadge} title="furfulcat's house"/>
+                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="https://fearfulcats.com/assets/furfulcat/housebadge.gif"></a>`}</textarea>
+                                            </div>
+                                        </div>
 
 
-                                    </div>
-                                } when={store.storyMode}>
-                                    <Stories />
-                                </Show>
-                                <div class="border-l border-[var(--border-color)] border-dashed h-[90vh]">
-
-                                    <TabsList class="flex flex-col p-0 w-full h-[250px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
-                                        <BioTab value="home">Home</BioTab>
-                                        <BioTab value="about">About</BioTab>
-                                        <BioTab value="social">Social</BioTab>
-                                        <BioTab value="blog">Blog</BioTab>
-                                        <BioTab value="stories">Stories</BioTab>
-                                        <div class="border-t border-b border-[var(--border-color)] w-full text-center">OBSESSIONS</div>
-                                        <BioTab value="games">Games</BioTab>
-                                        <BioTab value="music">Music</BioTab>
-                                        <BioTab value="media">Media</BioTab>
-                                        {/* <div class="border-t border-b border-[var(--border-color)]">INTERACTIVES</div> */}
-                                        <div class="border-t border-b border-[var(--border-color)] w-full text-center">APPEARANCE</div>
-                                        <BioTab value="themes">Themes</BioTab>
-                                        <BioTab value="fonts">Fonts</BioTab>
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="guestbook">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)] mb-2">Guestbook - leave a comment!</div>
+                                        <iframe class="h-[80vh] w-full border border-[var(--border-color)]" src="https://furfulcat.atabook.org/" />
 
 
-                                    </TabsList>
+                                    </TabsContent>
+                                    
+
 
                                 </div>
+                            } when={store.storyMode}>
+                                <Stories />
+                            </Show>
+                            <div class="border-l border-[var(--border-color)] border-dashed h-[90vh]">
 
-                            </Tabs>
+                                <TabsList class="flex flex-col p-0 w-full h-[300px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
+                                    <BioTab value="home" class="mt-1 ">Home</BioTab>
+                                    <div class="border-b border-[var(--border-color)] border-dashed w-full"></div>
+                                    <BioTab value="about">About</BioTab>
+                                    <BioTab value="social">Social</BioTab>
+                                    <BioTab value="blog">Blog</BioTab>
+                                    <BioTab value="stories">Stories</BioTab>
+                                    <div class="border-t border-b border-[var(--border-color)] w-full text-center">OBSESSIONS</div>
+                                    <BioTab value="games">Games</BioTab>
+                                    <BioTab value="music">Music</BioTab>
+                                    <BioTab value="media">Media</BioTab>
+                                    {/* <div class="border-t border-b border-[var(--border-color)]">INTERACTIVES</div> */}
+                                    <div class="border-t border-b border-[var(--border-color)] w-full text-center">APPEARANCE</div>
+                                    <BioTab value="themes">Themes</BioTab>
+                                    <BioTab value="fonts">Fonts</BioTab>
+                                    <div class="border-t border-b border-[var(--border-color)] w-full text-center">UNSORTED</div>
+                                    <BioTab value="resources">Resources</BioTab>
+
+
+                                    <div class="border-t border-[var(--border-color)] border-dashed w-full"></div>
+
+                                    <BioTab value="guestbook" class="[animation:colorRotate_1.5s_linear_0s_infinite] mb-1">Guestbook</BioTab>
+
+
+
+                                </TabsList>
+
+                            </div>
+
+                        </Tabs>
 
                     </div>
                     <div class="grid grid-cols-2 gap-20 leading-4">
-                        <div class="border border-[var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
-                            <div class="underline font-bold p-2">Updates:</div>
+                        <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
+                            <div class="underline font-bold p-2">Changelog:</div>
                             <div class=" p-2">
-                                2025/02/24: v4.1 - reworked site spacing, moved header and added local date/time ticker, added appearance section, which includes themes and fonts selectors, added foreground coloring
-                                <br/>
-                                <br/>
+                                2025/02/25: v4.2 - added dynamic box shadows, guestbook and resources tabs, dusty's & flaky's rooms, site badge marquee (currently filled mostly with placeholders), upcoming box to list future planned updates
+                                <br />
+                                <br />
+                                2025/02/24: v4.1 - reworked site spacing, moved header and added local date/time ticker, added appearance section (includes themes and fonts selectors), foreground coloring
+                                <br />
+                                <br />
                                 2025/02/23: v4.0 - created home page with barebones design
                             </div>
                         </div>
-                        <div class="border border-[var(--border-color)]  bg-[var(--fg-color)] h-[30vh] overflow-auto hidden">
-                            hi
+                        <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
+                        <div class="underline font-bold p-2">Upcoming:</div>
+                            <ul class="p-2">
+                                <li>- gallery page for the various pictures i've taken</li>
+                                <li>- hand coded web games section</li>
+                                <li>- custom cursor</li>
+                                <li>- more THEMES!!!!!!!!!!!!</li>
+                                <li>- better design probably</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

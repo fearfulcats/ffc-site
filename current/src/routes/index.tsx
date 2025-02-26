@@ -69,7 +69,7 @@ const Main: Component = () => {
 
                         <Tabs hidden={store.secretActivated} class=' h-full xl:text-xl text-sm'>
                             <TabsList class=' grid grid-cols-6 h-[90px] w-full  text-white rounded-none place-items-center
-                                    [background:linear-gradient(90deg,_rgba(0,0,0,1)_0%,_rgba(53,103,135,1)_49%,_rgba(0,0,0,1)_100%)]
+                                    bg-black
                                     border-r border-black
                                     '>
 
