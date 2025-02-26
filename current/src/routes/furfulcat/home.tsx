@@ -719,11 +719,11 @@ function Bio() {
                                         <div class="flex gap-2 mt-2">
                                             <div class="space-y-2">
                                                 <img src={furfulBadge} title="furfulcat's house"/>
-                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="https://fearfulcats.com/assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
+                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
                                             </div>
                                             <div class="space-y-2">
                                                 <img src={houseBadge} title="furfulcat's house"/>
-                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="https://fearfulcats.com/assets/furfulcat/housebadge.gif"></a>`}</textarea>
+                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/housebadge.gif"></a>`}</textarea>
                                             </div>
                                         </div>
 
