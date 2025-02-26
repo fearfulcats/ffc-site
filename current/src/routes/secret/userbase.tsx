@@ -3,9 +3,18 @@ import { A } from "@solidjs/router";
 import './styles.css'
 
 import { Message, action, store } from './home';
+import { Link, MetaProvider, Title } from '@solidjs/meta';
+import favicon from "../../assets/secret/faviconcatcomms.png"
+
 
 function Userbase() {
     return (
+        <>
+        <MetaProvider>
+                        <Title>CatComms</Title>
+                                    <Link rel="icon" href={favicon}/>
+                        
+                    </MetaProvider>
         <div class='screensaverError'>
             <div class="header">
                 <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>
@@ -32,6 +41,7 @@ function Userbase() {
                 ERROR 59: USER HAS BEEN BLOCKED DUE TO EXTERNAL REQUEST
             </div>
         </div>
+        </>
     )
 }
 

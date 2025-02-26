@@ -3,10 +3,18 @@ import { A } from "@solidjs/router";
 import './styles.css'
 
 import { Message, action, store } from './home';
+import { Link, MetaProvider, Title } from '@solidjs/meta';
+import favicon from "../../assets/secret/faviconcatcomms.png"
+
 
 function Profile() {
     return (
         <>
+        <MetaProvider>
+                        <Title>CatComms</Title>
+                                    <Link rel="icon" href={favicon}/>
+                        
+                    </MetaProvider>
             <div class='full'>
             </div>
             <div class='screensaver'>

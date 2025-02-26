@@ -4,10 +4,16 @@ import { createMutable } from "solid-js/store"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 
 
-import { Style } from "@solidjs/meta"
+import { Link, MetaProvider, Style, Title, useHead } from "@solidjs/meta"
 import placeholderBadge from "../../assets/furfulcat/placeholderbadge.png"
 import furfulBadge from "../../assets/furfulcat/furfulbadge.gif"
 import houseBadge from "../../assets/furfulcat/housebadge.gif"
+
+import houseFavicon from "../../assets/furfulcat/faviconhouse.gif"
+import dustyFavicon from "../../assets/furfulcat/favicondust.png"
+import flakyFavicon from "../../assets/furfulcat/faviconflake.png"
+
+
 
 
 
@@ -19,6 +25,7 @@ type CharacterMode = "furfulcat" | "Dusty" | "Flaky"
 function Bio() {
     const store = createMutable({
         blogs: [
+            { date: "2025/02/26", text: "Made a few changes & additions today, but nothing all that noteworthy. The monitor finally arrived today! I'll be setting up the WEBFISHING server shortly after this update goes live. Hopefully it fulfills its intended purpose!" },
             { date: "2025/02/25", text: "Added a bunch of new stuff to the site today! Also gonna connect my nekoweb site up to this site shortly after pushing this update, anyways my monitor did NOT arrive today (wtf), so I'll have to postpone the server till it actually decides to arrive. But on a more positive note I've been getting more ideas for my site lately! I've added that in a new 'Upcoming' section, check it out if you haven't! The biggest addition in my opinion however is the Guestbook, and if you're reading this feel free to comment and add your website so I can check out yours! I need more site badges to add to the top marquee (for aesthetic purposes mostly), and I'd happily add anyone who leaves their site in the guestbook." },
             { date: "2025/02/24", text: "As promised, I continued working on my site today. I added and altered a bunch of stuff, as you can see for yourself in the new updates section below the main box! I'm sure I could stand to add/change some more stuff, but I'm drawing blanks as of now. I'll just update this site whenever inspiration hits. On an unrelated note, I'm currently waiting for a 'new' monitor to arrive so I can set up my old PC as a dedicated WEBFISHING server. It should arrive tomorrow if all goes well, and if so I'll immediately set that up. It should be a preferable alternative to hosting lobbies on my own computer and having to kick everyone off when I have to leave." },
             { date: "2025/02/23", text: "Today I started on the 4th revamp of my website! Spent most of the day doing that, it's a whole lot of work to be honest. This is definitely the most elaborate version so far. I'm hoping to finish most of the design stuff tomorrow when I'm less sleepy!" },
@@ -58,6 +65,8 @@ function Bio() {
             { name: "CLI", borderColor: "#08ff00", textColor: "#33ff00", backgroundColor: "#021a00", foregroundColor: "#000" },
             { name: "Waterfall", borderColor: "#6ef0ff", textColor: "#00f3ff", backgroundColor: "#171443", foregroundColor: "#1c235c" },
             { name: "Crimson", borderColor: "red", textColor: "#df0000", backgroundColor: "#480606", foregroundColor: "#220808" },
+            { name: "Silly", borderColor: "#4079ff", textColor: "#83ffe8", backgroundColor: "#e341ab", foregroundColor: "#92089d" },
+            { name: "Icicle", borderColor: "#adf6ff", textColor: "#f0feff", backgroundColor: "#9da1c6", foregroundColor: "#5c899f" },
 
 
 
@@ -443,6 +452,11 @@ function Bio() {
 
     return (
         <>
+        <MetaProvider>
+            <Title>{store.characterMode == "furfulcat" ? "furfulcat's house" : `${store.characterMode}'s room` }</Title>
+            <Link rel="icon" href={store.characterMode == "Flaky" ? flakyFavicon : store.characterMode == "Dusty" ? dustyFavicon : houseFavicon}/>
+        </MetaProvider>
+       
             <Style>
                 {`
             @keyframes marquee {
@@ -631,10 +645,11 @@ function Bio() {
                                     <TabsContent class="overflow-auto max-h-[95vh] p-2" value="social">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Find me elsewhere!</div>
 
-                                        <div>I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only really have bluesky just for yapping purposes, and discord for communication. I don't have a server or anything, but my user is simply furfulcat.
+                                        <div>When it comes to social media, I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only really have bluesky just for yapping purposes, and discord for communication. I don't have a server or anything, but my user is simply furfulcat.
                                         </div>
 
                                         <A class="text-pink-500 hover:underline cursor-pointer" href="https://bsky.app/profile/furfulcat.bsky.social">Bluesky</A>
+                                        <div>Oh, and I have a steam account where I do all my <span class="italic">gaming</span> </div><A class="text-pink-500 hover:underline cursor-pointer" href="https://steamcommunity.com/id/furfulcat/">Steam</A>
                                     </TabsContent>
                                     <TabsContent class="overflow-auto max-h-[95vh] p-2" value="blog">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Personal ramblings...</div>
@@ -686,7 +701,7 @@ function Bio() {
                                         <div>will put movies, shows, & anime i like here later</div>
                                     </TabsContent>
                                     <TabsContent class="overflow-auto max-h-[95vh] p-2" value="themes">
-                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Select a color set! (Page is designed for Dark)</div>
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Select a color set! (Page is designed in Dark)</div>
                                         <For each={store.themes} children={(theme, i) => (
                                             <div aria-selected={i() == store.selectedTheme} class="aria-selected:hover:cursor-default hover:cursor-pointer border hover:underline aria-selected:underline py-1 m-2 flex justify-center" style={{ "border-color": theme.borderColor, "background-color": theme.backgroundColor, "color": theme.textColor }}
                                                 onClick={() => {
@@ -702,7 +717,7 @@ function Bio() {
 
                                     </TabsContent>
                                     <TabsContent class="overflow-auto max-h-[95vh] p-2" value="fonts">
-                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Choose a font! (Page is designed for MS UI Gothic)</div>
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">Choose a font! (Page is designed in MS UI Gothic)</div>
                                         <For each={store.fonts} children={(font, i) => (
                                             <div aria-selected={i() == store.selectedFont} class="aria-selected:hover:cursor-default hover:cursor-pointer hover:underline aria-selected:underline py-1 m-2 flex justify-center"
                                                 onClick={() => {
@@ -719,11 +734,11 @@ function Bio() {
                                         <div class="flex gap-2 mt-2">
                                             <div class="space-y-2">
                                                 <img src={furfulBadge} title="furfulcat's house"/>
-                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
+                                                <textarea class="resize bg-[var(--bg-color)] max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
                                             </div>
                                             <div class="space-y-2">
                                                 <img src={houseBadge} title="furfulcat's house"/>
-                                                <textarea class="resize max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/housebadge.gif"></a>`}</textarea>
+                                                <textarea class="resize bg-[var(--bg-color)] max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/housebadge.gif"></a>`}</textarea>
                                             </div>
                                         </div>
 
@@ -744,7 +759,7 @@ function Bio() {
                             </Show>
                             <div class="border-l border-[var(--border-color)] border-dashed h-[90vh]">
 
-                                <TabsList class="flex flex-col p-0 w-full h-[300px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
+                                <TabsList class="flex flex-col p-0 w-full h-[350px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
                                     <BioTab value="home" class="mt-1 ">Home</BioTab>
                                     <div class="border-b border-[var(--border-color)] border-dashed w-full"></div>
                                     <BioTab value="about">About</BioTab>
@@ -764,6 +779,10 @@ function Bio() {
 
 
                                     <div class="border-t border-[var(--border-color)] border-dashed w-full"></div>
+                                    <div class="border-[var(--border-color)] border border-dashed mt-1">
+                                        <div class="border-[var(--border-color)] border-b">Visitors:</div>
+                                        <script type="text/javascript" src="https://counter.websiteout.com/js/9/6/0/1"></script>
+                                    </div>
 
                                     <BioTab value="guestbook" class="[animation:colorRotate_1.5s_linear_0s_infinite] mb-1">Guestbook</BioTab>
 
@@ -780,7 +799,10 @@ function Bio() {
                         <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
                             <div class="underline font-bold p-2">Changelog:</div>
                             <div class=" p-2">
-                                2025/02/25: v4.2 - added dynamic box shadows, guestbook and resources tabs, dusty's & flaky's rooms, site badge marquee (currently filled mostly with placeholders), upcoming box to list future planned updates
+                                2025/02/26: v4.2.1 - updated social section with steam account, altered page title & favicon, added new themes (silly & icicle), visitor counter
+                                <br />
+                                <br />
+                                2025/02/25: v4.2 - added dynamic box shadows, guestbook and resources tabs, dusty's & flaky's rooms, site badge marquee (currently filled mostly with placeholders), upcoming box to list future planned updates, 2 new themes (waterfall & crimson)
                                 <br />
                                 <br />
                                 2025/02/24: v4.1 - reworked site spacing, moved header and added local date/time ticker, added appearance section (includes themes and fonts selectors), foreground coloring

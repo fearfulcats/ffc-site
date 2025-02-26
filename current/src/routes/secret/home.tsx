@@ -4,6 +4,9 @@ import { For, Show, createSignal } from 'solid-js'
 import { createMutable } from 'solid-js/store'
 import { A } from "@solidjs/router";
 import './styles.css'
+import { Link, MetaProvider, Title } from '@solidjs/meta';
+
+import favicon from "../../assets/secret/faviconcatcomms.png"
 
 
 export type Message = {
@@ -609,6 +612,11 @@ const App: Component = () => {
   const time = new Date()
   return (
     <>
+    <MetaProvider>
+                <Title>CatComms</Title>
+                            <Link rel="icon" href={favicon}/>
+                
+            </MetaProvider>
       <div class="screensaver">
         <div class='header'>
         <p class="connection">You are currently connected to Extended Area Network 34, Section-B "Cat Communications" on May 9th, 20XX.</p>

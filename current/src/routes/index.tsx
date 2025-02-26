@@ -6,8 +6,11 @@ import { A } from "@solidjs/router";
 import "../app.css"
 
 import disarray from "../assets/disarray.png"
+import favicon from "../assets/favicon2.png"
+
 import test from "../assets/op15.png"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs';
+import { Link, MetaProvider, Title } from '@solidjs/meta';
 
 
 const Main: Component = () => {
@@ -58,6 +61,10 @@ const Main: Component = () => {
     return (
 
         <>
+        <MetaProvider>
+                    <Title>Fearful Cats!</Title>
+                    <Link rel="icon" href={favicon}/>
+                </MetaProvider>
             <div style={{ "background-image": `url(${test})` }} class='bg-repeat [image-rendering:pixelated] w-screen min-h-screen [font-family:_"RussianGothic",_"MS_UI_Gothic",_"NEC_APC3",_Tahoma]'>
 
                 <div class='w-full py-4 items-center flex-col flex  space-y-6 min-h-screen'>
