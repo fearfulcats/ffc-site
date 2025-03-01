@@ -89,7 +89,7 @@
     ]
   },
   "src/routes/furfulcat/home.tsx?pick=default&pick=$css": {
-    "file": "assets/home-B42lKmbQ.js",
+    "file": "assets/home-DQ2I-Aq4.js",
     "name": "home",
     "src": "src/routes/furfulcat/home.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -193,7 +193,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-BrLwaOye.js",
+    "file": "assets/client-CahUb5aH.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,

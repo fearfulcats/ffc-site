@@ -33,6 +33,7 @@ function Bio() {
     TimeAgo.addLocale(en)
     const store = createMutable({
         blogs: [
+            { date: "2025/03/01", text: "Well, I guess I was right. I think my ISP is throttling me because of the WEBFISHING server now. My internet has gone down about 4 times in the past 12 hours which is most definitely atypical. I have the server on auto restart, but who's gonna want to join a server that kicks everyone off every so often? Unfortunately, this is one problem I don't think I'll be able to solve. Still, the server is barely using much of my network at all, so it's really annoying that something like this could trigger a throttling. I'll just wait and see how things play out. I put too much work into this for it to just fail right away. Story of my life." },
             { date: "2025/02/28", text: "Last day of Feburary! I'm silently counting down the days until the Nintendo Switch 2 Direct comes out, and now it's just about a month away! Anyways, I managed to get my WEBFISHING server up and running following a few slight hiccups. So far it has been running for a steady 24 hours, and I'm hoping it'll stay that way. Knowing my luck something'll come up, but I'll try to stay optimistic for now. Also, I spent a while working on those new pop-ups in the bottom left corner of the screen to show my latest post on bluesky and last played song on spotify! Took me longer than intended, but hey it works so I call that a win." },
             { date: "2025/02/26", text: "Made a few changes & additions today, but nothing all that noteworthy. The monitor finally arrived today! I'll be setting up the WEBFISHING server shortly after this update goes live. Hopefully it fulfills its intended purpose!" },
             { date: "2025/02/25", text: "Added a bunch of new stuff to the site today! Also gonna connect my nekoweb site up to this site shortly after pushing this update, anyways my monitor did NOT arrive today (wtf), so I'll have to postpone the server till it actually decides to arrive. But on a more positive note I've been getting more ideas for my site lately! I've added that in a new 'Upcoming' section, check it out if you haven't! The biggest addition in my opinion however is the Guestbook, and if you're reading this feel free to comment and add your website so I can check out yours! I need more site badges to add to the top marquee (for aesthetic purposes mostly), and I'd happily add anyone who leaves their site in the guestbook." },
@@ -44,7 +45,7 @@ function Bio() {
             { name: "furfulcat's house", img: furfulBadge, link: "./home" },
             { name: "furfulcat's house", img: houseBadge, link: "./home" },
             { name: "dimden", img: "https://dimden.dev/services/images/88x31.gif", link: "https://dimden.dev/" },
-            { name: "ReloopGD Webpaeg!!1!11", img: "https://reloopgd.nekoweb.org/Images/Web-Button.gif", link: "https:/reloopgd.nekoweb.org/" },
+            { name: "ReloopGD Webpaeg!!1!11", img: "https://reloopgd.nekoweb.org/Images/Web-Button.gif", link: "https://reloopgd.nekoweb.org/" },
             { name: "placeholder", img: placeholderBadge, link: "./home" },
             { name: "placeholder", img: placeholderBadge, link: "./home" },
             { name: "placeholder", img: placeholderBadge, link: "./home" },
@@ -927,6 +928,9 @@ function Bio() {
                         <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] ">
                             <div class="underline font-bold p-2">Changelog:</div>
                             <div class=" p-2 max-w-full overflow-auto max-h-[80%]">
+                                <span class="[color:lime]">2025/03/01</span>: v4.3.1 - fixed incorrect linking on badges
+                                <br />
+                                <br />
                                 <span class="[color:lime]">2025/02/28</span>: v4.3 - box scrolling no longer includes the header, added latest bluesky post box, spotify last played/currently playing box
                                 <br />
                                 <br />
