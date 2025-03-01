@@ -12,6 +12,9 @@ import houseBadge from "../../assets/furfulcat/housebadge.gif"
 import houseFavicon from "../../assets/furfulcat/faviconhouse.gif"
 import dustyFavicon from "../../assets/furfulcat/favicondust.png"
 import flakyFavicon from "../../assets/furfulcat/faviconflake.png"
+import TimeAgo from "javascript-time-ago"
+import en from 'javascript-time-ago/locale/en'
+
 
 
 
@@ -19,38 +22,44 @@ import flakyFavicon from "../../assets/furfulcat/faviconflake.png"
 
 type Blog = { text: string, date: string }
 type Theme = { textColor: string, borderColor: string, backgroundColor: string, name: string, foregroundColor: string }
-type Badge = {name: string, link: string, img: string} 
+type Badge = { name: string, link: string, img: string }
 type CharacterMode = "furfulcat" | "Dusty" | "Flaky"
 
+type BlueskyPost = { content: string, date: Date, avatar: string, url: string}
+type MusicTrack = { name: string, artist: string, img: string, dateListened: Date, album: string, nowPlaying: boolean  }
+
+
 function Bio() {
+    TimeAgo.addLocale(en)
     const store = createMutable({
         blogs: [
+            { date: "2025/02/28", text: "Last day of Feburary! I'm silently counting down the days until the Nintendo Switch 2 Direct comes out, and now it's just about a month away! Anyways, I managed to get my WEBFISHING server up and running following a few slight hiccups. So far it has been running for a steady 24 hours, and I'm hoping it'll stay that way. Knowing my luck something'll come up, but I'll try to stay optimistic for now. Also, I spent a while working on those new pop-ups in the bottom left corner of the screen to show my latest post on bluesky and last played song on spotify! Took me longer than intended, but hey it works so I call that a win." },
             { date: "2025/02/26", text: "Made a few changes & additions today, but nothing all that noteworthy. The monitor finally arrived today! I'll be setting up the WEBFISHING server shortly after this update goes live. Hopefully it fulfills its intended purpose!" },
             { date: "2025/02/25", text: "Added a bunch of new stuff to the site today! Also gonna connect my nekoweb site up to this site shortly after pushing this update, anyways my monitor did NOT arrive today (wtf), so I'll have to postpone the server till it actually decides to arrive. But on a more positive note I've been getting more ideas for my site lately! I've added that in a new 'Upcoming' section, check it out if you haven't! The biggest addition in my opinion however is the Guestbook, and if you're reading this feel free to comment and add your website so I can check out yours! I need more site badges to add to the top marquee (for aesthetic purposes mostly), and I'd happily add anyone who leaves their site in the guestbook." },
             { date: "2025/02/24", text: "As promised, I continued working on my site today. I added and altered a bunch of stuff, as you can see for yourself in the new updates section below the main box! I'm sure I could stand to add/change some more stuff, but I'm drawing blanks as of now. I'll just update this site whenever inspiration hits. On an unrelated note, I'm currently waiting for a 'new' monitor to arrive so I can set up my old PC as a dedicated WEBFISHING server. It should arrive tomorrow if all goes well, and if so I'll immediately set that up. It should be a preferable alternative to hosting lobbies on my own computer and having to kick everyone off when I have to leave." },
             { date: "2025/02/23", text: "Today I started on the 4th revamp of my website! Spent most of the day doing that, it's a whole lot of work to be honest. This is definitely the most elaborate version so far. I'm hoping to finish most of the design stuff tomorrow when I'm less sleepy!" },
         ] as Blog[],
         badges: [
-            {name: "nekoweb", img: "https://nekoweb.org/assets/buttons/button6.gif", link: "https://nekoweb.org/"},
-            {name: "furfulcat's house", img: furfulBadge, link: "./home"},
-            {name: "furfulcat's house", img: houseBadge, link: "./home"},
-            {name: "dimden", img: "https://dimden.dev/services/images/88x31.gif", link: "https://dimden.dev/"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
-            {name: "placeholder", img: placeholderBadge, link: "./home"},
+            { name: "nekoweb", img: "https://nekoweb.org/assets/buttons/button6.gif", link: "https://nekoweb.org/" },
+            { name: "furfulcat's house", img: furfulBadge, link: "./home" },
+            { name: "furfulcat's house", img: houseBadge, link: "./home" },
+            { name: "dimden", img: "https://dimden.dev/services/images/88x31.gif", link: "https://dimden.dev/" },
+            { name: "ReloopGD Webpaeg!!1!11", img: "https://reloopgd.nekoweb.org/Images/Web-Button.gif", link: "https:/reloopgd.nekoweb.org/" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
+            { name: "placeholder", img: placeholderBadge, link: "./home" },
         ] as Badge[],
         storyMode: false,
         selectedStory: "",
@@ -73,21 +82,28 @@ function Bio() {
         ] as Theme[],
         fonts: ['MS UI Gothic', "Times New Roman", "Comic Sans MS", "Verdana", "Arial", "Calibri", "Consolas", "Courier New", "Lucida Sans Unicode", "Segoe UI"] as string[],
         selectedTheme: 0,
-        selectedFont: 0
+        selectedFont: 0,
+        latestPost: { content: "", date: new Date(), url: "", avatar: "" } as BlueskyPost,
+        lastPlayed: {artist: "", dateListened: new Date(), img: "", name: "", album: "", nowPlaying: false} as MusicTrack,
+        panelViews: {
+            bluesky: true,
+            music: true
+        },
+        timeAgo: new TimeAgo("en")
     })
 
     createEffect(() => {
         const selectedTheme = localStorage.getItem("selectedTheme")
         if (selectedTheme) {
             store.selectedTheme = JSON.parse(selectedTheme)
-            
+
         }
         const selectedFont = localStorage.getItem("selectedFont")
         if (selectedFont) {
             store.selectedFont = JSON.parse(selectedFont)
         }
     })
-    createEffect(()=>{
+    createEffect(() => {
         if (store.selectedTheme == 2) store.characterMode = "Dusty"
         else if (store.selectedTheme == 3) store.characterMode = "Flaky"
         else store.characterMode = "furfulcat"
@@ -119,6 +135,61 @@ function Bio() {
                 value={props.value}>{props.children}</TabsTrigger>
         )
     }
+
+    createEffect(async () => {
+        // const res = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?${new URLSearchParams({actor: "furfulcat.bsky.social"})}`)
+        const params = { actor: "furfulcat.bsky.social", limit: `${1}` }
+        const res = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?${new URLSearchParams(params)}`)
+        if (!res) return
+        const obj = await res.json()
+        if (!obj) return
+        const postObj = {
+            content: obj.feed[0].post.record.text,
+            date: new Date(obj.feed[0].post.record.createdAt),
+            avatar: obj.feed[0].post.author.avatar,
+            url: `https://bsky.app/profile/furfulcat.bsky.social/post${(obj.feed[0].post.uri as string).slice((obj.feed[0].post.uri as string).lastIndexOf("/"), (obj.feed[0].post.uri as string).length)}`
+        } as BlueskyPost
+        store.latestPost = postObj
+    })
+
+    function convertUTCDateToLocalDate(date: Date) {
+        var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+    
+        var offset = date.getTimezoneOffset() / 60;
+        var hours = date.getHours();
+    
+        newDate.setHours(hours - offset);
+    
+        return newDate;   
+    }
+
+    createEffect(async () => {
+        const api_key = "e207ac7778c8a82817e429d66b5b8f19"
+        const user = "furfulcat"
+
+        const res = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${api_key}&format=json&limit=1`)
+        if (!res) return
+        const obj = await res.json()
+        if (!obj) return
+
+        const trackObj = {
+            name: obj.recenttracks.track[0].name,
+            artist: obj.recenttracks.track[0].artist["#text"],
+            album: obj.recenttracks.track[0].album["#text"],
+            img: obj.recenttracks.track[0].image[3]["#text"],
+        } as MusicTrack
+
+        if (obj.recenttracks.track[0]["@attr"]) {
+            trackObj.nowPlaying = true
+            trackObj.dateListened = new Date()
+        }
+        else {
+            trackObj.nowPlaying = false
+            trackObj.dateListened = convertUTCDateToLocalDate(new Date(obj.recenttracks.track[0].date["#text"]))
+        }
+        console.log(trackObj)
+        store.lastPlayed = trackObj
+    })
 
 
     function Stories() {
@@ -452,11 +523,11 @@ function Bio() {
 
     return (
         <>
-        <MetaProvider>
-            <Title>{store.characterMode == "furfulcat" ? "furfulcat's house" : `${store.characterMode}'s room` }</Title>
-            <Link rel="icon" href={store.characterMode == "Flaky" ? flakyFavicon : store.characterMode == "Dusty" ? dustyFavicon : houseFavicon}/>
-        </MetaProvider>
-       
+            <MetaProvider>
+                <Title>{store.characterMode == "furfulcat" ? "furfulcat's house" : `${store.characterMode}'s room`}</Title>
+                <Link rel="icon" href={store.characterMode == "Flaky" ? flakyFavicon : store.characterMode == "Dusty" ? dustyFavicon : houseFavicon} />
+            </MetaProvider>
+
             <Style>
                 {`
             @keyframes marquee {
@@ -566,32 +637,89 @@ function Bio() {
                     <div style={{ "background-image": `url(${fg})`, "background-size": "100vw", animation: "scroll-vertical 10s linear infinite", "top": `${top}px`, "left": `${left}px`, "right": `${right}px`, "bottom": `${bottom}px`  }} class=" absolute bg-repeat h-[400%] w-full z-[2]  pointer-events-none [image-rendering:pixelated]"></div>
             </div> */}
             <div class='[box-shadow:1px_1px_8px_0px_var(--border-color)] z-10 border fixed flex justify-center border-[var(--border-color)] text-[var(--text-color)] [font-family:var(--font-style)] w-full bg-[var(--fg-color)]'>
-                <div class="border-l border-dashed px-2 border-[var(--border-color)]  space-x-1">{store.characterMode == "furfulcat" ? "furfulcat's house" : `${store.characterMode}'s room` }</div>
+                <div class="border-l border-dashed px-2 border-[var(--border-color)]  space-x-1">{store.characterMode == "furfulcat" ? "furfulcat's house" : `${store.characterMode}'s room`}</div>
                 <div class="[color:lime] flex justify-center border-l border-r border-dashed border-[var(--border-color)]  px-2 space-x-1">
                     <div>{store.currentTime.toLocaleDateString()}</div>
                     <div>{store.currentTime.toLocaleTimeString()}</div>
+                </div>
+            </div>
+            <div class="fixed space-y-2 left-2 bottom-2">
+                <div class=" lg:w-[28vw] max-h-[20vh] w-[75vw]  flex">
+                    <Show when={store.panelViews.music}>
+                    <div class=" border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] overflow-auto text-[var(--text-color)] [font-family:var(--font-style)] 
+                    leading-4 ">
+                            <div class="p-2 flex">
+                                <div class="pr-2">
+                                    <img class="border border-[var(--border-color)] h-16 w-16" src={store.lastPlayed.img}/>
+                                </div>
+                                <div class="bg-[var(--bg-color)]  pt-0">
+                                    <span class=" [white-space:pre-wrap] text-orange-400">{store.lastPlayed.name}</span>
+                                    <br />
+                                    by <span class=" [white-space:pre-wrap] text-orange-400">{store.lastPlayed.artist}</span>
+                                    <br />
+                                    on <span class=" [white-space:pre-wrap] text-orange-400">{store.lastPlayed.album}</span>
+                                </div>
+                                <br/>
+                            </div>
+                            <div class="p-2 pt-0">
+                                <Show fallback={
+                                    <>
+                                    <span class="[color:lime]">Played {store.timeAgo.format(store.lastPlayed.dateListened)}.</span>
+                                    </>
+                                } when={store.lastPlayed.nowPlaying}>
+                                    <>
+                                    <span class="[color:lime]">Currently listening to!</span>
+                                    </>
+                                </Show>
+                            </div>
+                        </div>
+                    </Show>
+                    <div class="border-[var(--border-color)]  h-[28px] border border-l-none [font-family:var(--font-style)] text-[var(--text-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
+                        <div onClick={() => store.panelViews.music = !store.panelViews.music} class=" pl-[3px] pb-0.5 hover:cursor-pointer hover:underline">{store.panelViews.music ? `<` : `>`}</div>
+                    </div>
+                </div>
+                <div class=" lg:w-[28vw] max-h-[20vh] w-[75vw]  flex">
+                    <Show when={store.panelViews.bluesky}>
+                        <div class=" border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] overflow-auto text-[var(--text-color)] [font-family:var(--font-style)] 
+                    leading-4 ">
+                            <div class="p-2 ">
+                                <div class="float-start pr-2">
+                                    <img class="border border-[var(--border-color)] h-16 w-16" src={store.latestPost.avatar}/>
+                                </div>
+                                <div class="bg-[var(--bg-color)]  pt-0">
+                                    <span class=" [white-space:pre-wrap]">{store.latestPost.content}</span>
+                                    <br />
+                                </div>
+                                <br/>
+                                    <span class="[color:lime]">{store.latestPost.date.toLocaleDateString()}</span> at <span class="[color:lime]">{store.latestPost.date.toLocaleTimeString()}</span> @ <A class="text-blue-400 hover:underline" href={store.latestPost.url}>furfulcat.bsky.social</A>
+                            </div>
+                        </div>
+                    </Show>
+                    <div class="border-[var(--border-color)]  h-[28px] border border-l-none [font-family:var(--font-style)] text-[var(--text-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
+                        <div onClick={() => store.panelViews.bluesky = !store.panelViews.bluesky} class=" pl-[3px] pb-0.5 hover:cursor-pointer hover:underline">{store.panelViews.bluesky ? `<` : `>`}</div>
+                    </div>
                 </div>
             </div>
             <div class='[font-family:var(--font-style)] min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] grid justify-center place-items-center [image-rendering:pixelated]'>
                 <div class="marquee marquee--hover-pause mt-10">
                     <div class="marquee__content ">
                         <For
-                        each={store.badges}
-                        children={(badge)=>(
-                            <a href={badge.link} class="cursor-pointer">
-                                <img alt={badge.name} title={badge.name} src={badge.img}/>
-                            </a>
-                        )}
+                            each={store.badges}
+                            children={(badge) => (
+                                <a href={badge.link} class="cursor-pointer">
+                                    <img alt={badge.name} title={badge.name} src={badge.img} />
+                                </a>
+                            )}
                         />
                     </div>
                     <div aria-hidden="true" class="marquee__content">
-                    <For
-                        each={store.badges}
-                        children={(badge)=>(
-                            <a href={badge.link}  class="cursor-pointer">
-                                <img alt={badge.name} title={badge.name} src={badge.img}/>
-                            </a>
-                        )}
+                        <For
+                            each={store.badges}
+                            children={(badge) => (
+                                <a href={badge.link} class="cursor-pointer">
+                                    <img alt={badge.name} title={badge.name} src={badge.img} />
+                                </a>
+                            )}
                         />
                     </div>
                 </div>
@@ -733,12 +861,12 @@ function Bio() {
                                         <div>My buttons! Feel free to hotlink if you'd like.</div>
                                         <div class="flex gap-2 mt-2">
                                             <div class="space-y-2">
-                                                <img src={furfulBadge} title="furfulcat's house"/>
-                                                <textarea class="resize bg-[var(--bg-color)] max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
+                                                <img src={furfulBadge} title="furfulcat's house" />
+                                                <textarea class="resize bg-[var(--bg-color)] max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="https://github.com/fearfulcats/ffc-site/blob/main/current/src/assets/furfulcat/furfulbadge.gif"></a>`}</textarea>
                                             </div>
                                             <div class="space-y-2">
-                                                <img src={houseBadge} title="furfulcat's house"/>
-                                                <textarea class="resize bg-[var(--bg-color)] max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="../../assets/furfulcat/housebadge.gif"></a>`}</textarea>
+                                                <img src={houseBadge} title="furfulcat's house" />
+                                                <textarea class="resize bg-[var(--bg-color)] max-w-[20vw] max-h-[20vh] p-1 border border-[var(--border-color)]" disabled>{`<a href="https://fearfulcats.com/furfulcat/home"><img src="https://github.com/fearfulcats/ffc-site/blob/main/current/src/assets/furfulcat/housebadge.gif"></a>`}</textarea>
                                             </div>
                                         </div>
 
@@ -750,7 +878,7 @@ function Bio() {
 
 
                                     </TabsContent>
-                                    
+
 
 
                                 </div>
@@ -795,25 +923,28 @@ function Bio() {
                         </Tabs>
 
                     </div>
-                    <div class="grid grid-cols-2 gap-20 leading-4">
-                        <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
+                    <div class="grid grid-cols-2 lg:gap-20 gap-4 leading-4">
+                        <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] ">
                             <div class="underline font-bold p-2">Changelog:</div>
-                            <div class=" p-2">
-                                2025/02/26: v4.2.1 - updated social section with steam account, altered page title & favicon, added new themes (silly & icicle), visitor counter
+                            <div class=" p-2 max-w-full overflow-auto max-h-[80%]">
+                                <span class="[color:lime]">2025/02/28</span>: v4.3 - box scrolling no longer includes the header, added latest bluesky post box, spotify last played/currently playing box
                                 <br />
                                 <br />
-                                2025/02/25: v4.2 - added dynamic box shadows, guestbook and resources tabs, dusty's & flaky's rooms, site badge marquee (currently filled mostly with placeholders), upcoming box to list future planned updates, 2 new themes (waterfall & crimson)
+                                <span class="[color:lime]">2025/02/26</span>: v4.2.1 - updated social section with steam account, altered page title & favicon, added new themes (silly & icicle), visitor counter
                                 <br />
                                 <br />
-                                2025/02/24: v4.1 - reworked site spacing, moved header and added local date/time ticker, added appearance section (includes themes and fonts selectors), foreground coloring
+                                <span class="[color:lime]">2025/02/25</span>: v4.2 - added dynamic box shadows, guestbook and resources tabs, dusty's & flaky's rooms, site badge marquee (currently filled mostly with placeholders), upcoming box to list future planned updates, 2 new themes (waterfall & crimson)
                                 <br />
                                 <br />
-                                2025/02/23: v4.0 - created home page with barebones design
+                                <span class="[color:lime]">2025/02/24</span>: v4.1 - reworked site spacing, moved header and added local date/time ticker, added appearance section (includes themes and fonts selectors), foreground coloring
+                                <br />
+                                <br />
+                                <span class="[color:lime]">2025/02/23</span>: v4.0 - created home page with barebones design
                             </div>
                         </div>
-                        <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] overflow-auto">
-                        <div class="underline font-bold p-2">Upcoming:</div>
-                            <ul class="p-2">
+                        <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh]">
+                            <div class="underline font-bold p-2">Upcoming:</div>
+                            <ul class="p-2 overflow-auto max-h-[80%]">
                                 <li>- gallery page for the various pictures i've taken</li>
                                 <li>- hand coded web games section</li>
                                 <li>- custom cursor</li>
@@ -833,7 +964,7 @@ function Bio() {
 
 function BlogPost(props: { text: string, date: string }) {
     return (
-        <div class="p-2 m-2 border-[var(--border-color)] border">{props.date}: {props.text}</div>
+        <div class="p-2 m-2 border-[var(--border-color)] border"><span class="[color:lime]">{props.date}</span>: {props.text}</div>
     )
 }
 
