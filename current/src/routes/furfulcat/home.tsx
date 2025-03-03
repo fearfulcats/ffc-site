@@ -25,14 +25,15 @@ type Theme = { textColor: string, borderColor: string, backgroundColor: string, 
 type Badge = { name: string, link: string, img: string }
 type CharacterMode = "furfulcat" | "Dusty" | "Flaky"
 
-type BlueskyPost = { content: string, date: Date, avatar: string, url: string}
-type MusicTrack = { name: string, artist: string, img: string, dateListened: Date, album: string, nowPlaying: boolean  }
+type BlueskyPost = { content: string, date: Date, avatar: string, url: string }
+type MusicTrack = { name: string, artist: string, img: string, dateListened: Date, album: string, nowPlaying: boolean }
 
 
 function Bio() {
     TimeAgo.addLocale(en)
     const store = createMutable({
         blogs: [
+            { date: "2025/03/02", text: "Nothing much to mention today, just had to make a few changes to the site. I'm not doing well mentally unfortunately but I'm gonna try to push through it like I always do." },
             { date: "2025/03/01", text: "Well, I guess I was right. I think my ISP is throttling me because of the WEBFISHING server now. My internet has gone down about 4 times in the past 12 hours which is most definitely atypical. I have the server on auto restart, but who's gonna want to join a server that kicks everyone off every so often? Unfortunately, this is one problem I don't think I'll be able to solve. Still, the server is barely using much of my network at all, so it's really annoying that something like this could trigger a throttling. I'll just wait and see how things play out. I put too much work into this for it to just fail right away. Story of my life." },
             { date: "2025/02/28", text: "Last day of Feburary! I'm silently counting down the days until the Nintendo Switch 2 Direct comes out, and now it's just about a month away! Anyways, I managed to get my WEBFISHING server up and running following a few slight hiccups. So far it has been running for a steady 24 hours, and I'm hoping it'll stay that way. Knowing my luck something'll come up, but I'll try to stay optimistic for now. Also, I spent a while working on those new pop-ups in the bottom left corner of the screen to show my latest post on bluesky and last played song on spotify! Took me longer than intended, but hey it works so I call that a win." },
             { date: "2025/02/26", text: "Made a few changes & additions today, but nothing all that noteworthy. The monitor finally arrived today! I'll be setting up the WEBFISHING server shortly after this update goes live. Hopefully it fulfills its intended purpose!" },
@@ -74,7 +75,7 @@ function Bio() {
             { name: "Beehive", borderColor: "#ffe305", textColor: "#fff1bb", backgroundColor: "#0f0f01", foregroundColor: "#201a03" },
             { name: "CLI", borderColor: "#08ff00", textColor: "#33ff00", backgroundColor: "#021a00", foregroundColor: "#000" },
             { name: "Waterfall", borderColor: "#6ef0ff", textColor: "#00f3ff", backgroundColor: "#171443", foregroundColor: "#1c235c" },
-            { name: "Crimson", borderColor: "red", textColor: "#df0000", backgroundColor: "#480606", foregroundColor: "#220808" },
+            { name: "Crimson", borderColor: "red", textColor: "#ff7b7b", backgroundColor: "#480606", foregroundColor: "#220808" },
             { name: "Silly", borderColor: "#4079ff", textColor: "#83ffe8", backgroundColor: "#e341ab", foregroundColor: "#92089d" },
             { name: "Icicle", borderColor: "#adf6ff", textColor: "#f0feff", backgroundColor: "#9da1c6", foregroundColor: "#5c899f" },
 
@@ -85,7 +86,7 @@ function Bio() {
         selectedTheme: 0,
         selectedFont: 0,
         latestPost: { content: "", date: new Date(), url: "", avatar: "" } as BlueskyPost,
-        lastPlayed: {artist: "", dateListened: new Date(), img: "", name: "", album: "", nowPlaying: false} as MusicTrack,
+        lastPlayed: { artist: "", dateListened: new Date(), img: "", name: "", album: "", nowPlaying: false } as MusicTrack,
         panelViews: {
             bluesky: true,
             music: true
@@ -154,14 +155,14 @@ function Bio() {
     })
 
     function convertUTCDateToLocalDate(date: Date) {
-        var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
-    
+        var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+
         var offset = date.getTimezoneOffset() / 60;
         var hours = date.getHours();
-    
+
         newDate.setHours(hours - offset);
-    
-        return newDate;   
+
+        return newDate;
     }
 
     createEffect(async () => {
@@ -644,14 +645,19 @@ function Bio() {
                     <div>{store.currentTime.toLocaleTimeString()}</div>
                 </div>
             </div>
-            <div class="fixed space-y-2 left-2 bottom-2">
+            <div class="fixed space-y-2 left-2 bottom-2 text-[var(--text-color)] [font-family:var(--font-style)]">
+                <div class="flex">
+                    <div class="border-[var(--border-color)]  px-2 underline  h-[28px] border border-l-none  [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
+                        <div class=" pb-0.5">Activity</div>
+                    </div>
+                </div>
                 <div class=" lg:w-[28vw] max-h-[20vh] w-[75vw]  flex">
                     <Show when={store.panelViews.music}>
-                    <div class=" border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] overflow-auto text-[var(--text-color)] [font-family:var(--font-style)] 
+                        <div class=" border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] overflow-auto  
                     leading-4 ">
                             <div class="p-2 flex">
                                 <div class="pr-2">
-                                    <img class="border border-[var(--border-color)] h-16 w-16" src={store.lastPlayed.img}/>
+                                    <img class="border object-cover border-[var(--border-color)] h-16 w-16" src={store.lastPlayed.img} />
                                 </div>
                                 <div class="bg-[var(--bg-color)]  pt-0">
                                     <span class=" [white-space:pre-wrap] text-orange-400">{store.lastPlayed.name}</span>
@@ -660,43 +666,43 @@ function Bio() {
                                     <br />
                                     on <span class=" [white-space:pre-wrap] text-orange-400">{store.lastPlayed.album}</span>
                                 </div>
-                                <br/>
+                                <br />
                             </div>
                             <div class="p-2 pt-0">
                                 <Show fallback={
                                     <>
-                                    <span class="[color:lime]">Played {store.timeAgo.format(store.lastPlayed.dateListened)}.</span>
+                                        <span class="[color:lime]">Played {store.timeAgo.format(store.lastPlayed.dateListened)}.</span>
                                     </>
                                 } when={store.lastPlayed.nowPlaying}>
                                     <>
-                                    <span class="[color:lime]">Currently listening to!</span>
+                                        <span class="[color:lime]">Currently listening to!</span>
                                     </>
                                 </Show>
                             </div>
                         </div>
                     </Show>
-                    <div class="border-[var(--border-color)]  h-[28px] border border-l-none [font-family:var(--font-style)] text-[var(--text-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
+                    <div class="border-[var(--border-color)]  h-[28px] border border-l-none  [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
                         <div onClick={() => store.panelViews.music = !store.panelViews.music} class=" pl-[3px] pb-0.5 hover:cursor-pointer hover:underline">{store.panelViews.music ? `<` : `>`}</div>
                     </div>
                 </div>
                 <div class=" lg:w-[28vw] max-h-[20vh] w-[75vw]  flex">
                     <Show when={store.panelViews.bluesky}>
-                        <div class=" border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] overflow-auto text-[var(--text-color)] [font-family:var(--font-style)] 
+                        <div class=" border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] overflow-auto  
                     leading-4 ">
                             <div class="p-2 ">
                                 <div class="float-start pr-2">
-                                    <img class="border border-[var(--border-color)] h-16 w-16" src={store.latestPost.avatar}/>
+                                    <img class="border border-[var(--border-color)] h-16 w-16" src={store.latestPost.avatar} />
                                 </div>
-                                <div class="bg-[var(--bg-color)]  pt-0">
+                                <div class="bg-[var(--bg-color)] min-h-16 pt-0">
                                     <span class=" [white-space:pre-wrap]">{store.latestPost.content}</span>
                                     <br />
                                 </div>
-                                <br/>
-                                    <span class="[color:lime]">{store.latestPost.date.toLocaleDateString()}</span> at <span class="[color:lime]">{store.latestPost.date.toLocaleTimeString()}</span> @ <A class="text-blue-400 hover:underline" href={store.latestPost.url}>furfulcat.bsky.social</A>
+                                <br />
+                                <span class="[color:lime]">{store.latestPost.date.toLocaleDateString()}</span> at <span class="[color:lime]">{store.latestPost.date.toLocaleTimeString()}</span> @ <A class="text-blue-400 hover:underline" href={store.latestPost.url}>furfulcat.bsky.social</A>
                             </div>
                         </div>
                     </Show>
-                    <div class="border-[var(--border-color)]  h-[28px] border border-l-none [font-family:var(--font-style)] text-[var(--text-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
+                    <div class="border-[var(--border-color)]  h-[28px] border border-l-none  [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)]">
                         <div onClick={() => store.panelViews.bluesky = !store.panelViews.bluesky} class=" pl-[3px] pb-0.5 hover:cursor-pointer hover:underline">{store.panelViews.bluesky ? `<` : `>`}</div>
                     </div>
                 </div>
@@ -928,6 +934,9 @@ function Bio() {
                         <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] ">
                             <div class="underline font-bold p-2">Changelog:</div>
                             <div class=" p-2 max-w-full overflow-auto max-h-[80%]">
+                                <span class="[color:lime]">2025/03/02</span>: v4.3.2 - added activity header, fixed bluesky post spacing, updated crimson theme text color
+                                <br />
+                                <br />
                                 <span class="[color:lime]">2025/03/01</span>: v4.3.1 - fixed incorrect linking on badges
                                 <br />
                                 <br />

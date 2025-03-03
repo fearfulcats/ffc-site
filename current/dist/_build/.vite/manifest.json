@@ -4,7 +4,7 @@
     "name": "HttpStatusCode"
   },
   "_app-!~{00c}~.js": {
-    "file": "assets/app-D5CFRvWy.css",
+    "file": "assets/app-BhS9FQw9.css",
     "src": "_app-!~{00c}~.js"
   },
   "_components-DzOoqD9q.js": {
@@ -89,7 +89,7 @@
     ]
   },
   "src/routes/furfulcat/home.tsx?pick=default&pick=$css": {
-    "file": "assets/home-DQ2I-Aq4.js",
+    "file": "assets/home-CkktZZt1.js",
     "name": "home",
     "src": "src/routes/furfulcat/home.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -119,7 +119,7 @@
     ]
   },
   "src/routes/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-mp-45QW1.js",
+    "file": "assets/index-DxmkxMC7.js",
     "name": "index",
     "src": "src/routes/index.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -133,7 +133,7 @@
       "_routing-CScudebU.js"
     ],
     "css": [
-      "assets/app-D5CFRvWy.css"
+      "assets/app-BhS9FQw9.css"
     ]
   },
   "src/routes/secret/chatroom.tsx?pick=default&pick=$css": {
@@ -193,7 +193,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CahUb5aH.js",
+    "file": "assets/client-ja0J3SHP.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
@@ -214,7 +214,7 @@
       "src/routes/secret/userbase.tsx?pick=default&pick=$css"
     ],
     "css": [
-      "assets/app-D5CFRvWy.css"
+      "assets/app-BhS9FQw9.css"
     ]
   }
 }
