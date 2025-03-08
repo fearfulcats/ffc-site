@@ -24,6 +24,10 @@ type Blog = { text: string, date: string }
 type Theme = { textColor: string, borderColor: string, backgroundColor: string, name: string, foregroundColor: string }
 type Badge = { name: string, link: string, img: string }
 type CharacterMode = "furfulcat" | "Dusty" | "Flaky"
+type Pic = {src: string, comments: string, subCategory: SubCategory, date: Date}
+type Gallery = Record<Category,Pic[]>
+type Category = "landscapes" | "space" | "cats"
+type SubCategory = "florida" | "camping" | "moon" | "planets" | "galaxies" | "glacier" | "frostbite" | "papyrus"
 
 type BlueskyPost = { content: string, date: Date, avatar: string, url: string }
 type MusicTrack = { name: string, artist: string, img: string, dateListened: Date, album: string, nowPlaying: boolean }
@@ -33,6 +37,7 @@ function Bio() {
     TimeAgo.addLocale(en)
     const store = createMutable({
         blogs: [
+            { date: "2025/03/07", text: "Sure has been a bit now hasn't it? I'm happy to say that my WEBFISHING server is running well now, it does go down every now and then but players still join it so it's really not all that bad. Could be worse am I right? Anyways, I don't think I'll post these blogs as often as I did when I was just making my site, but I'll still write them every now and then of course. Whenever I get the motivation to add something here probably!" },
             { date: "2025/03/02", text: "Nothing much to mention today, just had to make a few changes to the site. I'm not doing well mentally unfortunately but I'm gonna try to push through it like I always do." },
             { date: "2025/03/01", text: "Well, I guess I was right. I think my ISP is throttling me because of the WEBFISHING server now. My internet has gone down about 4 times in the past 12 hours which is most definitely atypical. I have the server on auto restart, but who's gonna want to join a server that kicks everyone off every so often? Unfortunately, this is one problem I don't think I'll be able to solve. Still, the server is barely using much of my network at all, so it's really annoying that something like this could trigger a throttling. I'll just wait and see how things play out. I put too much work into this for it to just fail right away. Story of my life." },
             { date: "2025/02/28", text: "Last day of Feburary! I'm silently counting down the days until the Nintendo Switch 2 Direct comes out, and now it's just about a month away! Anyways, I managed to get my WEBFISHING server up and running following a few slight hiccups. So far it has been running for a steady 24 hours, and I'm hoping it'll stay that way. Knowing my luck something'll come up, but I'll try to stay optimistic for now. Also, I spent a while working on those new pop-ups in the bottom left corner of the screen to show my latest post on bluesky and last played song on spotify! Took me longer than intended, but hey it works so I call that a win." },
@@ -78,10 +83,11 @@ function Bio() {
             { name: "Crimson", borderColor: "red", textColor: "#ff7b7b", backgroundColor: "#480606", foregroundColor: "#220808" },
             { name: "Silly", borderColor: "#4079ff", textColor: "#83ffe8", backgroundColor: "#e341ab", foregroundColor: "#92089d" },
             { name: "Icicle", borderColor: "#adf6ff", textColor: "#f0feff", backgroundColor: "#9da1c6", foregroundColor: "#5c899f" },
-
-
+            { name: "Galactic", borderColor: "#ad1bff", textColor: "white", backgroundColor: "#0e0324", foregroundColor: "#23104a" },
 
         ] as Theme[],
+        gallery: [] as Pic[],
+        galleryCategories: [] as Category[],
         fonts: ['MS UI Gothic', "Times New Roman", "Comic Sans MS", "Verdana", "Arial", "Calibri", "Consolas", "Courier New", "Lucida Sans Unicode", "Segoe UI"] as string[],
         selectedTheme: 0,
         selectedFont: 0,
@@ -657,7 +663,7 @@ function Bio() {
                     leading-4 ">
                             <div class="p-2 flex">
                                 <div class="pr-2">
-                                    <img class="border object-cover border-[var(--border-color)] h-16 w-16" src={store.lastPlayed.img} />
+                                    <img class="border object-cover border-[var(--border-color)] h-16 min-w-16" src={store.lastPlayed.img} />
                                 </div>
                                 <div class="bg-[var(--bg-color)]  pt-0">
                                     <span class=" [white-space:pre-wrap] text-orange-400">{store.lastPlayed.name}</span>
@@ -777,7 +783,7 @@ function Bio() {
                                             <li>collecting records/CDs</li>
                                         </ul>
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="social">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="social">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Find me elsewhere!</div>
 
                                         <div>When it comes to social media, I pretty much only have bluesky and discord. I've tried to cut out most of my social media usage just because of a general dislike of the modern state of social media. I only really have bluesky just for yapping purposes, and discord for communication. I don't have a server or anything, but my user is simply furfulcat.
@@ -786,14 +792,20 @@ function Bio() {
                                         <A class="text-pink-500 hover:underline cursor-pointer" href="https://bsky.app/profile/furfulcat.bsky.social">Bluesky</A>
                                         <div>Oh, and I have a steam account where I do all my <span class="italic">gaming</span> </div><A class="text-pink-500 hover:underline cursor-pointer" href="https://steamcommunity.com/id/furfulcat/">Steam</A>
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="blog">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="blog">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Personal ramblings...</div>
                                         <div class="border-b border-dashed border-[var(--border-color)]">Here I will write about anything I feel about writing whenever I feel the need to. These will be simple, text-only logs of my personal thoughts.</div>
                                         <For each={store.blogs} children={(blog) => (
                                             <BlogPost date={blog.date} text={blog.text} />
                                         )} />
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="stories">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="gallery">
+                                        <div class="text-lg border-b border-dashed border-[var(--border-color)]">-Wondrous visions of reality-</div>
+                                        <div class="border-b border-dashed border-[var(--border-color)]">Peruse my very own collection of amateur photography!</div>
+                                        <div>currently a placeholder!</div>
+                                        
+                                    </TabsContent>
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="stories">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Tales of all kinds.</div>
                                         <div>Every now and then, I feel like writing and so I'll write up a short story or poem. Unfortunately, I don't always finish them... But hey, maybe putting them out here will inspire me to actually complete them at some point!</div>
                                         <div class="border-t border-b border-dashed border-[var(--border-color)] text-lg">Original Stories</div>
@@ -813,7 +825,7 @@ function Bio() {
                                         <div><StorySelect name="space">Space Junk</StorySelect> | Completed: 2024/10/13</div>
 
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="games">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="games">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: GAMES</div>
 
                                         <div>FAVORITE GAME OF ALL TIME: Nine Sols</div>
@@ -821,7 +833,7 @@ function Bio() {
                                         <div>Other games/franchises I like (unordered):</div>
                                         <div>Celeste, Subnautica, Persona 5, Cult of the Lamb, Tomodachi Life, Miitopia, Helldivers 2, Animal Crossing, Legend of Zelda, Undertale/Deltarune, Undertale Yellow, Paper Mario, Banjo-Kazooie, Cave Story, Hollow Knight, FNaF, Silent Hill 2, Resident Evil 2 & 4, Mega Man, Sonic the Hedgehog (mostly classic), Stardew Valley, WEBFISHING, Red Dead Redemption 2</div>
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="music">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="music">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MUSIC</div>
 
                                         <div>FAVORITE BAND OF ALL TIME: Famous Last Words</div>
@@ -830,12 +842,12 @@ function Bio() {
                                         <div>Daft Punk, deadmau5, she, Hail the Sun, Anatomy of a Ghost, Waterparks, napcast, The Strokes, My Chemical Romance, Pierce The Veil, Anamanaguchi, Closure in Moscow, Get Scared, I Don't Know How But They Found Me, Sleeping With Sirens, Paramore, From First to Last, Home, Before Today</div>
                                         <div>I also listen to various video game soundtracks, far too many to list.</div>
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="media">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="media">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">OBSESSIONS: MEDIA</div>
 
                                         <div>will put movies, shows, & anime i like here later</div>
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="themes">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="themes">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Select a color set! (Page is designed in Dark)</div>
                                         <For each={store.themes} children={(theme, i) => (
                                             <div aria-selected={i() == store.selectedTheme} class="aria-selected:hover:cursor-default hover:cursor-pointer border hover:underline aria-selected:underline py-1 m-2 flex justify-center" style={{ "border-color": theme.borderColor, "background-color": theme.backgroundColor, "color": theme.textColor }}
@@ -851,7 +863,7 @@ function Bio() {
                                         )} />
 
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="fonts">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="fonts">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)]">Choose a font! (Page is designed in MS UI Gothic)</div>
                                         <For each={store.fonts} children={(font, i) => (
                                             <div aria-selected={i() == store.selectedFont} class="aria-selected:hover:cursor-default hover:cursor-pointer hover:underline aria-selected:underline py-1 m-2 flex justify-center"
@@ -863,7 +875,7 @@ function Bio() {
                                         )} />
 
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="resources">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="resources">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)] mb-2">Webpage construction utilities.</div>
                                         <div>My buttons! Feel free to hotlink if you'd like.</div>
                                         <div class="flex gap-2 mt-2">
@@ -879,7 +891,7 @@ function Bio() {
 
 
                                     </TabsContent>
-                                    <TabsContent class="overflow-auto max-h-[95vh] p-2" value="guestbook">
+                                    <TabsContent class="overflow-auto max-h-[90vh] p-2" value="guestbook">
                                         <div class="text-lg border-b border-dashed border-[var(--border-color)] mb-2">Guestbook - leave a comment!</div>
                                         <iframe class="h-[80vh] w-full border border-[var(--border-color)]" src="https://furfulcat.atabook.org/" />
 
@@ -894,12 +906,14 @@ function Bio() {
                             </Show>
                             <div class="border-l border-[var(--border-color)] border-dashed h-[90vh]">
 
-                                <TabsList class="flex flex-col p-0 w-full h-[350px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
+                                <TabsList class="flex flex-col p-0 w-full h-[380px] bg-transparent  border-b border-dashed  text-[var(--text-color)] rounded-none place-items-center border-[var(--border-color)]">
                                     <BioTab value="home" class="mt-1 ">Home</BioTab>
                                     <div class="border-b border-[var(--border-color)] border-dashed w-full"></div>
                                     <BioTab value="about">About</BioTab>
                                     <BioTab value="social">Social</BioTab>
                                     <BioTab value="blog">Blog</BioTab>
+                                    <div class="border-t border-b border-[var(--border-color)] w-full text-center">CONTENT</div>
+                                    <BioTab value="gallery">Gallery</BioTab>
                                     <BioTab value="stories">Stories</BioTab>
                                     <div class="border-t border-b border-[var(--border-color)] w-full text-center">OBSESSIONS</div>
                                     <BioTab value="games">Games</BioTab>
@@ -934,6 +948,9 @@ function Bio() {
                         <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh] ">
                             <div class="underline font-bold p-2">Changelog:</div>
                             <div class=" p-2 max-w-full overflow-auto max-h-[80%]">
+                                <span class="[color:lime]">2025/03/07</span>: v4.3.3 - added wip gallery page, new theme (galactic), fixed spotify album art squishing, blog height overflow
+                                <br />
+                                <br />
                                 <span class="[color:lime]">2025/03/02</span>: v4.3.2 - added activity header, fixed bluesky post spacing, updated crimson theme text color
                                 <br />
                                 <br />
@@ -958,7 +975,7 @@ function Bio() {
                         <div class="border border-[var(--border-color)] [box-shadow:1px_1px_8px_0px_var(--border-color)] bg-[var(--fg-color)] h-[30vh]">
                             <div class="underline font-bold p-2">Upcoming:</div>
                             <ul class="p-2 overflow-auto max-h-[80%]">
-                                <li>- gallery page for the various pictures i've taken</li>
+                                <li>- finish gallery page when im less lazy</li>
                                 <li>- hand coded web games section</li>
                                 <li>- custom cursor</li>
                                 <li>- more THEMES!!!!!!!!!!!!</li>
