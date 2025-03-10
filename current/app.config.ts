@@ -12,6 +12,7 @@ export default defineConfig({
         },
     },
     vite: {
+        assetsInclude: ['**/*.JPG'],
         plugins: [    tailwindcss(),  ],
         build: {
             sourcemap: true
