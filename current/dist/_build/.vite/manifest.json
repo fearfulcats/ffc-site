@@ -1,0 +1,560 @@
+{
+  "_HttpStatusCode-DjTx85av.js": {
+    "file": "assets/HttpStatusCode-DjTx85av.js",
+    "name": "HttpStatusCode"
+  },
+  "_app-!~{00c}~.js": {
+    "file": "assets/app-CjbA_NyK.css",
+    "src": "_app-!~{00c}~.js"
+  },
+  "_components-CTb7fZyZ.js": {
+    "file": "assets/components-CTb7fZyZ.js",
+    "name": "components",
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_routing-CulZvYxO.js"
+    ]
+  },
+  "_favicon2-DNcT7K8X.js": {
+    "file": "assets/favicon2-DNcT7K8X.js",
+    "name": "favicon2"
+  },
+  "_faviconcatcomms-!~{00j}~.js": {
+    "file": "assets/faviconcatcomms-dULKU9CQ.css",
+    "src": "_faviconcatcomms-!~{00j}~.js"
+  },
+  "_faviconcatcomms-rXX9QYA0.js": {
+    "file": "assets/faviconcatcomms-rXX9QYA0.js",
+    "name": "faviconcatcomms",
+    "css": [
+      "assets/faviconcatcomms-dULKU9CQ.css"
+    ]
+  },
+  "_home-BFHGwtQa.js": {
+    "file": "assets/home-BFHGwtQa.js",
+    "name": "home",
+    "imports": [
+      "_store-DH1GntbF.js",
+      "_faviconcatcomms-rXX9QYA0.js"
+    ]
+  },
+  "_index-ixcjOYXK.js": {
+    "file": "assets/index-ixcjOYXK.js",
+    "name": "index"
+  },
+  "_routing-CulZvYxO.js": {
+    "file": "assets/routing-CulZvYxO.js",
+    "name": "routing",
+    "imports": [
+      "_index-ixcjOYXK.js"
+    ]
+  },
+  "_store-DH1GntbF.js": {
+    "file": "assets/store-DH1GntbF.js",
+    "name": "store",
+    "imports": [
+      "_index-ixcjOYXK.js"
+    ]
+  },
+  "_tabs-DVHQeBMz.js": {
+    "file": "assets/tabs-DVHQeBMz.js",
+    "name": "tabs",
+    "imports": [
+      "_index-ixcjOYXK.js"
+    ]
+  },
+  "src/assets/furfulcat/faviconhouse.gif": {
+    "file": "assets/faviconhouse-CIW-0vbE.gif",
+    "src": "src/assets/furfulcat/faviconhouse.gif"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_0582.JPG": {
+    "file": "assets/IMG_0582-CHD6MFZD.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_0582.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_0586.JPG": {
+    "file": "assets/IMG_0586-DGFBvmgB.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_0586.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_0826.JPG": {
+    "file": "assets/IMG_0826-DeigGx8b.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_0826.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_0830.JPG": {
+    "file": "assets/IMG_0830-PUWMjuEm.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_0830.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_0859.JPG": {
+    "file": "assets/IMG_0859-BeA6jNnB.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_0859.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_2351.JPG": {
+    "file": "assets/IMG_2351-ySxyuO9l.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_2351.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_3009.JPG": {
+    "file": "assets/IMG_3009-e0iGw8TS.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_3009.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_3016.JPG": {
+    "file": "assets/IMG_3016-I9hKHmUo.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_3016.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_3027.JPG": {
+    "file": "assets/IMG_3027-uOvmbsvE.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_3027.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/frostbite/IMG_3032.JPG": {
+    "file": "assets/IMG_3032-Ccg1PFvX.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/frostbite/IMG_3032.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/glacier/IMG_0856.JPG": {
+    "file": "assets/IMG_0856-Chw6XjoL.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/glacier/IMG_0856.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/glacier/IMG_3081.JPG": {
+    "file": "assets/IMG_3081-fddrA4Ta.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/glacier/IMG_3081.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/papyrus/IMG_2337.JPG": {
+    "file": "assets/IMG_2337-D4WDoAhl.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/papyrus/IMG_2337.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/papyrus/IMG_2343.JPG": {
+    "file": "assets/IMG_2343-NN8wlVbN.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/papyrus/IMG_2343.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/papyrus/IMG_2346.JPG": {
+    "file": "assets/IMG_2346-C6yyuEzF.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/papyrus/IMG_2346.JPG"
+  },
+  "src/assets/furfulcat/gallery/cats/papyrus/IMG_3076.JPG": {
+    "file": "assets/IMG_3076-DR0DqNdg.JPG",
+    "src": "src/assets/furfulcat/gallery/cats/papyrus/IMG_3076.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3169.JPG": {
+    "file": "assets/IMG_3169-DhVSHluP.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3169.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3225.JPG": {
+    "file": "assets/IMG_3225-CTA9ku-f.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3225.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3256.JPG": {
+    "file": "assets/IMG_3256-S5Lno-kQ.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3256.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3286.JPG": {
+    "file": "assets/IMG_3286-D53gmN9i.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3286.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3422.JPG": {
+    "file": "assets/IMG_3422-BFES9ais.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3422.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3439.JPG": {
+    "file": "assets/IMG_3439-BU22TLw2.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3439.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3562.JPG": {
+    "file": "assets/IMG_3562-DNsgVFSG.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3562.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/camping/IMG_3581.JPG": {
+    "file": "assets/IMG_3581-DHuYuTiN.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/camping/IMG_3581.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2463.JPG": {
+    "file": "assets/IMG_2463-1ul0NKVd.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2463.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2478.JPG": {
+    "file": "assets/IMG_2478-Dl3pNV72.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2478.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2480.JPG": {
+    "file": "assets/IMG_2480-FkRyWZYn.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2480.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2562.JPG": {
+    "file": "assets/IMG_2562-CzHj4u41.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2562.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2571.JPG": {
+    "file": "assets/IMG_2571-BWy34ZNw.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2571.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2572.JPG": {
+    "file": "assets/IMG_2572-BAWWvZLX.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2572.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2619.JPG": {
+    "file": "assets/IMG_2619-BTvrVbN4.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2619.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2669.JPG": {
+    "file": "assets/IMG_2669-pebr2-qG.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2669.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2689.JPG": {
+    "file": "assets/IMG_2689-BCW4227u.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2689.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2744.JPG": {
+    "file": "assets/IMG_2744-D0J6SutL.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2744.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2749.JPG": {
+    "file": "assets/IMG_2749-Hj-YGUPK.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2749.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2777.JPG": {
+    "file": "assets/IMG_2777-1FUViJ6y.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2777.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2825.JPG": {
+    "file": "assets/IMG_2825-um7Zf7v1.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2825.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2835.JPG": {
+    "file": "assets/IMG_2835-CTAMT12m.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2835.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2849.JPG": {
+    "file": "assets/IMG_2849-DE23oAfD.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2849.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2859.JPG": {
+    "file": "assets/IMG_2859-CM_DcYS6.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2859.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/florida/IMG_2920.JPG": {
+    "file": "assets/IMG_2920-DQ-j4qMJ.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/florida/IMG_2920.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/home/IMG_0667.JPG": {
+    "file": "assets/IMG_0667-D7SsC9hP.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/home/IMG_0667.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/home/IMG_0906.JPG": {
+    "file": "assets/IMG_0906-CJH-OYfz.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/home/IMG_0906.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/home/IMG_1819.JPG": {
+    "file": "assets/IMG_1819-C2ckiPKt.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/home/IMG_1819.JPG"
+  },
+  "src/assets/furfulcat/gallery/landscapes/home/IMG_1821.JPG": {
+    "file": "assets/IMG_1821-B4Acnt9s.JPG",
+    "src": "src/assets/furfulcat/gallery/landscapes/home/IMG_1821.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_1762.JPG": {
+    "file": "assets/IMG_1762-CrfynAzh.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_1762.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_1763.JPG": {
+    "file": "assets/IMG_1763-CzM-A-Tr.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_1763.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_1764.JPG": {
+    "file": "assets/IMG_1764-M11nZnt_.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_1764.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_1765.JPG": {
+    "file": "assets/IMG_1765-B6pX77DE.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_1765.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3733.JPG": {
+    "file": "assets/IMG_3733-CvJbeC3Q.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3733.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3743.JPG": {
+    "file": "assets/IMG_3743-CqTyq_I4.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3743.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3756.JPG": {
+    "file": "assets/IMG_3756-BS7J9vdS.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3756.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3764.JPG": {
+    "file": "assets/IMG_3764-D1mZ852T.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3764.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3778.JPG": {
+    "file": "assets/IMG_3778-DGRT4Fix.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3778.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3802.JPG": {
+    "file": "assets/IMG_3802-Xor0JUhG.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3802.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3806.JPG": {
+    "file": "assets/IMG_3806-Dup3hYAT.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3806.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/eclipse/IMG_3817.JPG": {
+    "file": "assets/IMG_3817-J1mwC3Er.JPG",
+    "src": "src/assets/furfulcat/gallery/space/eclipse/IMG_3817.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/galaxy/IMG_3193.JPG": {
+    "file": "assets/IMG_3193-CpGP9zdb.JPG",
+    "src": "src/assets/furfulcat/gallery/space/galaxy/IMG_3193.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/galaxy/IMG_3197.JPG": {
+    "file": "assets/IMG_3197-Cbw9M-q1.JPG",
+    "src": "src/assets/furfulcat/gallery/space/galaxy/IMG_3197.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/galaxy/IMG_3220.JPG": {
+    "file": "assets/IMG_3220-BDZYEpkU.JPG",
+    "src": "src/assets/furfulcat/gallery/space/galaxy/IMG_3220.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/moon/IMG_1841.JPG": {
+    "file": "assets/IMG_1841-CLu9jRKE.JPG",
+    "src": "src/assets/furfulcat/gallery/space/moon/IMG_1841.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/moon/IMG_1921.JPG": {
+    "file": "assets/IMG_1921-DXQT9Aq5.JPG",
+    "src": "src/assets/furfulcat/gallery/space/moon/IMG_1921.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/moon/IMG_2393.JPG": {
+    "file": "assets/IMG_2393-DofVLgZ9.JPG",
+    "src": "src/assets/furfulcat/gallery/space/moon/IMG_2393.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/moon/IMG_3093.JPG": {
+    "file": "assets/IMG_3093-2RZCBI-3.JPG",
+    "src": "src/assets/furfulcat/gallery/space/moon/IMG_3093.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/planets/IMG_3637.JPG": {
+    "file": "assets/IMG_3637-BMhwYdPp.JPG",
+    "src": "src/assets/furfulcat/gallery/space/planets/IMG_3637.JPG"
+  },
+  "src/assets/furfulcat/gallery/space/planets/jupiter2.jpg": {
+    "file": "assets/jupiter2-BnqE2kbg.jpg",
+    "src": "src/assets/furfulcat/gallery/space/planets/jupiter2.jpg"
+  },
+  "src/assets/furfulcat/gallery/space/planets/mars2.png": {
+    "file": "assets/mars2-BMUY8UpS.png",
+    "src": "src/assets/furfulcat/gallery/space/planets/mars2.png"
+  },
+  "src/assets/furfulcat/gallery/space/planets/saturn2.png": {
+    "file": "assets/saturn2-DmVmNOxQ.png",
+    "src": "src/assets/furfulcat/gallery/space/planets/saturn2.png"
+  },
+  "src/routes/[...404].tsx?pick=default&pick=$css": {
+    "file": "assets/_...404_-WpCqsMXC.js",
+    "name": "_...404_",
+    "src": "src/routes/[...404].tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_HttpStatusCode-DjTx85av.js"
+    ]
+  },
+  "src/routes/about.tsx?pick=default&pick=$css": {
+    "file": "assets/about-CCgzIzHD.js",
+    "name": "about",
+    "src": "src/routes/about.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js"
+    ]
+  },
+  "src/routes/furfulcat/home.tsx?pick=default&pick=$css": {
+    "file": "assets/home-C-_0jvBT.js",
+    "name": "home",
+    "src": "src/routes/furfulcat/home.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_store-DH1GntbF.js",
+      "_tabs-DVHQeBMz.js",
+      "_components-CTb7fZyZ.js",
+      "_routing-CulZvYxO.js"
+    ],
+    "assets": [
+      "assets/faviconhouse-CIW-0vbE.gif",
+      "assets/IMG_0582-CHD6MFZD.JPG",
+      "assets/IMG_0586-DGFBvmgB.JPG",
+      "assets/IMG_0826-DeigGx8b.JPG",
+      "assets/IMG_0830-PUWMjuEm.JPG",
+      "assets/IMG_0859-BeA6jNnB.JPG",
+      "assets/IMG_2351-ySxyuO9l.JPG",
+      "assets/IMG_3009-e0iGw8TS.JPG",
+      "assets/IMG_3016-I9hKHmUo.JPG",
+      "assets/IMG_3027-uOvmbsvE.JPG",
+      "assets/IMG_3032-Ccg1PFvX.JPG",
+      "assets/IMG_0856-Chw6XjoL.JPG",
+      "assets/IMG_3081-fddrA4Ta.JPG",
+      "assets/IMG_2337-D4WDoAhl.JPG",
+      "assets/IMG_2343-NN8wlVbN.JPG",
+      "assets/IMG_2346-C6yyuEzF.JPG",
+      "assets/IMG_3076-DR0DqNdg.JPG",
+      "assets/IMG_1762-CrfynAzh.JPG",
+      "assets/IMG_1763-CzM-A-Tr.JPG",
+      "assets/IMG_1764-M11nZnt_.JPG",
+      "assets/IMG_1765-B6pX77DE.JPG",
+      "assets/IMG_3193-CpGP9zdb.JPG",
+      "assets/IMG_3197-Cbw9M-q1.JPG",
+      "assets/IMG_3220-BDZYEpkU.JPG",
+      "assets/IMG_1841-CLu9jRKE.JPG",
+      "assets/IMG_1921-DXQT9Aq5.JPG",
+      "assets/IMG_2393-DofVLgZ9.JPG",
+      "assets/IMG_3093-2RZCBI-3.JPG",
+      "assets/IMG_3637-BMhwYdPp.JPG",
+      "assets/jupiter2-BnqE2kbg.jpg",
+      "assets/mars2-BMUY8UpS.png",
+      "assets/saturn2-DmVmNOxQ.png",
+      "assets/IMG_0667-D7SsC9hP.JPG",
+      "assets/IMG_0906-CJH-OYfz.JPG",
+      "assets/IMG_1819-C2ckiPKt.JPG",
+      "assets/IMG_1821-B4Acnt9s.JPG",
+      "assets/IMG_3169-DhVSHluP.JPG",
+      "assets/IMG_3225-CTA9ku-f.JPG",
+      "assets/IMG_3256-S5Lno-kQ.JPG",
+      "assets/IMG_3286-D53gmN9i.JPG",
+      "assets/IMG_3422-BFES9ais.JPG",
+      "assets/IMG_3439-BU22TLw2.JPG",
+      "assets/IMG_3562-DNsgVFSG.JPG",
+      "assets/IMG_3581-DHuYuTiN.JPG",
+      "assets/IMG_2463-1ul0NKVd.JPG",
+      "assets/IMG_2478-Dl3pNV72.JPG",
+      "assets/IMG_2480-FkRyWZYn.JPG",
+      "assets/IMG_2562-CzHj4u41.JPG",
+      "assets/IMG_2571-BWy34ZNw.JPG",
+      "assets/IMG_2572-BAWWvZLX.JPG",
+      "assets/IMG_2619-BTvrVbN4.JPG",
+      "assets/IMG_2669-pebr2-qG.JPG",
+      "assets/IMG_2689-BCW4227u.JPG",
+      "assets/IMG_2744-D0J6SutL.JPG",
+      "assets/IMG_2749-Hj-YGUPK.JPG",
+      "assets/IMG_2777-1FUViJ6y.JPG",
+      "assets/IMG_2825-um7Zf7v1.JPG",
+      "assets/IMG_2835-CTAMT12m.JPG",
+      "assets/IMG_2849-DE23oAfD.JPG",
+      "assets/IMG_2859-CM_DcYS6.JPG",
+      "assets/IMG_2920-DQ-j4qMJ.JPG",
+      "assets/IMG_3733-CvJbeC3Q.JPG",
+      "assets/IMG_3743-CqTyq_I4.JPG",
+      "assets/IMG_3756-BS7J9vdS.JPG",
+      "assets/IMG_3764-D1mZ852T.JPG",
+      "assets/IMG_3778-DGRT4Fix.JPG",
+      "assets/IMG_3802-Xor0JUhG.JPG",
+      "assets/IMG_3806-Dup3hYAT.JPG",
+      "assets/IMG_3817-J1mwC3Er.JPG"
+    ]
+  },
+  "src/routes/games/ffc.tsx?pick=default&pick=$css": {
+    "file": "assets/ffc-CNfOCAwk.js",
+    "name": "ffc",
+    "src": "src/routes/games/ffc.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_favicon2-DNcT7K8X.js",
+      "_components-CTb7fZyZ.js",
+      "_routing-CulZvYxO.js"
+    ]
+  },
+  "src/routes/index.tsx?pick=default&pick=$css": {
+    "file": "assets/index-B4TZM5TS.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_store-DH1GntbF.js",
+      "_favicon2-DNcT7K8X.js",
+      "_tabs-DVHQeBMz.js",
+      "_components-CTb7fZyZ.js",
+      "_routing-CulZvYxO.js"
+    ],
+    "css": [
+      "assets/app-CjbA_NyK.css"
+    ]
+  },
+  "src/routes/secret/chatroom.tsx?pick=default&pick=$css": {
+    "file": "assets/chatroom-CnkFIpwh.js",
+    "name": "chatroom",
+    "src": "src/routes/secret/chatroom.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_faviconcatcomms-rXX9QYA0.js",
+      "_home-BFHGwtQa.js",
+      "_components-CTb7fZyZ.js",
+      "_store-DH1GntbF.js",
+      "_routing-CulZvYxO.js"
+    ]
+  },
+  "src/routes/secret/home.tsx?pick=default&pick=$css": {
+    "file": "assets/home-ml0Bd_OY.js",
+    "name": "home",
+    "src": "src/routes/secret/home.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_faviconcatcomms-rXX9QYA0.js",
+      "_components-CTb7fZyZ.js",
+      "_routing-CulZvYxO.js"
+    ]
+  },
+  "src/routes/secret/profile.tsx?pick=default&pick=$css": {
+    "file": "assets/profile-DvAG0MsO.js",
+    "name": "profile",
+    "src": "src/routes/secret/profile.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_faviconcatcomms-rXX9QYA0.js",
+      "_home-BFHGwtQa.js",
+      "_components-CTb7fZyZ.js",
+      "_store-DH1GntbF.js",
+      "_routing-CulZvYxO.js"
+    ]
+  },
+  "src/routes/secret/userbase.tsx?pick=default&pick=$css": {
+    "file": "assets/userbase-VKJXuPvC.js",
+    "name": "userbase",
+    "src": "src/routes/secret/userbase.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_faviconcatcomms-rXX9QYA0.js",
+      "_components-CTb7fZyZ.js",
+      "_routing-CulZvYxO.js"
+    ]
+  },
+  "virtual:$vinxi/handler/client": {
+    "file": "assets/client-pgiJn9dA.js",
+    "name": "client",
+    "src": "virtual:$vinxi/handler/client",
+    "isEntry": true,
+    "imports": [
+      "_index-ixcjOYXK.js",
+      "_routing-CulZvYxO.js",
+      "_HttpStatusCode-DjTx85av.js"
+    ],
+    "dynamicImports": [
+      "src/routes/about.tsx?pick=default&pick=$css",
+      "src/routes/index.tsx?pick=default&pick=$css",
+      "src/routes/[...404].tsx?pick=default&pick=$css",
+      "src/routes/furfulcat/home.tsx?pick=default&pick=$css",
+      "src/routes/games/ffc.tsx?pick=default&pick=$css",
+      "src/routes/secret/chatroom.tsx?pick=default&pick=$css",
+      "src/routes/secret/home.tsx?pick=default&pick=$css",
+      "src/routes/secret/profile.tsx?pick=default&pick=$css",
+      "src/routes/secret/userbase.tsx?pick=default&pick=$css"
+    ],
+    "css": [
+      "assets/app-CjbA_NyK.css"
+    ]
+  }
+}

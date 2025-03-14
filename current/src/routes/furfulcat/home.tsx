@@ -76,6 +76,15 @@ import img_58 from "../../assets/furfulcat/gallery/landscapes/florida/IMG_2835.J
 import img_59 from "../../assets/furfulcat/gallery/landscapes/florida/IMG_2849.JPG"
 import img_60 from "../../assets/furfulcat/gallery/landscapes/florida/IMG_2859.JPG"
 import img_61 from "../../assets/furfulcat/gallery/landscapes/florida/IMG_2920.JPG"
+import img_62 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3733.JPG"
+import img_63 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3743.JPG"
+import img_64 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3756.JPG"
+import img_65 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3764.JPG"
+import img_66 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3778.JPG"
+import img_67 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3802.JPG"
+import img_68 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3806.JPG"
+import img_69 from "../../assets/furfulcat/gallery/space/eclipse/IMG_3817.JPG"
+
 import { Dialog, DialogContent, DialogTrigger } from "~/components/ui/dialog"
 
 
@@ -97,6 +106,7 @@ function Bio() {
     TimeAgo.addLocale(en)
     const store = createMutable({
         blogs: [
+            { date: "2025/03/14", text: "There was a lunar eclipse today! I added some of the photos I took of it to the gallery, feel free to check them out!" },
             { date: "2025/03/10", text: "Continously awaiting my future prospects can get tiring... Hopefully they'll arrive soon enough." },
             { date: "2025/03/07", text: "Sure has been a bit now hasn't it? I'm happy to say that my WEBFISHING server is running well now, it does go down every now and then but players still join it so it's really not all that bad. Could be worse am I right? Anyways, I don't think I'll post these blogs as often as I did when I was just making my site, but I'll still write them every now and then of course. Whenever I get the motivation to add something here probably!" },
             { date: "2025/03/02", text: "Nothing much to mention today, just had to make a few changes to the site. I'm not doing well mentally unfortunately but I'm gonna try to push through it like I always do." },
@@ -175,10 +185,20 @@ function Bio() {
                 },
                 "space": {
                     "eclipse": [
+                        { comments: "bitten cookie", date: new Date(2025,2,14), src: img_69 },
+                        { comments: "nearly ordinary", date: new Date(2025,2,14), src: img_68 },
+                        { comments: "halfway", date: new Date(2025,2,14), src: img_67 },
+                        { comments: "back soon", date: new Date(2025,2,14), src: img_66 },
+                        { comments: "just a slice", date: new Date(2025,2,14), src: img_65 },
+                        { comments: "glimmer of hope", date: new Date(2025,2,14), src: img_64 },
+                        { comments: "once again", date: new Date(2025,2,14), src: img_63 },
+                        { comments: "blood moon rises", date: new Date(2025,2,14), src: img_62 },
+
                         { comments: "exposure low", date: new Date(2024,3,8), src: img_21 },
                         { comments: "exposure medium", date: new Date(2024,3,8), src: img_20 },
                         { comments: "exposure high", date: new Date(2024,3,8), src: img_19 },
                         { comments: "exposure at its highest", date: new Date(2024,3,8), src: img_18 },
+
                     ],
                     "galaxies": [
                         { comments: "the night sky in its near entirety", date: new Date(2024,10,29), src: img_24 },
